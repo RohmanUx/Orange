@@ -192,19 +192,20 @@ export class AuthController {
           id: res.locals.decrypt.id,
         },
       });
-
+  
       const findProfile = await prisma.userprofile.findFirst({
         where: { userId: res.locals.decrypt.id },
       });
-
+  
       if (findUser) {
         return res.status(200).send({
           success: true,
-          result: {
-            email: findUser.email,
+          result: { 
+                        email: findUser.email,
             identificationId: findUser.identificationId,
             role: findUser.role,
             points: findUser.points,
+            balance: findUser.balance,
             image: findProfile?.image,
             token: createToken(
               {
@@ -222,15 +223,14 @@ export class AuthController {
         });
       }
     } catch (error) {
-      console.log(error);
+      console.error(error);
       next({
         success: false,
         message: 'Failed to fetch the data',
       });
     }
   }
-
-  async forgotPassword(req: Request, res: Response, next: NextFunction) {
+    async forgotPassword(req: Request, res: Response, next: NextFunction) {
     try {
       const { email } = req.body;
 

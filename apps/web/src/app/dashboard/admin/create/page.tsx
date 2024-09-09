@@ -93,8 +93,8 @@ const PostEventForm = () => {
   };
 
   return (
-    <div className="max-w-lg mx-auto p-6 bg-gray-600 backdrop-blur-sm shadow-md rounded-lg bg-opacity-60 mt-10">
-      <h2 className="text-xl font-bold text-gray-800 mb-4">Post New Event</h2>
+    <div className="max-w-lg mx-auto p-6 bg-gray-950 backdrop-blur-sm shadow-md rounded-lg bg-opacity-60 my-32">
+      <h2 className="text-3xl font-bold text-gray-100 mb-4 flex justify-center">Post New Event</h2>
       <form onSubmit={handleSubmit}>
         <input
           type="text"
@@ -179,12 +179,12 @@ const PostEventForm = () => {
           name="files"
           multiple
           onChange={handleFileChange}
-          className="w-full p-2 border rounded mb-4"
+          className="w-full p-2 border rounded mb-4 text-gray-50 border-gray-400"
         />
         {loading && <p> Posting event ...</p>}
         <button
           type="submit"
-          className="w-full bg-blue-500 text-white p-2 rounded mt-4"
+          className="w-full bg-blue-900 text-gray-50 p-2 rounded mt-4 border-white border-[1px]" 
           disabled={loading}
         >
           {loading ? 'Posting...' : 'Post Event'}

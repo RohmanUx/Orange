@@ -1,7 +1,9 @@
 'use client';
-import React, { useState, useEffect, ReactNode } from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import Link from 'next/link';
+import Image from 'next/image';
+import { ToastContainer, toast } from 'react-toastify';
 
 type Event = {
   ticketType: string;
@@ -28,27 +30,26 @@ const EventList: React.FC = () => {
         const response = await axios.get(
           `http://localhost:8000/api/event/events`,
           {
-            params: {
-              page,
-              limit: 10,
-            },
+            params: { page, limit: 10 },
           },
         );
 
         setEvents(response.data.data);
         setTotalPages(response.data.pagination.totalPages);
       } catch (error) {
-        console.error('error show event', error);
+        console.error('Error fetching events', error);
       }
     };
 
     fetchEvents();
   }, [page]);
 
-
-  // never can be functional edit delete because back end never edit and front end 
   const handleEdit = (eventId: number) => {
     console.log(`Edit event with id ${eventId}`);
+    toast.success('Error edit', {
+      className: 'bg-red-100 text-red-700 p-4 rounded-lg',
+      bodyClassName: 'font-medium',
+    });
   };
 
   const handleDelete = async (eventId: number) => {
@@ -56,82 +57,110 @@ const EventList: React.FC = () => {
       await axios.delete(`http://localhost:8000/api/event/events/${eventId}`);
       setEvents(events.filter((event) => event.id !== eventId));
     } catch (error) {
-      console.error('error deleting event ', error);
+      console.error('Error deleting event', error);
+      toast.error('Error delete', {
+        className: 'bg-red-100 text-red-700 p-4 rounded-lg',
+        bodyClassName: 'font-medium',
+      });
     }
   };
 
-  return (
-    <div className="p-4 px-28 py-20">
-      <h1 className="text-2xl font-bold mb-4">Event List </h1>
-      <button
-        className="bg-blue-500 text-white px-4 py-2 rounded mb-4"
-        onClick={() => console.log('Add new event')}
-      >
-        <Link href="/dashboard/admin/create">Add New Event </Link>
-      </button>
-      <ul className="space-y-4">
+  return ( 
+    
+    <div className='bg-purple-50'> 
+    <div className="p-8 max-w-6xl mx-auto bg-purple-50">
+      <h1 className="text-3xl font-medium text-gray-800 mb-7 text-center pt-28 font-sans">
+        Event list # 
+      </h1>
+      <div className="flex mb-8 justify-center">
+        <Link href="/dashboard/admin/create">
+          <div className="bg-gray-800 text-gray-50 px-6 py-2 rounded-md hover:bg-blue-900 transition duration-300 font-sans">
+            Create event
+          </div>
+        </Link> 
+      </div>
+      
+      <ul className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 ">
         {events.map((event) => (
           <li
             key={event.id}
-            className="p-4 border rounded-lg bg-white shadow-md hover:shadow-lg transition-shadow duration-300 ease-in-out relative"
+            className="bg-gray-100 rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300 ease-in-out border-black border-[1px]"
           >
-            <div className="absolute top-2 right-2 flex space-x-2">
-              <button
-                className="bg-yellow-500 text-white px-2 py-1 rounded hover:bg-yellow-600"
-                onClick={() => handleEdit(event.id)}
-              >
-                Edit
-              </button>
-              <button
-                className="bg-red-500 text-white px-2 py-1 rounded hover:bg-red-600"
-                onClick={() => handleDelete(event.id)}
-              >
-                Delete
-              </button>
+            <div className="relative">
+              {event.images.length > 0 && (
+                <Image
+                  src={`http://localhost:8000${event.images[0].path}`}
+                  alt={event.title}
+                  height={200}
+                  width={400}
+                  className="object-cover w-full h-48 p-4"
+                />
+              )}
             </div>
+            <div className="p-4">
+              <div className="mb-4 h-32">
+                <h2 className="text-xl font-semibold text-gray-800 mb-2 line-clamp-2">
+                  {event.title}
+                </h2>
+                <p className="text-gray-600 line-clamp-3">
+                  {event.description}
+                </p>
+              </div>
+              <div className="text-sm text-gray-600 bg-gray-100 p-2 rounded-lg">
+                <div className="flex items-center mb-1">
+                  <span className="font-medium">Location:</span>
+                  <span className="ml-2">{event.location.locationName}</span>
+                </div>
+                <div className="flex items-center mb-1">
+                  <span className="font-medium">Ticket:</span>
+                  <span className="ml-2">{event.ticketType}</span>
+                </div>
+                <div className="flex items-center mb-1">
+                  <span className="font-medium">Seats:</span>
+                  <span className="ml-2">{event.totalSeats}</span>
+                </div>
+              </div>
 
-            {event.images.length > 0 && (
-              <img
-                src={event.images[0].path}
-                alt={event.title}
-                className="my-4 rounded-md w-full h-48 object-cover"
-              />
-            )}
-            <p className="text-gray-700 mt-2">{event.description}</p>
-            <p className="text-gray-600 mt-2">
-              Location: {event.location.locationName}
-            </p>
-            <p className="text-gray-600 mt-2">
-              Seats Available: {event.totalSeats}
-            </p>
-            <p className="text-gray-600 mt-2">Price: {event.price}</p>
-            <p className="text-gray-600 mt-2">
-              Ticket Type: {event.ticketType}
-            </p>
-            {/* tambhkan jika butuh */}
+              <div className="flex space-x-4 mt-4">
+                <button
+                  className="bg-yellow-500 text-white px-4 py-2 rounded hover:bg-yellow-600 transition duration-300"
+                  onClick={() => handleEdit(event.id)}
+                >
+                  Edit
+                </button>
+                <button
+                  className="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600 transition duration-300"
+                  onClick={() => handleDelete(event.id)}
+                >
+                  Delete
+                </button>
+              </div>
+            </div>
           </li>
         ))}
       </ul>
-      <div className="mt-4 flex justify-between items-center">
+
+      <div className="mt-8 flex justify-between items-end">
         <button
-          className="bg-gray-300 text-gray-800 px-4 py-2 rounded disabled:opacity-50"
+          className="bg-gray-700 text-gray-100 px-4 py-2 rounded hover:bg-gray-900 transition duration-300 disabled:opacity-50"
           disabled={page === 1}
           onClick={() => setPage(page - 1)}
         >
           Previous
         </button>
-        <span>
-          Page {page} of {totalPages}
+        <span className="p-1 bg-gray-800 text-gray-200 rounded-full px-4 h-7 flex items-end">
+          {page} page {totalPages}
         </span>
+
         <button
-          className="bg-gray-300 text-gray-800 px-4 py-2 rounded disabled:opacity-50"
+          className="bg-gray-700 text-gray-100 px-4 py-2 rounded hover:bg-gray-900 transition duration-300 disabled:opacity-50"
           disabled={page === totalPages}
           onClick={() => setPage(page + 1)}
         >
           Next
         </button>
       </div>
-    </div>
+    </div> </div> 
   );
 };
 

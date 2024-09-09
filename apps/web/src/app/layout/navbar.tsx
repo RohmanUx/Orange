@@ -1,32 +1,38 @@
 'use client';
-import React, { useContext, useEffect, useState } from 'react';
+
+import React, { useContext, useState } from 'react';
 import Image from 'next/image';
-import {
-  NavigationMenu,
-  NavigationMenuItem,
-  NavigationMenuList,
-} from '../../components/ui/navigation-menu';
 import { usePathname, useRouter } from 'next/navigation';
 import Link from 'next/link';
-import { Button } from '../../components/ui/button';
 import { UserContext } from '@/contexts/UserContext';
 import { useMutation } from '@tanstack/react-query';
 import apiCall from '@/helper/apiCall';
 import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuTrigger,
-} from '../../components/ui/dropdown-menu';
-import { Avatar } from '../../components/ui/avatar';
+  AppBar,
+  Toolbar,
+  IconButton,
+  Button,
+  Menu,
+  MenuItem,
+  Typography,
+  Box,
+  Avatar as MUIAvatar,
+  ListItemIcon,
+  Drawer,
+  List,
+  ListItem,
+  ListItemText,
+  Divider,
+} from '@mui/material';
+import { Menu as MenuIcon, Logout } from '@mui/icons-material';
 
-export const Navbar = () => {
+export const Navbar: React.FC = () => {
   const router = useRouter();
   const pathname = usePathname();
   const { user, setUser } = useContext(UserContext);
-  const [balance, setBalance] = useState<number>();
-  const [id, setId] = useState<number>();
-  const [point, setPoint] = useState<number>();
+  const [menuAnchor, setMenuAnchor] = useState<null | HTMLElement>(null);
+  const [drawerOpen, setDrawerOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
 
   const mutation = useMutation({
     mutationFn: async () => {
@@ -39,124 +45,188 @@ export const Navbar = () => {
       router.replace('/login');
     },
     onError: (error) => {
-      console.log(error);
+      console.error('Logout failed:', error);
     },
   });
 
-  const handleSubmit = () => {
+  const handleLogout = () => {
     mutation.mutate();
   };
 
-  useEffect(() => {
-    const fetchBalance = async () => {
-      // if (!user?.id) return;
-      try {
-        const response = await apiCall.get(`api/balance-point/user/${user.id}`);
-        setBalance(response.data.balance);
-        setId(response.data.id);
-      } catch (error) {
-        console.log('Error fetching balance:', error);
-      }
-    };
-    fetchBalance();
-  }, [user?.id]);
+  const handleMenuOpen = (event: React.MouseEvent<HTMLElement>) => {
+    setMenuAnchor(event.currentTarget);
+    setIsOpen(true);
+  };
 
-  //   if (user?.email) {
-  //     fetchBalance();
-  //   }
-  // }, [user?.email]);
+  const handleMenuClose = () => {
+    setMenuAnchor(null);
+    setIsOpen(false);
+  };
+
+  const toggleDrawer = (open: boolean) => () => {
+    setDrawerOpen(open);
+  };
+
+  const drawerContent = (
+    <Box
+      sx={{
+        width: 250,
+        height: '100%',
+        bgcolor: 'rgba(255, 255, 255, 0.8)',
+        backdropFilter: 'blur(20px)',
+        p: 2,
+      }}
+      role="presentation"
+      onClick={toggleDrawer(false)}
+      onKeyDown={toggleDrawer(false)}
+    >
+      <List>
+        <ListItem button component={Link} href="/eventSearch">
+          <ListItemText primary="Explore" />
+        </ListItem>
+        <ListItem button component={Link} href="/event">
+          <ListItemText primary="Dashboard" />
+        </ListItem>
+        <ListItem button component={Link} href="/event">
+          <ListItemText primary="Helper" />
+        </ListItem>
+      </List>
+      <Divider />
+      {user?.email && (
+        <List>
+          <ListItem button>
+            <ListItemText primary={`Points: ${user.points ?? 'N/A'}`} />
+          </ListItem>
+          <ListItem button>
+            <ListItemText primary={`Balance: ${user.balance ?? 'N/A'}`} />
+          </ListItem>
+          <ListItem
+            button
+            onClick={() => {
+              router.push(user.role === 'ADMIN' ? '/admin/profile' : '/user/profile');
+              handleMenuClose();
+            }}
+          >
+            <ListItemText primary="Profile" />
+          </ListItem>
+          <ListItem button onClick={handleLogout}>
+            <ListItemIcon>
+              <Logout fontSize="small" />
+            </ListItemIcon>
+            <ListItemText primary="Logout" />
+          </ListItem>
+        </List>
+      )}
+    </Box>
+  );
 
   return (
-    <nav
-      className={`w-full ${pathname === '/login' || pathname === '/register' ? 'bg-transparent' : 'bg-white bg-opacity-80 backdrop-blur-md'} flex justify-between sticky px-28 py-2 top-0 items-center z-20`}
+    <AppBar
+      position="fixed"
+      color="transparent"
+      elevation={2}
+      sx={{
+        backdropFilter: 'blur(20px)',
+        paddingInline: { xs: 2, md: 9.4 },
+        backgroundColor: pathname === '/login' || pathname === '/register'
+          ? 'transparent'
+          : 'rgba(255, 255, 255, 0.8)',
+      }}
     >
-      <div>
-        <Link href="/">
-          <span className="text-4xl">Luno*EVENTS</span>
-        </Link>
-      </div>
-      <div>
-        <NavigationMenu>
-          <NavigationMenuList
-            className={`gap-5 ${pathname !== '/login' && pathname !== '/register' ? 'text-black' : 'text-white'}`}
-          >
-            <NavigationMenuItem>
-              <Link href="/eventSearch">
-                <span className="text-2xl font-bold">Explore</span>
-              </Link>
-            </NavigationMenuItem>
-            <NavigationMenuItem>
-              <Link href="/event">
-                <span className="text-2xl font-bold">Setting</span>
-              </Link>
-            </NavigationMenuItem>
-          </NavigationMenuList>
-        </NavigationMenu>
-      </div>
-      <div className="w-[200px] flex justify-end">
+      <Toolbar sx={{ justifyContent: 'space-between', alignItems: 'center' }}>
+        <Typography
+          variant="h6"
+          component="div"
+          sx={{
+            fontWeight: 'medium',
+            fontSize: { xs: 20, md: 30 },
+            opacity: 0.7,
+          }}
+        >
+          <Link href="/" style={{ textDecoration: 'none', color: 'black', fontWeight: 'bolder', fontSize: 32,  }}>
+            LunoEvent 
+          </Link>
+        </Typography>
+        <Box sx={{ display: { xs: 'none', md: 'flex' }, gap: 4 , }}>
+          <Button color="inherit" component={Link} href="/eventSearch">
+            Explore
+          </Button>
+          <Button color="inherit" component={Link} href="/event">
+            Dashboard
+          </Button>
+          <Button color="inherit" component={Link} href="/event">
+            Helper
+          </Button>
+        </Box>
         {user?.email ? (
-          <DropdownMenu>
-            <DropdownMenuTrigger asChild>
-              <Avatar className="cursor-pointer w-20 h-10">
-                <Image
-                  src={
-                    user.image
-                      ? `http://localhost:8000${user.image}`
-                      : '/pngegg.png'
-                  }
-                  alt="User Avatar"
-                  layout="fill"
-                  objectFit="cover"
-                  className="rounded-full"
-                />
-              </Avatar>
-            </DropdownMenuTrigger>
-            <DropdownMenuContent className="w-auto mr-20 p-5 bg-white bg-opacity-80 backdrop-blur-md">
-              <DropdownMenuItem className="text-2xl">
-                Your Balance: {balance !== null ? balance : 'Loading...'}
-              </DropdownMenuItem>
-              <DropdownMenuItem className="text-2xl">
-                Your id: {id !== null ? id : 'Loading...'}
-              </DropdownMenuItem>
-              <DropdownMenuItem className="text-2xl">
-                Your point: {point !== null ? id : 'Loading...'}
-              </DropdownMenuItem>
-              <DropdownMenuItem
-                className="text-2xl cursor-pointer hover:bg-green-200"
-                onClick={() => {
-                  user.role === 'ADMIN'
-                    ? router.push('/admin/profile')
-                    : router.push('/user/profile');
-                }}
+          <div
+            className="relative flex items-end lg:xl:w-44 justify-end"
+            onMouseEnter={handleMenuOpen}
+            onMouseLeave={handleMenuClose}
+          >
+            <IconButton onClick={handleMenuOpen} className='flex'>
+              <MUIAvatar
+                src={user.image ? `http://localhost:8000${user.image}` : '/pngegg.png'}
+              />
+            </IconButton>
+            {isOpen && (
+              <Menu
+                anchorEl={menuAnchor}
+                open={isOpen}
+                onClose={handleMenuClose}
+                sx={{ mt: 2, minWidth: 200 }}
               >
-                Profile
-              </DropdownMenuItem>
-              <div className="bg-slate-200 w-full h-0.5"></div>
-              <DropdownMenuItem
-                className="text-2xl cursor-pointer hover:bg-green-200"
-                onClick={handleSubmit}
-              >
-                Logout
-              </DropdownMenuItem>
-            </DropdownMenuContent>
-          </DropdownMenu>
+                <MenuItem>
+                  <Typography variant="body1">Points: {user.points ?? 'N/A'}</Typography>
+                </MenuItem>
+                <MenuItem>
+                  <Typography variant="body1">Balance: {user.balance ?? 'N/A'}</Typography>
+                </MenuItem>
+                <MenuItem
+                  onClick={() => {
+                    router.push(user.role === 'ADMIN' ? '/admin/profile' : '/user/profile');
+                    handleMenuClose();
+                  }}
+                >
+                  Profile
+                </MenuItem>
+                <MenuItem onClick={handleLogout}>
+                  <ListItemIcon>
+                    <Logout fontSize="small" />
+                  </ListItemIcon>
+                  Logout
+                </MenuItem>
+              </Menu>
+            )}
+          </div>
         ) : (
-          <div className="flex gap-5">
-            <Button
-              onClick={() => router.replace('/login')}
-              className="bg-white text-xl"
-            >
+          <Box sx={{ display: 'flex', gap: 2 }}>
+            <Button color="inherit" onClick={() => router.replace('/login')}>
               Login
             </Button>
-            <Button
-              onClick={() => router.replace('/register')}
-              className="bg-green-300 text-xl"
-            >
+            <Button variant="outlined" onClick={() => router.replace('/register')}>
               Register
             </Button>
-          </div>
+          </Box>
         )}
-      </div>
-    </nav>
+        <IconButton
+          edge="start"
+          color="inherit"
+          aria-label="menu"
+          onClick={toggleDrawer(true)}
+          sx={{ display: { xs: 'block', md: 'none' } }}
+        >
+          <MenuIcon />
+        </IconButton>
+        <Drawer
+          anchor="right"
+          open={drawerOpen}
+          onClose={toggleDrawer(false)}
+          sx={{ '& .MuiDrawer-paper': { width: 250 } }}
+        >
+          {drawerContent}
+        </Drawer>
+      </Toolbar>
+    </AppBar>
   );
 };

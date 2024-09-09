@@ -9,19 +9,17 @@ const withAuth = (WrappedComponent: ComponentType<any>) => {
 
     useEffect(() => {
       console.log(user);
-
+    
       if (!user) {
         router.replace('/login');
+      } else if (user.role === 'ADMIN') {
+        router.replace('/event');
       } else {
-        if (user.role === 'ADMIN') {
-          router.replace('/');
-        } else {
-          router.replace('/landing');
-        }
+        // Jika peran pengguna adalah 'USER' atau peran lainnya yang tidak dikenali
+        router.replace('/');
       }
     }, [router, user]);
-
-    if (user?.email) {
+        if (user?.email) {
       return <WrappedComponent {...props} />;
     } else {
       return null;

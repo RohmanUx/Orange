@@ -22,7 +22,7 @@ function withRole<T>(
         if (!user) {
           router.replace('/login');
         } else if (user.role !== requiredRole) {
-          router.replace('/landing');
+          router.replace('/');
         }
       }
     }, [user, loading, router, requiredRole]);

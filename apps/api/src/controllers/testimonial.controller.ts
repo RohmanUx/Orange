@@ -2,96 +2,101 @@ import { Request, Response } from 'express';
 import prisma from '../prisma';
 
 export class TestimonialController {
+
+  // // Middleware to check if the user is allowed to create a testimonial
+  // private async canCreateTestimonial(userId: number, eventId: number): Promise<boolean> {
+  //   // Check if the user has purchased the event
+  //   const purchase = await prisma.ticket.findFirst({
+  //     where: {
+  //       userId: userId,
+  //       eventId: eventId,
+  //     },
+  //   });
+
+  //   if (!purchase) {
+  //     return false;
+  //   }
+
+  //   // Check if the event is closed
+  //   const event = await prisma.event.findUnique({
+  //     where: { id: eventId },
+  //   });
+
+  //   if (!event || new Date() <= new Date(event.endTime)) {
+  //     return false;
+  //   }
+
+  //   return true;
+  // }
+
+  // Create a testimonial
   async createTestimonial(req: Request, res: Response) {
     const { userId, eventId, reviewDescription, rating } = req.body;
-  
+
     try {
-      const event = await prisma.event.findUnique({
-        where: { id: eventId },
+      // // Check if the user can create a testimonial
+      // const canCreate = await this.canCreateTestimonial(Number(userId), Number(eventId));
+      
+      // if (!canCreate) {
+      //   return res.status(403).json({ message: 'You are not allowed to create a testimonial for this event.' });
+      // }
+
+      const testimonial = await prisma.testimonial.create({
+        data: {
+          userId: Number(userId),
+          eventId: Number(eventId),
+          reviewDescription,
+          rating: Number(rating),
+        },
       });
-  
-      if (!event) {
-        return res.status(404).send({ message: 'Event not found.' });
-      }
-  
-      const currentTime = new Date().getTime();
-      const startTime = new Date(event.startTime).getTime();
-      const endTime = new Date(event.endTime).getTime();
-  
-      let statusEvent = 'Upcoming';
-      if (currentTime > startTime && currentTime < endTime) {
-        statusEvent = 'Ongoing';
-      } else if (currentTime > endTime) {
-        statusEvent = 'Ended';
-      }
-  
-      if (statusEvent !== 'Ended') {
-        return res.status(400).send({ message: 'Event has not ended yet or does not exist.' });
-      }
-  
-      const purchasedTicket = await prisma.ticket.findFirst({
-        where: { userId, eventId, status: 'PAID' },
-      });
-  
-      if (!purchasedTicket) {
-        return res.status(400).send({ message: 'User has not purchased this event.' });
-      }
-  
-      const newTestimonial = await prisma.testimonial.create({
-        data: { userId, eventId, reviewDescription, rating },
-      });
-  
-      res.json(newTestimonial);
+      res.status(201).json(testimonial);
     } catch (error) {
-      res.status(500).send({ message: 'Failed to create testimonial.', error });
+      res.status(500).json({ message: 'Error creating testimonial', error });
     }
   }
-  
-  async readTestimonial(req: Request, res: Response) {
+
+  // Read testimonials for a specific event
+  async readTestimonial (req: Request, res: Response) {
     const { eventId } = req.params;
-  
+
     try {
-            const testimonials = await prisma.testimonial.findMany({
-        where: { eventId: parseInt(eventId, 10) },
+      const testimonials = await prisma.testimonial.findMany({
+        where: { eventId: Number(eventId) },
       });
-  
-      if (testimonials.length === 0) {
-        return res.status(404).send({ message: 'No testimonials found for this event.' });
-      }
-  
-      res.status(200).send(testimonials);
+      res.status(200).json(testimonials);
     } catch (error) {
-      res.status(500).send({ message: 'Failed to retrieve testimonials.', error });
+      res.status(500).json({ message: 'Error fetching testimonials', error });
     }
   }
-    async updateTestimonial(req: Request, res: Response) {
+
+  // Update a testimonial
+  async updateTestimonial(req: Request, res: Response) {
     const { id } = req.params;
     const { reviewDescription, rating } = req.body;
 
     try {
       const testimonial = await prisma.testimonial.update({
-        where: { id: parseInt(id, 10) },
-        data: { reviewDescription, rating },
+        where: { id: Number(id) },
+        data: { reviewDescription, rating: Number(rating) },
       });
-
-      res.status(200).send(testimonial);
+      res.status(200).json(testimonial);
     } catch (error) {
-      res.status(500).send({ message: 'Failed to update testimonial.', error });
+      res.status(500).json({ message: 'Error updating testimonial', error });
     }
   }
 
+  // Delete a testimonial
   async deleteTestimonial(req: Request, res: Response) {
     const { id } = req.params;
 
     try {
       await prisma.testimonial.delete({
-        where: { id: parseInt(id, 10) },
+        where: { id: Number(id) },
       });
-
-      res.status(200).send({ message: 'Testimonial deleted successfully.' });
+      res.status(200).json({ message: 'Testimonial deleted successfully' });
     } catch (error) {
-      res.status(500).send({ message: 'Failed to delete testimonial.', error });
-    } 
+      res.status(500).json({ message: 'Error deleting testimonial', error });
+    }
   }
 }
 //  example post 

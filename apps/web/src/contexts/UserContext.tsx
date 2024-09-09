@@ -38,7 +38,8 @@ export const UserProvider: React.FunctionComponent<IUserProviderProps> = ({
           email: data.result.email,
           identificationId: data.result.identificationId,
           role: data.result.role,
-          points: data.result.points,
+          points: data.result.points,           
+          balance: data.result.balance, 
           image: data.result.image,
         });
       }

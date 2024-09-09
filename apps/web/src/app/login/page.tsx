@@ -30,12 +30,10 @@ const Login: React.FunctionComponent<ILoginProps> = (props) => {
         email,
         password,
       });
-
       return data;
     },
     onSuccess: (data) => {
       setIsLoading(false);
-      console.log(data.result);
       localStorage.setItem('token', data.result.token);
       setUser({
         email: data.result.email,
@@ -44,25 +42,14 @@ const Login: React.FunctionComponent<ILoginProps> = (props) => {
         points: data.result.points,
         image: data.result.image,
       });
-      if (data.result.role === 'ADMIN') {
-        router.replace('/');
-      } else {
-        router.replace('/landing');
-      }
+      router.replace(data.result.role === 'ADMIN' ? '/' : '/landing');
     },
     onError: (error: any) => {
       setIsLoading(false);
-      console.log(error);
-      toast(error.response.data.message);
-      if (
-        error.response &&
-        error.response.data &&
-        Array.isArray(error.response.data.error.errors)
-      ) {
-        // Iterate over the errors array
+      toast.error(error.response?.data?.message || 'Login failed');
+      if (error.response?.data?.error?.errors) {
         error.response.data.error.errors.forEach((err: any) => {
-          console.log(err.msg);
-          toast(err.msg);
+          toast.error(err.msg);
         });
       }
     },
@@ -72,83 +59,85 @@ const Login: React.FunctionComponent<ILoginProps> = (props) => {
     mutation.mutate();
   };
 
-  React.useEffect(() => {
-    console.log(user); // Logs the updated user state
-  }, [user]);
   return (
-    <div className="w-full h-auto flex justify-center items-center p-5">
+    <div className="relative w-full h-[660px] flex items-center justify-center p-5 py-40 mt-16">
       <Image
         layout="fill"
-        src={'/events-background-1.jpg'}
-        alt={'image'}
+        src={'/narthan.gif'}
+        alt={'Login Background'}
         objectFit="cover"
+        className="absolute inset-0 -z-10"
       />
-      <div className="w-1/4 rounded-xl shadow-2xl p-5 h-auto bg-slate-200 bg-opacity-50 flex flex-col justify-center items-center gap-5 z-10">
+      <div className="w-full max-w-md bg-gray-100 rounded-xl shadow-lg p-6 md:p-8 z-10 opacity-90">
         <ToastContainer />
-        <div className="w-full h-auto flex flex-col justify-center items-center gap-3 text-white">
-          <p className="font-bold text-3xl">Login Event</p>
-          <p>Please login to explore your dream event</p>
-        </div>
-        <div className="w-full h-auto justify-center items-center flex flex-col gap-3">
-          <button className="w-full h-auto p-3 bg-red-600 text-white rounded-xl shadow-2xl flex justify-center items-center gap-2 font-bold">
-            <FaGoogle size={20} />
+        <h2 className="text-2xl font-bold text-gray-800 mb-4 text-center">
+          Login to Your Account
+        </h2>
+        <p className="text-gray-600 text-center mb-6">
+          Please login to explore your dream events.
+        </p>
+        
+        <div className="space-y-4">
+          <button className="w-full flex items-center justify-center bg-red-600 text-white py-3 rounded-lg shadow hover:bg-red-700 transition">
+            <FaGoogle className="mr-2" size={20} />
             Login with Google
           </button>
-          <button className="w-full h-auto p-3 bg-blue-600 text-white rounded-xl shadow-2xl flex justify-center items-center gap-2 font-bold">
-            <FaFacebookF size={20} />
+          <button className="w-full flex items-center justify-center bg-blue-600 text-white py-3 rounded-lg shadow hover:bg-blue-700 transition">
+            <FaFacebookF className="mr-2" size={20} />
             Login with Facebook
           </button>
         </div>
-        <div className="w-full flex items-center justify-center my-4">
-          <div className="w-full h-px bg-gray-400" />
-          <span className="px-3 text-white">or</span>
-          <div className="w-full h-px bg-gray-400" />
+
+        <div className="flex items-center my-6">
+          <div className="flex-grow border-t border-gray-300" />
+          <span className="mx-3 text-gray-600">or</span>
+          <div className="flex-grow border-t border-gray-300" />
         </div>
-        <div className="w-full h-auto flex relative items-center">
-          <MdOutlineEmail size={30} className="absolute left-2" />
-          <input
-            type="email"
-            className="w-full h-auto p-3 pl-14 rounded-xl shadow-2xl"
-            placeholder="Email"
-            onChange={(e) => setEmail(e.target.value)}
-          />
+
+        <div className="space-y-4">
+          <div className="relative">
+            <MdOutlineEmail className="absolute left-3 top-3 text-gray-500" size={24} />
+            <input
+              type="email"
+              className="w-full p-3 pl-12 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+              placeholder="Email"
+              onChange={(e) => setEmail(e.target.value)}
+            />
+          </div>
+          
+          <div className="relative">
+            <RiLockPasswordLine className="absolute left-3 top-3 text-gray-500" size={24} />
+            <input
+              type={isVisible ? 'text' : 'password'}
+              className="w-full p-3 pl-12 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+              placeholder="Password"
+              onChange={(e) => setPassword(e.target.value)}
+            />
+            <button
+              type="button"
+              className="absolute right-3 top-3 text-gray-500"
+              onClick={() => setIsVisible(!isVisible)}
+            >
+              {isVisible ? <FaEyeSlash size={24} /> : <FaEye size={24} />}
+            </button>
+          </div>
         </div>
-        <div className="w-full h-auto flex relative justify-center items-center">
-          <RiLockPasswordLine size={30} className="absolute left-2" />
-          <input
-            type={isVisible ? 'text' : 'password'}
-            className="w-full h-auto p-3 pl-14 rounded-xl shadow-2xl"
-            placeholder="Password"
-            onChange={(e) => setPassword(e.target.value)}
-          />
-          <button onClick={() => setIsVisible(!isVisible)}>
-            {isVisible ? (
-              <FaEyeSlash size={30} className="absolute right-3 bottom-2" />
-            ) : (
-              <FaEye size={30} className="absolute right-3 bottom-2" />
-            )}
-          </button>
+
+        <div className="flex justify-between items-center mb-4">
+          <Link href="/forgot-password" className="text-blue-600 hover:underline">Forgot your password?</Link>
         </div>
-        <div className="w-full h-auto flex justify-end items-center">
-          <p className="text-xl, text-white">
-            <Link href="/forgot-password">forgot your password ?</Link>
-          </p>
-        </div>
-        <div className="w-full h-auto justify-center items-center flex">
-          <button
-            onClick={handleLogin}
-            disabled={isLoading}
-            className="w-full h-auto p-3 bg-slate-500 rounded-xl shadow-2xl shadow-slate-400 font-bold text-white"
-          >
-            {isLoading ? <ClipLoader size={30} color="white" /> : 'LOGIN'}
-          </button>
-        </div>
-        <div className="w-full h-auto justify-center items-center flex text-white">
+
+        <button
+          onClick={handleLogin}
+          disabled={isLoading}
+          className="w-full py-3 bg-blue-600 text-white rounded-lg shadow hover:bg-blue-700 transition flex items-center justify-center"
+        >
+          {isLoading ? <ClipLoader size={24} color="white" /> : 'Login'}
+        </button>
+
+        <div className="mt-6 text-center text-gray-600">
           <p>
-            Don&apos;t have an account ?{' '}
-            <Link href="/register" className="underline">
-              Register Now
-            </Link>
+            Don’t have an account? <Link href="/register" className="text-blue-600 hover:underline">Register now</Link>
           </p>
         </div>
       </div>

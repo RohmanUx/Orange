@@ -11,8 +11,8 @@ export class CategoryController {
       // ke database
       const newCategory = await prisma.category.create({
         data: {
-          categoryName,
-        },
+          categoryName, 
+                  },
       });
 
       res.status(201).send(newCategory);
@@ -58,7 +58,7 @@ export class CategoryController {
           },
         },
       });
-
+ 
             res.status(200).send(categories);
     } catch (error) {
       // Log and send error response

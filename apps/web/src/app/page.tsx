@@ -10,10 +10,10 @@ import { useMutation } from '@tanstack/react-query';
 import apiCall from '@/helper/apiCall';
 import EventList from './eventCheck/page';
 import { Button } from '@/components/ui/button';
-import EventListCategory from './dashboard/admin/page';
 import Hero from './layout/hero';
 import Footer from './layout/footer';
-import EventCard from './eventsHome/page';
+import CategoryList from './eventsHome/page';
+
 
 function Home() {
   const listImages = [
@@ -59,12 +59,12 @@ function Home() {
     mutation.mutate();
   }, []);
   return (
-    <div className="mt-[-56px]">
+    <div>
     <div>   <Hero />  
 
     </div> 
       <div> 
-      <EventCard /> </div> 
+      <CategoryList /> </div> 
 
       <Footer />
     </div>

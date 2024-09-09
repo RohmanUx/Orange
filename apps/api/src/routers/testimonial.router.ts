@@ -12,7 +12,7 @@ export class TestimonialRouter {
   }
 
   private initializeRoutes(): void {
-    this.router.post('/testimonial', this.testimonialController.createTestimonial);
+    this.router.post('/testimonial/', this.testimonialController.createTestimonial);
     this.router.get('/testimonial/:eventId', this.testimonialController.readTestimonial);
     this.router.put('/testimonial/:id', this.testimonialController.updateTestimonial);
     this.router.delete('/testimonial/:id', this.testimonialController.deleteTestimonial);

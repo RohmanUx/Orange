@@ -10,23 +10,26 @@ export class PointBalanceController {
     try {
       const updatedUser = await prisma.user.update({
         where: { id: parseInt(userId, 10) },
-        data: { balance, points },
+        data: { balance, 
+          points },
       });
 
-      res.send(updatedUser); 
+      res.send(updatedUser);
     } catch (error) {
-      res.status(500).send({ message: 'Failed to update balance or points.', error });
+      res
+        .status(500)
+        .send({ message: 'Failed to update balance or points.', error });
     }
   }
 
-    async getBalance(req: Request, res: Response) {
+  async getBalance(req: Request, res: Response) {
     const { userId } = req.params;
 
     try {
       const user = await prisma.user.findUnique({
         where: { id: parseInt(userId, 10) },
         select: { balance: true, points: true },
-      });
+              });
 
       if (!user) {
         return res.status(404).send({ message: 'User not found.' });
@@ -34,7 +37,7 @@ export class PointBalanceController {
 
       res.send(user);
     } catch (error) {
-      res.status(500).send({ message: 'Failed to retrieve balance and points.', error });
+      res.status(500).send({ message: 'Failed balance and points.', error });
     }
   }
 }
