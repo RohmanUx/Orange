@@ -3,7 +3,9 @@
   "version": "1.0.0",
   "description": "",
   "main": "src/index.ts",
-  "scripts": {
+  "scripts": { 
+    "build": "tsc && tsc-alias", 
+
     "dev": "cross-env NODE_ENV=development ts-node-dev -r tsconfig-paths/register src/index.ts",
         "serve": "cross-env NODE_ENV=production node dist/index.js",
     "test": "jest",
