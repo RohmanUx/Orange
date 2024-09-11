@@ -52,7 +52,7 @@ const EventDetailPage: React.FC<Props> = ({ params }: Props) => {
   const [message, setMessage] = useState('');
   const [purhace, setMessagePurhace] = useState('');
   const [testimonials, setTestimonials] = useState<Testimonial[]>([]);
-  const [qty, setQty] = useState <Number>(0);
+  const [qty, setQty] = useState<Number>(1);
   const [canComment, setCanComment] = useState(false);
   const [discountCode, setDiscountCode] = useState('');
   const [loading, setLoading] = useState(true);
@@ -71,13 +71,13 @@ const EventDetailPage: React.FC<Props> = ({ params }: Props) => {
 
         const savedTransaction = localStorage.getItem(
           `purchase_${userId}_${eventId}_${id}`,
-        ); 
+        );
         const savedEndDate = localStorage.getItem(
           `endDate_${eventId}_${id}_${userId}`,
         );
 
         if (savedTransaction) {
-          setHasPurchased(true);
+          setHasPurchased(true); 
         }
 
         if (savedEndDate) {
@@ -102,7 +102,7 @@ const EventDetailPage: React.FC<Props> = ({ params }: Props) => {
         const response = await axios.get(
           `http://localhost:8000/api/testimonial/testimonial/${id}`,
         );
-        if (response.data && Array.isArray(response.data)) {
+       if (response.data && Array.isArray(response.data)) {
           setTestimonials(response.data);
         } else {
           setTestimonials([]);
@@ -112,7 +112,7 @@ const EventDetailPage: React.FC<Props> = ({ params }: Props) => {
         setTestimonials([]);
       } finally {
         setLoading(false);
-              }
+      }
     };
 
     fetchTestimonials();
@@ -161,15 +161,15 @@ const EventDetailPage: React.FC<Props> = ({ params }: Props) => {
       });
 
       localStorage.setItem(`purchase_${userId}_${eventId}_${id}`, 'true');
-      localStorage.setItem(`endDate_${eventId}_${id}_${userId}`, event.endTime);
+    localStorage.setItem(`endDate_${eventId}_${id}_${userId}`, event.endTime);
       setHasPurchased(true);
       toast.success('Purchase successful!', {
         className: 'bg-green-100 text-green-700 p-4 rounded-lg',
         bodyClassName: 'font-medium',
       });
     } catch (error) {
-      console.error ( 'Error during purchase', error ) ; 
-      toast.error ( 'Failed to complete the purchase.', {
+      console.error('Error during purchase', error);
+      toast.error('Failed to complete the purchase.', {
         className: 'bg-red-100 text-red-700 p-4 rounded-lg',
         bodyClassName: 'font-medium',
       });
@@ -274,7 +274,7 @@ const EventDetailPage: React.FC<Props> = ({ params }: Props) => {
                 height={400}
                 className="rounded-sm my-5 shadow-sm w-full h-auto max-w-full"
               />
-            )} { ' ' } 
+            )} { ' ' }
           </div>
 
           <div className="bg-gray-50 flex rounded-sm font-sans flex-col py-5 text-gray-100">
@@ -293,7 +293,7 @@ const EventDetailPage: React.FC<Props> = ({ params }: Props) => {
               {formatDateTime(event.endTime)}
             </p>
             <p className="text-gray-900 mt-2 text-sm font-sans">
-              Location:{' '}
+              Location: { ' ' }
               {event.location
                 ? event.location.locationName
                 : 'Location not available'}
@@ -343,15 +343,15 @@ const EventDetailPage: React.FC<Props> = ({ params }: Props) => {
             <label className="block text-sm mb-2 text-gray-900 font-sans">
               Quantity:
               <input
-                type="number" 
-                value={qty}
+                type="number"
+                value={parseInt(qty.toString())}
                 onChange={(e) => setQty(parseInt(e.target.value, 10))}
                 min={0}
-                max={event.totalSeats} 
+                max={event.totalSeats}
                 placeholder="idr currency"
                 className="w-full p-2 border border-gray-300 rounded my-2"
               />
-            </label> 
+            </label>
             <label className="block mb-2 font-sans text-sm text-gray-900">
               Discount Code:
               <input
@@ -371,9 +371,9 @@ const EventDetailPage: React.FC<Props> = ({ params }: Props) => {
             {message && <p className="mt-4 text-gray-900">{purhace}</p>}
           </div>
         </div>
-      </div> 
+      </div>
 
-      { /* Testimonial Form */ }
+      {/* Testimonial Form */}
       {hasPurchased && isEnded && (
         <div className="mt-8">
           <div className="p-6 rounded-lg font-sans border-black border-[1px] w-full lg:w-[400px]">

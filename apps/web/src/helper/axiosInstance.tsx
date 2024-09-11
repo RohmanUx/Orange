@@ -1,5 +1,6 @@
-const now = new Date();
-console.log(now); 
+import axios from 'axios';
+const apiCall = axios.create({
+  baseURL: 'https//localhost:8000',
+});
 
-const now_0 = new Date().getTime();
-console.log(now_0); 
+export default apiCall;

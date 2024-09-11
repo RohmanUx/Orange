@@ -2,7 +2,7 @@ import React from 'react';
 import { Container, Typography, Link } from '@mui/material';
 import { styled } from '@mui/material/styles';
 
-const BlurBackground = styled('div')(({ theme }) => ({
+const BlurBackground = styled ('div') (({ theme }) => ({
   background: 'rgba(0, 0, 0, 0.6)',
   backdropFilter: 'blur(80px)',
   padding: theme.spacing(1),

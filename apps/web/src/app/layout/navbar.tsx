@@ -81,27 +81,26 @@ export const Navbar: React.FC = () => {
       onKeyDown={toggleDrawer(false)}
     >
       <List>
-        <ListItem button component={Link} href="/eventSearch">
+        <ListItem component={Link} href="/eventSearch">
           <ListItemText primary="Explore" />
         </ListItem>
-        <ListItem button component={Link} href="/event">
+        <ListItem component={Link} href="/event">
           <ListItemText primary="Dashboard" />
         </ListItem>
-        <ListItem button component={Link} href="/event">
+        <ListItem component={Link} href="/event">
           <ListItemText primary="Helper" />
         </ListItem>
       </List>
       <Divider />
       {user?.email && (
         <List>
-          <ListItem button>
+          <ListItem>
             <ListItemText primary={`Points: ${user.points ?? 'N/A'}`} />
           </ListItem>
-          <ListItem button>
+          <ListItem>
             <ListItemText primary={`Balance: ${user.balance ?? 'N/A'}`} />
           </ListItem>
-          <ListItem
-            button
+          <ListItem 
             onClick={() => {
               router.push(user.role === 'ADMIN' ? '/admin/profile' : '/user/profile');
               handleMenuClose();
@@ -109,7 +108,7 @@ export const Navbar: React.FC = () => {
           >
             <ListItemText primary="Profile" />
           </ListItem>
-          <ListItem button onClick={handleLogout}>
+          <ListItem onClick={handleLogout}>
             <ListItemIcon>
               <Logout fontSize="small" />
             </ListItemIcon>
