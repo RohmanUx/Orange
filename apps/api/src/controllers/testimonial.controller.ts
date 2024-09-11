@@ -98,7 +98,7 @@ export class TestimonialController {
       res.status(500).json({ message: 'Error deleting testimonial', error });
     }
   }
-}
+} 
 //  example post 
 // {
 //   "userId": 1,

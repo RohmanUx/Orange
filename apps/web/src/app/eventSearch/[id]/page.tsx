@@ -63,6 +63,7 @@ const EventDetailPage: React.FC<Props> = ({ params }: Props) => {
     const fetchEventDetails = async () => {
       setLoading(true);
       try {
+        // event
         const eventResponse = await axios.get(
           `http://localhost:8000/api/event/events/${id}`,
         );

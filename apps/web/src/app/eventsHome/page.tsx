@@ -16,7 +16,7 @@ type Event = {
   startTime: string;
   endTime: string;
   isDeleted: boolean;
-};
+ } ;
 
 type Category = {
   id: number;

@@ -60,7 +60,7 @@ const CategoryList: React.FC = () => {
     const initialSearchTerm = searchParams.get('searchTerm') || '';
     setSearchTerm(initialSearchTerm);
   }, [searchParams]);
-
+ 
   // Menyiratkan bahwa efek akan dijalankan kembali setiap kali searchParams berubah.
 
   const handleCategoryClick = (categoryId: number) => {
@@ -153,116 +153,74 @@ const CategoryList: React.FC = () => {
                 )}
               </div>
 
-              <div className="space-y-2 sm:space-y-4">
-                <div className="border p-2 sm:p-4 lg:p-4 rounded-lg shadow-lg backdrop-blur-lg bg-white/5">
-                  <div className="space-y-4 sm:md:xl:lg:w-[600px] mt-4 rounded-lg">
-                    {searchedEvents.length > 0 ? (
-                      paginate(searchedEvents).map((event) => {
-                        const currentTime = new Date().getTime();
-                        const startTime = new Date(event.startTime).getTime();
-                        const endTime = new Date(event.endTime).getTime();
-                        const isOngoing =
-                          currentTime > startTime && currentTime < endTime;
-                        const isEnded = currentTime > endTime;
-
-                        return (
-                          <div
-                            key={event.id}
-                            className="border p-2 sm:p-4 lg:p-4 rounded-lg flex flex-col items-center py-4 font-sans shadow-md hover:shadow-lg transition-shadow cursor-pointer bg-white/90"
-                            onClick={() => handleEventClick(event.id)}
-                          >
-                            <h1 className="text-sm sm:text-base lg:text-lg font-sans mb-2 text-center">
-                              {event.title}
-                            </h1>
-                            <div className="h-32 sm:h-48 w-full flex justify-center">
-                              {event.images.length > 0 && (
-                                <Image
-                                  src={`http://localhost:8000${event.images[0].path}`}
-                                  alt={event.title}
-                                  height={120}
-                                  width={200}
-                                  className="rounded-sm"
-                                />
-                              )}
-                            </div>
-                           
-                           
-                            <p className="text-gray-700 font-sans my-2 lg:my-4 line-clamp-3 sm:px-28 px-4 text-center text-xs sm:text-sm">
-                              {event.description}
-                            </p>
-
-                            <div className="text-gray-600 font-sans bg-gray-300 flex rounded-full pl-2 my-1 text-xs lg:text-sm">
-                              Location
-                              <span className="bg-gray-600 flex rounded-full font-sans ml-1 px-2 text-xs text-gray-100">
-                                {event.location.locationName}
-                              </span>
-                            </div>
-                            <div
-                              className={`text-${
-                                isEnded ? 'red' : isOngoing ? 'green' : 'gray'
-                              }-700 font-sans bg-gray-300 rounded-full pl-2 flex text-xs lg:text-sm my-1`}
-                            >
-                              Status
-                              <span className="bg-gray-600 flex rounded-full ml-1 font-sans px-2 text-xs text-gray-100">
-                                {isEnded
-                                  ? 'Ended'
-                                  : isOngoing
-                                    ? 'Ongoing'
-                                    : 'Upcoming'}
-                              </span>
-                            </div>
-                            <div className="text-gray-600 font-sans bg-gray-300 flex rounded-full pl-2 my-1 text-xs lg:text-sm">
-                              Ticket
-                              <span className="bg-gray-600 flex rounded-full font-sans ml-1 px-2 text-xs text-gray-100">
-                                {event.ticketType}
-                              </span>
-                            </div>
-                            <div className="text-gray-600 font-sans bg-gray-300 rounded-full pl-2 flex my-1 text-xs lg:text-sm">
-                              Seats 
-                              <span className="text-gray-100 text-xs font-sans bg-gray-600 rounded-full px-2">
-                                {event.totalSeats}
-                              </span>
-                            </div>
-                          </div>
-                        );
-                      })
-                    ) : (
-                      <p className="justify-center flex pb-4 text-xs lg:text-sm">
-                        No events available
-                      </p>
+            <div className="space-y-6">
+              <div className="border p-4 rounded-lg shadow-lg backdrop-blur-lg bg-white/80">
+                <div className="space-y-4 w-[900px] mt-4">
+                  {searchedEvents.length > 0 ? (
+                    paginate(searchedEvents).map((event) => (
+                      <div
+                        key={event.id}
+                        className="border p-4 rounded-lg shadow-md hover:shadow-lg transition-shadow cursor-pointer"
+                        onClick={() => handleEventClick(event.id)}
+                      >
+                        <h3 className="text-xl font-semibold mb-2">
+                          {event.title}
+                        </h3>
+                        {event.images.length > 0 && (
+                          <Image 
+                          src={`http://localhost:8000${event.images[0].path} `}
+                          alt={event.title}
+                          width={100}
+                          height={150}
+                          className="rounded-md"
+                        />
                     )}
-                  </div>
-                  {filteredEvents.length > eventsPerPage && (
-                    <div className="flex justify-between mt-4 text-xs lg:text-sm items-end">
-                      <Button
-                        disabled={currentPage === 1}
-                        onClick={() => setCurrentPage(currentPage - 1)}
-                        className="bg-gray-200 text-gray-800 px-3 py-1 rounded-lg hover:bg-gray-300"
-                      >
-                        Previous
-                      </Button>
-                      <span className="p-1 bg-gray-500 text-gray-200 rounded-full px-4 h-7 flex items-end">
-                        {currentPage} page {totalPages(filteredEvents)}
-                      </span> 
-
-
- 
- 
-                      <Button
-                        disabled={currentPage === totalPages(filteredEvents)}
-                        onClick={() => setCurrentPage(currentPage + 1)}
-                        className="bg-gray-200 text-gray-800 px-3 py-1 rounded-lg hover:bg-gray-300"
-                      >
-                        Next
-                      </Button>
-                    </div>
+                        <p className="text-gray-700 mt-2">
+                          {event.description}
+                        </p>
+                        <p className="text-gray-600">
+                          Location: {event.location.locationName}
+                        </p>
+                        <p className="text-gray-800">
+                          Ticket status: {event.ticketType}
+                        </p>
+                        <p className="text-gray-800">
+                          Seats Available: {event.totalSeats}
+                        </p>
+                      </div>
+                    ))
+                  ) : (
+                    <p className="justify-center flex pb-4">
+                      No events available
+                    </p>
                   )}
                 </div>
+                {searchedEvents.length > eventsPerPage && (
+                  <div className="flex justify-between mt-4">
+                    <Button
+                      disabled={currentPage === 1}
+                      onClick={() => setCurrentPage(currentPage - 1)}
+                      className="bg-gray-200 text-gray-800 px-4 py-2 rounded-lg hover:bg-gray-300"
+                    >
+                      Previous
+                    </Button>
+                    <span>
+                      Page {currentPage} of {totalPages(searchedEvents)}
+                    </span>
+                    <Button
+                      disabled={currentPage === totalPages(searchedEvents)}
+                      onClick={() => setCurrentPage(currentPage + 1)}
+                      className="bg-gray-200 text-gray-800 px-4 py-2 rounded-lg hover:bg-gray-300"
+                    >
+                      Next
+                    </Button>
+                  </div>
+                )}
               </div>
             </div>
           </div>
         </div>
-      </div>{' '}
+      </div>
     </div>
   );
 };

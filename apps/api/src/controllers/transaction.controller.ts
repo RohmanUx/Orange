@@ -16,11 +16,21 @@ export class TransactionController {
       const discount = discountCode
         ? await prisma.discountcode.findFirst({ where: { code: discountCode } })
         : null;
+      const user = await prisma.user.findUnique({
+        where: { id: parseInt(userId, 10) },
+      });
+      const event = await prisma.event.findUnique({
+        where: { id: parseInt(eventId, 10) },
+      });
+      const discount = discountCode
+        ? await prisma.discountcode.findFirst({ where: { code: discountCode } })
+        : null;
 
       if (!user || !event) {
         return res.status(404).send({ message: 'User or event not found.' });
       }
 
+      // Check if there enough seats available
       // Check if there enough seats available
       if (event.totalSeats < qty) {
         return res.status(400).send({ message: 'Not enough seats available.' });
@@ -67,6 +77,9 @@ export class TransactionController {
       res
         .status(500)
         .send({ message: 'Failed to process transaction.', error });
+      res
+        .status(500)
+        .send({ message: 'Failed to process transaction.', error });
     }
   }
 
@@ -100,10 +113,19 @@ export class TransactionController {
       const transaction = await prisma.ticket.findUnique({
         where: { id: parseInt(id, 10) },
       });
+      const transaction = await prisma.ticket.findUnique({
+        where: { id: parseInt(id, 10) },
+      });
       if (!transaction) {
         return res.status(404).send({ message: 'Transaction not found.' });
       }
 
+      const event = await prisma.event.findUnique({
+        where: { id: transaction.eventId },
+      });
+      const discount = discountCode
+        ? await prisma.discountcode.findFirst({ where: { code: discountCode } })
+        : null;
       const event = await prisma.event.findUnique({
         where: { id: transaction.eventId },
       });
