@@ -17,7 +17,7 @@ export class CategoryController {
 
       res.status(201).send(newCategory);
     } catch (error) {
-      console.error('Error buat kategori', error);
+      console.log('Error buat kategori', error);
       res.status(500).send({ error: 'Error creating category' });
     }
   }
@@ -62,7 +62,7 @@ export class CategoryController {
             res.status(200).send(categories);
     } catch (error) {
       // Log and send error response
-      console.error('Error events by category:', error);
+      console.log('Error events by category:', error);
       res.status(500).send({ error: `Error events` });
     }
   }

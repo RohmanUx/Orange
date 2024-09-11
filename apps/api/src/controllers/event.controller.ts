@@ -242,7 +242,7 @@ export class EventController {
       console.log('Event created successfully', newEvent);
       return res.status(201).send({ success: true, result: newEvent });
     } catch (error) {
-      console.error(error);
+      console.log(error);
       next({ success: false, message: 'Failed to add event', error });
     }
   }
@@ -386,7 +386,7 @@ export class EventController {
       });
   
     } catch (error) {
-      console.error('Error deleting event:', error);
+      console.log('Error deleting event:', error);
   
       // Send an error response back to the client
       res.status(500).json({

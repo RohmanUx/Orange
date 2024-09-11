@@ -1,6 +1,5 @@
-import { PrismaClient } from '@prisma/client';
 import { Request, Response } from 'express';
-import prisma from '../prisma';
+import prisma from '../prisma'; 
 
 export class TransactionController {
   async createTransaction(req: Request, res: Response) {

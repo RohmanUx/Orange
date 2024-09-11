@@ -224,7 +224,7 @@ export class AuthController {
         });
       }
     } catch (error) {
-      console.error(error);
+      console.log(error);
       next({
         success: false,
         message: 'Failed to fetch the data',

@@ -43,7 +43,7 @@ const CategoryList: React.FC = () => {
         setCategories(response.data);
         setLoading(false);
       } catch (err: any) {
-        console.error('Error fetching categories:', err);
+        console.log('Error fetching categories:', err);
         setError('Failed to fetch categories');
         setLoading(false);
       }
