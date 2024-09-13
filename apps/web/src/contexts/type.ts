@@ -14,6 +14,6 @@ export type UserType = {
 export interface UserContextType {
   user: UserType | null;
   loading: boolean;
-  setLoading: React.Dispatch<React.SetStateAction<boolean>>;
-  setUser: React.Dispatch<React.SetStateAction<UserType | null>>;
+  setLoading: React.Dispatch <React.SetStateAction<boolean>>;
+  setUser: React.Dispatch <React.SetStateAction<UserType | null>>;
 }

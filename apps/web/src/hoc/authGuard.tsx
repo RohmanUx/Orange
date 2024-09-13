@@ -1,8 +1,9 @@
+'use client'
 import { UserContext } from '@/contexts/UserContext';
 import { useRouter } from 'next/navigation';
 import { ComponentType, useContext, useEffect } from 'react';
 
-const withAuth = (WrappedComponent: ComponentType<any>) => {
+export const withAuth = (WrappedComponent: ComponentType<any>) => {
   const AuthenticatedComponent = (props: any) => {
     const router = useRouter();
     const { user } = useContext(UserContext);

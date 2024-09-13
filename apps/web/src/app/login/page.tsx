@@ -1,148 +1,122 @@
-'use client';
-import * as React from 'react';
-import { MdOutlineEmail } from 'react-icons/md';
-import { FaEye, FaEyeSlash, FaGoogle, FaFacebookF } from 'react-icons/fa';
-import { RiLockPasswordLine } from 'react-icons/ri';
-import Image from 'next/image';
-import Link from 'next/link';
-import { useMutation } from '@tanstack/react-query';
-import apiCall from '@/helper/apiCall';
-import { toast, ToastContainer } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+  'use client';
+import { UserContext } from '@/components/userContext';
+import apiCall from '@/helper/axiosInstance';
 import { useRouter } from 'next/navigation';
-import { ClipLoader } from 'react-spinners';
-import { UserContext } from '@/contexts/UserContext';
+import * as React from 'react';
+import { MdVisibility, MdVisibilityOff } from 'react-icons/md';
+import { toast } from 'react-toastify';
+import { Navbar } from '@/app/layout/navbar';
 
-interface ILoginProps {}
+interface ILoginPageProps {}
 
-const Login: React.FunctionComponent<ILoginProps> = (props) => {
-  const [isVisible, setIsVisible] = React.useState<boolean>(false);
-  const [email, setEmail] = React.useState<string>('');
-  const [password, setPassword] = React.useState<string>('');
-  const [isLoading, setIsLoading] = React.useState<boolean>(false);
+const LoginPage: React.FunctionComponent<ILoginPageProps> = (props) => {
   const router = useRouter();
+  const emailRef = React.useRef<HTMLInputElement>(null);
+  const passwordRef = React.useRef<HTMLInputElement>(null);
   const { user, setUser } = React.useContext(UserContext);
+  const [Auth, IsAuth] = React.useState<boolean>(false);
+  const [isVisible, setIsVisible] = React.useState<boolean>(false);
 
-  const mutation = useMutation({
-    mutationFn: async () => {
-      setIsLoading(true);
-      const { data } = await apiCall.post('/api/auth/login', {
-        email,
-        password,
+  const onSubmit = async ( ) : Promise < void > => {
+    try {
+      const { data } = await apiCall.post('/auth/login', {
+        email: emailRef.current?.value,
+        password: passwordRef.current?.value,
       });
-      return data;
-    },
-    onSuccess: (data) => {
-      setIsLoading(false);
-      localStorage.setItem('token', data.result.token);
-      setUser({
-        email: data.result.email,
-        identificationId: data.result.identificationId,
-        role: data.result.role,
-        points: data.result.points,
-        image: data.result.image,
-      });
-      router.replace(data.result.role === 'ADMIN' ? '/' : '/landing');
-    },
-    onError: (error: any) => {
-      setIsLoading(false);
-      toast.error(error.response?.data?.message || 'Login failed');
-      if (error.response?.data?.error?.errors) {
-        error.response.data.error.errors.forEach((err: any) => {
-          toast.error(err.msg);
-        });
-      }
-    },
-  });
 
-  const handleLogin = () => {
-    mutation.mutate();
+      console.log(data);
+      // context redux globsal storage
+      // simpan token
+      toast(`Welcome ${data.result.email}`);
+      // Menyimpan token pada localstorage
+      localStorage.setItem('auth', data.result.token);
+
+      // Menyimpan data email dan noTelp pada globalstate useContext
+      setUser({ email: data.result.email, noTelp: data.result.noTelp });
+      router.push('/');
+    } catch (error: any) {
+      console.log(error);
+      toast(error.response.data.error.message);
+    }
   };
 
+  React.useEffect(() => {
+    if (user?.email) {
+      // IsAuth(true)
+      router.replace('/');
+    }
+    // setTimeOut
+    // if(Auth) {
+    //   router.replace("/")
+    // }
+  }, [user, IsAuth, router]); 
+
+  if (!IsAuth) {
+    return <p className="textr-center text-sm"> </p>;
+  }
+
   return (
-    <div className="relative w-full h-[660px] flex items-center justify-center p-5 py-40 mt-16">
-      <Image
-        layout="fill"
-        src={'/narthan.gif'}
-        alt={'Login Background'}
-        objectFit="cover"
-        className="absolute inset-0 -z-10"
-      />
-      <div className="w-full max-w-md bg-gray-100 rounded-xl shadow-lg p-6 md:p-8 z-10 opacity-90">
-        <ToastContainer />
-        <h2 className="text-2xl font-bold text-gray-800 mb-4 text-center">
-          Login to Your Account
-        </h2>
-        <p className="text-gray-600 text-center mb-6">
-          Please login to explore your dream events.
-        </p>
-        
-        <div className="space-y-4">
-          <button className="w-full flex items-center justify-center bg-red-600 text-white py-3 rounded-lg shadow hover:bg-red-700 transition">
-            <FaGoogle className="mr-2" size={20} />
-            Login with Google
-          </button>
-          <button className="w-full flex items-center justify-center bg-blue-600 text-white py-3 rounded-lg shadow hover:bg-blue-700 transition">
-            <FaFacebookF className="mr-2" size={20} />
-            Login with Facebook
-          </button>
-        </div>
-
-        <div className="flex items-center my-6">
-          <div className="flex-grow border-t border-gray-300" />
-          <span className="mx-3 text-gray-600">or</span>
-          <div className="flex-grow border-t border-gray-300" />
-        </div>
-
-        <div className="space-y-4">
-          <div className="relative">
-            <MdOutlineEmail className="absolute left-3 top-3 text-gray-500" size={24} />
-            <input
-              type="email"
-              className="w-full p-3 pl-12 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
-              placeholder="Email"
-              onChange={(e) => setEmail(e.target.value)}
-            />
-          </div>
-          
-          <div className="relative">
-            <RiLockPasswordLine className="absolute left-3 top-3 text-gray-500" size={24} />
-            <input
-              type={isVisible ? 'text' : 'password'}
-              className="w-full p-3 pl-12 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
-              placeholder="Password"
-              onChange={(e) => setPassword(e.target.value)}
-            />
-            <button
-              type="button"
-              className="absolute right-3 top-3 text-gray-500"
-              onClick={() => setIsVisible(!isVisible)}
-            >
-              {isVisible ? <FaEyeSlash size={24} /> : <FaEye size={24} />}
-            </button>
-          </div>
-        </div>
-
-        <div className="flex justify-between items-center mb-4">
-          <Link href="/forgot-password" className="text-blue-600 hover:underline">Forgot your password?</Link>
-        </div>
-
-        <button
-          onClick={handleLogin}
-          disabled={isLoading}
-          className="w-full py-3 bg-blue-600 text-white rounded-lg shadow hover:bg-blue-700 transition flex items-center justify-center"
+    <div>
+      <Navbar />
+      <div className="bg-slate-50 h-screen flex items-center">
+        <div
+          id="container"
+          className="w-4/12 bg-slate-100 m-auto shadow-lg rounded-md p-8"
         >
-          {isLoading ? <ClipLoader size={24} color="white" /> : 'Login'}
-        </button>
+          <h1 className="w-full text-center font-semibold text-2xl">Login</h1>
+          <div className="h-96 flex flex-col justify-between mt-16 px-24">
+            <div>
+              <label className="block text-xl my-2">Email</label>
+              <input
+                className="w-full p-2 rounded-md flex-1"
+                type="text"
+                ref={emailRef}
+              />
+            </div>
+            <div>
+              <label className="block text-xl my-2">Password</label>
+              <div className="relative flex items-center">
+                <input
+                  className="w-full p-2 rounded-md flex-1"
+                  type={isVisible ? 'text' : 'password'}
+                  ref={passwordRef}
+                />
+                <button
+                  className="absolute right-4"
+                  onClick={() => setIsVisible(!isVisible)}
+                >
+                  {isVisible ? (
+                    <MdVisibility size={24} />
+                  ) : (
+                    <MdVisibilityOff size={24} />
+                  )}
+                </button>
+              </div>
+            </div>
 
-        <div className="mt-6 text-center text-gray-600">
-          <p>
-            Don’t have an account? <Link href="/register" className="text-blue-600 hover:underline">Register now</Link>
-          </p>
+            <div className="flex gap-4">
+              <button
+                className="border border-slate-600 text-slate-600 p-3 w-full rounded-md shadow my-4"
+                onClick={() => router.push('/register')}
+              >
+                Regis
+              </button>
+              <button
+                className="bg-slate-500 text-white p-3 w-full rounded-md shadow my-4"
+                onClick={onSubmit}
+              >
+                Login
+              </button>
+            </div>
+            <div className="bg-slate-200 justify-center flex">
+              { ' ' }
+              Reset password { ' ' }
+            </div>
+          </div>
         </div>
-      </div>
+      </div> { ' ' }
     </div>
   );
 };
 
-export default Login;
+export default LoginPage;

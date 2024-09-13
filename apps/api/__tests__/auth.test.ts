@@ -12,18 +12,17 @@ describe('Test auth user', () => {
 
   test('returns success login', async () => {
     const response = await request(app)
-    //   .post('/login')
-    //   .send({
-    //     username: 'rohman@gmail.com',
-    //     password: 'AlphaThap42@',
-    //   });
+      .post('/login')
+      .send({
+        username: 'rohman@gmail.com',
+        password: 'AlphaThap42@',
+      });
   
-    // console.log('Response Status:', response.status); // Log status code
-    // console.log('Response Body:', response.body); // Log the body
+    console.log('Response Status:', response.status); // Log status code
+    console.log('Response Body:', response.body); // Log the body
   
-    // Check if response body exists
-   // expect(response.body).not.toBeUndefined();
- // expect(response).toHaveProperty('success', true);
+     expect(response.body).not.toBeUndefined();
+ expect(response).toHaveProperty('success', true);
   });
     });  
 

@@ -6,7 +6,21 @@ module.exports = {
     './components/**/*.{ts,tsx}',
     './app/**/*.{ts,tsx}',
     './src/**/*.{ts,tsx}',
-  ],
+  ], 
+      theme: {
+      extend: {
+        animation: {
+          rotateText: 'rotateText 10s linear infinite',
+        },
+        keyframes: {
+          rotateText: {
+            '0%': { transform: 'rotate(360deg)' },
+            '100%': { transform: 'rotate(0deg)' },
+          },
+        },
+      },
+    },
+  
   prefix: "",
   theme: {
     container: {
@@ -74,4 +88,5 @@ module.exports = {
     },
   },
   plugins: [require("tailwindcss-animate")],
-}
+} 
+

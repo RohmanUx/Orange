@@ -7,7 +7,20 @@ module.exports = {
 
     // Or if using `src` directory:
     './src/**/*.{js,ts,jsx,tsx,mdx}',
-  ],
+  ] ,  
+      theme: {
+      extend: {
+        animation: {
+          rotateText: 'rotateText 10s linear infinite',
+        },
+        keyframes: {
+          rotateText: {
+            '0%': { transform: 'rotate(360deg)' },
+            '100%': { transform: 'rotate(0deg)' },
+          },
+        },
+      },
+    },
   theme: {
     extend: {
       fontFamily: {

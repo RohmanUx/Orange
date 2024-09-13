@@ -4,6 +4,8 @@ import axios from 'axios';
 import { Button } from '../../components/ui/button'; // Adjust path as necessary
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
+import Animation from '../layout/circle';
+import CircularText from '../layout/circle';
 
 type Event = {
   ticketType: ReactNode;
@@ -96,9 +98,9 @@ const CategoryList: React.FC = () => {
         <h1 className="text-gray-900 text-xl sm:text-2xl lg:text-4xl font-medium text-center font-new-amsterdam flex">
           Event yours love#
         </h1>
-      </div>
-
-      <div className="p-2 sm:p-4 lg:p-6 xl:px-28 lg:px-10 px-2 sm:px-4">
+      </div> 
+                <Animation text='hallo word'/> 
+                     <div className="p-2 sm:p-4 lg:p-6 xl:px-28 lg:px-10 px-2 sm:px-4">
         <div className="mb-4 sm:mb-8 flex flex-wrap justify-center font-sans rounded-md space-x-1 sm:space-x-2 lg:space-x-4">
           {categories.length > 0 ? (
             categories.map((category) => (
@@ -115,7 +117,7 @@ const CategoryList: React.FC = () => {
               </Button>
             ))
           ) : (
-            <div className="text-sm">No categories available </div>
+            <div className="text-sm"> No categories available  </div>
           )}
         </div>
 

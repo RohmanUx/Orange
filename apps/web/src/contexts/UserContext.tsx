@@ -1,10 +1,9 @@
-'use client';
+  'use client' ; 
 
 import { UserContextType, UserType } from './type';
 import * as React from 'react';
 import apiCall from '@/helper/apiCall';
 import { toast } from 'react-toastify';
-import { boolean } from 'yup';
 
 export const UserContext = React.createContext<UserContextType>({
   user: null,
@@ -20,6 +19,7 @@ interface IUserProviderProps {
 export const UserProvider: React.FunctionComponent<IUserProviderProps> = ({
   children,
 }) => {
+  // Set user as a single object or null, not an array
   const [user, setUser] = React.useState<UserType | null>(null);
   const [loading, setLoading] = React.useState<boolean>(true);
 
@@ -32,20 +32,25 @@ export const UserProvider: React.FunctionComponent<IUserProviderProps> = ({
             Authorization: `Bearer ${checkToken}`,
           },
         });
-        console.log(data);
-        localStorage.setItem('token', data.result.token);
+
+        // Set user data (single user, not an array)
         setUser({
+          id: data.result.id, // Assuming id is part of the API response
           email: data.result.email,
           identificationId: data.result.identificationId,
           role: data.result.role,
-          points: data.result.points,           
+          points: data.result.points,
           balance: data.result.balance, 
-          image: data.result.image,
+                              image: data.result.image,
+          token: data.result.token, // Assuming token is part of the API response
         });
+
+        // Update token in localStorage
+        localStorage.setItem('token', data.result.token);
       }
     } catch (error: any) {
-      console.log(error);
-      toast(error);
+      console.error('Login Error:', error);
+      toast.error('Error during login. Please try again.');
     } finally {
       setLoading(false);
     }
@@ -59,11 +64,10 @@ export const UserProvider: React.FunctionComponent<IUserProviderProps> = ({
       setLoading(false); // No token, stop loading
     }
   }, []);
+
   return (
     <UserContext.Provider value={{ user, setUser, loading, setLoading }}>
       {children}
     </UserContext.Provider>
   );
 };
-
-

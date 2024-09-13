@@ -6,7 +6,7 @@ import { useRouter } from 'next/navigation';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Image from 'next/image';
-import withRole from '@/hoc/roleGuard';
+import withRole  from '@/hoc/roleGuard';
 import Markdown from 'markdown-to-jsx';
 import { ClassNames } from '@emotion/react';
 type Event = {
@@ -281,7 +281,7 @@ const EventDetailPage: React.FC<Props> = ({ params }: Props) => {
             <h1 className="text-2xl md:text-3xl font-medium text-gray-900 font-sans uppercase">
               {event.title}
             </h1>
-            <div className="my-3">
+            <div className="my-3"> 
               <Markdown className="text-sm md:text-base font-sans text-gray-900">
                 {event.description}
               </Markdown>
@@ -492,4 +492,4 @@ const EventDetailPage: React.FC<Props> = ({ params }: Props) => {
   );
 };
 
-export default withRole(EventDetailPage, 'USER');
+export default EventDetailPage

@@ -1,22 +1,18 @@
-  'use client';
+'use client';
 import { ComponentType, useContext, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import { UserContext } from '@/contexts/UserContext';
 
-interface WithRoleProps {
-  requiredRole: string;
-}
-
-function withRole<T>(
+// Add a type constraint to ensure that T extends JSX.IntrinsicAttributes
+function withRole<T extends JSX.IntrinsicAttributes>(
   WrappedComponent: ComponentType<T>,
-  requiredRole: string
+  requiredRole: string,
 ) {
-  const AuthenticatedRole = (props: T & WithRoleProps) => {
+  const AuthenticatedRole = (props: T) => {
     const router = useRouter();
     const { user, loading } = useContext(UserContext);
 
     useEffect(() => {
-      // Wait until loading is complete
       if (!loading) {
         if (!user) {
           // Redirect to login if no user is logged in
