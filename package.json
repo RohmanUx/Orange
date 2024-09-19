@@ -43,6 +43,7 @@
     }
   },
   "dependencies": {
+    "@prisma/client": "^5.19.1",
     "@radix-ui/react-checkbox": "^1.1.1",
     "@radix-ui/react-dropdown-menu": "^2.1.1",
     "@radix-ui/react-menubar": "^1.1.1",
@@ -61,6 +62,7 @@
     "lodash.debounce": "^4.0.8",
     "lucide-react": "^0.427.0",
     "multer": "^1.4.5-lts.1",
+    "mysql": "^2.18.1",
     "next": "14.2.5",
     "nodemailer": "^6.9.14",
     "prisma": "^5.18.0",
