@@ -9,24 +9,24 @@ export class EventController {
   }
 
   // get event from admin
-  // async getUserEvent(req: Request, res: Response, next: NextFunction) {
-  //   try {
-  //     if (!res.locals.decrypt.id) {
-  //       return res.status(404).send({
-  //         success: false,
-  //         message: 'not find token',
-  //       });
-  //     }
+  async getUserEvent(req: Request, res: Response, next: NextFunction) {
+    try {
+      if (!res.locals.decrypt.id) {
+        return res.status(404).send({
+          success: false,
+          message: 'not find token',
+        });
+      }
 
-  //     return res.status(200).send({
-  //       success: true,
-  //       massage: 'there is read event',
-  //     });
-  //   } catch (error) {
-  //     console.log(res.locals.decrypt.id);
-  //     next({ success: false, message: ' event found' });
-  //   }
-  // }
+      return res.status(200).send({
+        success: true,
+        massage: 'there is read event',
+      });
+    } catch (error) {
+      console.log(res.locals.decrypt.id);
+      next({ success: false, message: ' event found' });
+    }
+  }
 
   // select:
   // local.dcrypt

@@ -59,7 +59,7 @@ model event {
   description    String           @db.Text
   price          Int 
   totalSeats     Int  
-  images          Image[]         
+  images          image[]         
   locationId     Int
   startTime      DateTime         @db.DateTime(0)
   endTime        DateTime         @db.DateTime(0)
@@ -269,7 +269,7 @@ model BlacklistToken {
   createdAt DateTime @default(now()) @db.Timestamp(0)
 }
 
-model Image{
+model image{
   id Int @id @default(autoincrement())
   path String 
   eventId Int 

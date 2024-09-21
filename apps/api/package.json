@@ -3,11 +3,10 @@
   "version": "1.0.0",
   "description": "",
   "main": "src/index.ts",
-  "scripts": { 
-    "build": "tsc && tsc-alias", 
-
+  "scripts": {
+    "build": "tsc && tsc-alias",
     "dev": "cross-env NODE_ENV=development ts-node-dev -r tsconfig-paths/register src/index.ts",
-        "serve": "cross-env NODE_ENV=production node dist/index.js",
+    "serve": "cross-env NODE_ENV=production node dist/index.js",
     "test": "jest",
     "prisma": "npx prisma"
   },
@@ -51,7 +50,7 @@
     "@types/nodemailer": "^6.4.15",
     "@types/supertest": "^6.0.2",
     "@types/uuid": "^10.0.0",
-    "prisma": "^5.18.0",
+    "prisma": "^5.19.1",
     "tsconfig-paths": "^4.2.0"
   }
 }
