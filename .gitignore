@@ -24,7 +24,7 @@ yarn-error.log*
 
 # local env files
 
-# turbo
+.turbo
 
 # vercel
 .vercel
