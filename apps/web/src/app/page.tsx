@@ -40,25 +40,7 @@ const Home: React.FC = () => {
     setCurrentIndex((index) => (index === 0 ? images.length - 1 : index - 1));
   };
 
-  const mutation = useMutation({
-    mutationFn: async () => {
-      const { data } = await apiCall.get('/api/event/events');
-      return data;
-    },
-    onSuccess: (data) => {
-      console.log(data.result);
-      setEvents(data.result);
-    },
-    onError: (error) => {
-      console.log('Error fetching events:', error);
-    },
-  });
-
-  useEffect(() => {
-    mutation.mutate();
-  }, [mutation]); // Ensure mutation is included if it changes
-
-  return (
+      return (
     <div>
       <Hero />
       <CategoryList />

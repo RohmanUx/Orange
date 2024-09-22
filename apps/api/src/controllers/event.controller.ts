@@ -77,7 +77,7 @@ export class EventController {
       const totalEvents = await prisma.event.count();
 
       return res.status(200).send({
-        success: true,
+        success: false,
         message: 'Events successfully',
         data: events,
         pagination: {
