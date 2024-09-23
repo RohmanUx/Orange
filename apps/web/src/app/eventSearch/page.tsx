@@ -1,7 +1,7 @@
 'use client';
 import React, { useState, useEffect, useCallback, Suspense } from 'react';
 import axios from 'axios';
-import { Button } from '../../components/ui/button';
+import { Button } from '@/components/ui/button';
 import Image from 'next/image';
 import { useRouter, useSearchParams } from 'next/navigation';
 import debounce from 'lodash.debounce';
@@ -123,7 +123,7 @@ const CategorySeach: React.FC = () => {
           <div className="relative z-10 flex flex-col items-center py-24 bg-gray-100 bg-opacity-80 h-[2400px]">
             <div className="py-0 lg:py-12 xl:px-28 px-12">
               <p className="text-3xl font-medium font-KalesiRoundedDemo justify-center text-gray-900 font-sans flex mb-6">
-                Exsplore #
+                Explore 
               </p>
 
               <div className="flex flex-col items-center space-y-4">
@@ -131,8 +131,8 @@ const CategorySeach: React.FC = () => {
                   type="text"
                   value={searchTerm}
                   onChange={(e) => handleSearchChange(e.target.value)}
-                  placeholder="Search your event"
-                  className="px-4 md:px-6 lg:px-10 w-full md:w-96 py-2 rounded-lg border-gray-500 bg-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-200 border bg-opacity-60 text-gray-950 placeholder-gray-700 text-base md:text-lg shadow-sm font-sans hover:placeholder-gray-900 hover:bg-gray-300 hover:text-gray-900"
+                  placeholder="search event? "
+                  className="px-4 md:px-6 lg:px-6 w-full md:w-96 py-1 rounded-xl border-gray-500 bg-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-200 border bg-opacity-40 text-gray-950 placeholder-gray-700 text-base md:text-lg shadow-sm font-sans hover:placeholder-gray-900 hover:bg-gray-300 hover:text-gray-900 backdrop-blur-3xl"
                 />
               </div>
               <div className="p-2 sm:p-4 lg:p-6 xl:px-28 lg:px-10 px-2 sm:px-4">

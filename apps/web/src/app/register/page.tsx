@@ -61,41 +61,36 @@ const Register: React.FunctionComponent<IRegisterProps> = (props) => {
   };
 
   return (
-    <div className="relative w-full h-screen mt-16">
+    <div className="w-full h-screen pt-5">
       <Image
         src="/Untitled design.png"
         alt="Login Background"
         layout="fill"
         objectFit="cover"
-        className="absolute inset-0 -z-10"
+        className="absolute inset-0 -z-10 pt-14"
       />
 
-      <div className="absolute inset-0 flex justify-center items-center">
-        <div className="w-full max-w-sm rounded-xl shadow-2xl p-5 bg-gray-100 bg-opacity-90 flex flex-col justify-center items-center gap-5 z-10">
+      <div className="absolute inset-0 flex justify-center items-center pt-14">
+        <div className="w-full max-w-sm rounded-none shadow-2xl p-5 bg-gray-100 bg-opacity-60 flex flex-col justify-center items-center gap-5 z-10 backdrop-blur-3xl">
           <ToastContainer />
           <div className="w-full h-auto flex flex-col justify-center items-center text-white">
-            <p className="font-bold text-2xl text-gray-800">Register Event</p>
+            <p className="font-bold text-2xl text-gray-800"> REGISTER </p>
           </div>
           <div className="w-full h-auto flex flex-col gap-3">
-            <Button className="w-full p-3 bg-red-600 text-white rounded-xl shadow-2xl flex justify-center items-center gap-2 font-bold">
+            <Button className="w-full p-3 bg-red-900 text-white rounded-none shadow-2xl flex justify-center items-center gap-2 font-bold">
               <FaGoogle size={20} />
               Register with Google
             </Button>
-            <Button className="w-full p-3 bg-blue-600 text-white rounded-xl shadow-2xl flex justify-center items-center gap-2 font-bold">
+            <Button className="w-full p-3 bg-blue-900 text-white rounded-none shadow-2xl flex justify-center items-center gap-2 font-bold">
               <FaFacebookF size={20} />
               Register with Facebook
             </Button>
           </div>
-          <div className="w-full flex items-center justify-center my-4">
-            <div className="w-full h-px bg-gray-400" />
-            <span className="px-3 text-gray-800 text-sm font-sans">or</span>
-            <div className="w-full h-px bg-gray-400" />
-          </div>
-          <div className="w-full h-auto flex relative items-center">
+                    <div className="w-full h-auto flex relative items-center">
             <MdOutlineEmail size={30} className="absolute left-2" />
             <Input
-              type="email"
-              className="w-full p-3 pl-14 rounded-xl shadow-2xl"
+              type="email" 
+              className="w-full p-3 pl-14 rounded-none shadow-2xl"
               placeholder="Email"
               onChange={(e) => setEmail(e.target.value)}
             />
@@ -104,7 +99,7 @@ const Register: React.FunctionComponent<IRegisterProps> = (props) => {
             <RiLockPasswordLine size={30} className="absolute left-2" />
             <Input
               type={isVisible ? 'text' : 'password'}
-              className="w-full p-3 pl-14 rounded-xl shadow-2xl"
+              className="w-full p-3 pl-14 rounded-none shadow-2xl"
               placeholder="Password"
               onChange={(e) => setPassword(e.target.value)}
             />
@@ -119,7 +114,7 @@ const Register: React.FunctionComponent<IRegisterProps> = (props) => {
             <RiLockPasswordLine size={30} className="absolute left-2" />
             <Input
               type={isConfirmVisible ? 'text' : 'password'}
-              className="w-full p-3 pl-14 rounded-xl shadow-2xl"
+              className="w-full p-3 pl-14 rounded-none shadow-2xl"
               placeholder="Confirm Password"
               onChange={(e) => setConfirmPassword(e.target.value)}
             />
@@ -134,7 +129,7 @@ const Register: React.FunctionComponent<IRegisterProps> = (props) => {
             <FaUserFriends size={30} className="absolute left-2" />
             <Input
               type="text"
-              className="w-full p-3 pl-14 rounded-xl shadow-2xl"
+              className="w-full p-3 pl-14 rounded-none shadow-2xl"
               placeholder="Referral Code (optional)"
               onChange={(e) => setRefCode(e.target.value)}
             />
@@ -159,7 +154,7 @@ const Register: React.FunctionComponent<IRegisterProps> = (props) => {
           <div className="w-full h-auto justify-center items-center flex">
             <Button
               onClick={handleSubmit}
-              className="w-full p-3 bg-slate-500 rounded-xl shadow-2xl shadow-slate-400 font-bold text-gray-50 font-sans"
+              className="w-full p-3 bg-slate-500 rounded-none shadow-2xl shadow-slate-400 font-bold text-gray-50 font-sans"
             >
               REGISTER
             </Button>

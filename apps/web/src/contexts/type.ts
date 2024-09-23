@@ -1,6 +1,7 @@
 import { ReactNode } from "react";
 
 export type UserType = {
+  [x: string]: any;
   token: any;
   id: any;
   balance: string;

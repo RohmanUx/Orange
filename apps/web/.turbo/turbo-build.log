@@ -19,24 +19,24 @@
    Collecting build traces ...
 
 Route (app)                              Size     First Load JS
-┌ ○ /                                    7.31 kB         154 kB
+┌ ○ /                                    30.4 kB         155 kB
 ├ ○ /_not-found                          873 B            88 kB
-├ ○ /dashboard/admin/create              1.9 kB          116 kB
-├ ○ /dashboard/admin/profile             583 B          87.7 kB
+├ ○ /dashboard/create                    1.9 kB          117 kB
+├ ○ /dashboard/profile                   583 B          87.7 kB
 ├ ○ /event                               2.18 kB        89.3 kB
-├ ○ /eventCheck                          1.4 kB          128 kB
-├ ○ /eventSearch                         37.5 kB         164 kB
-├ ƒ /eventSearch/[id]                    9.64 kB         129 kB
-├ ○ /eventsHome                          2.48 kB         123 kB
-├ ○ /forgot-password                     2.52 kB         134 kB
-├ ○ /landing                             1.34 kB         121 kB
-├ ○ /login                               3.75 kB         184 kB
-├ ○ /register                            8.75 kB         149 kB
-└ ƒ /reset-password/[token]              2.78 kB         136 kB
+├ ○ /eventCheck                          1.4 kB          129 kB
+├ ○ /eventSearch                         37.5 kB         165 kB
+├ ƒ /eventSearch/[id]                    9.64 kB         130 kB
+├ ○ /eventsHome                          275 B           125 kB
+├ ○ /forgot-password                     2.52 kB         135 kB
+├ ○ /landing                             1.34 kB         122 kB
+├ ○ /login                               2.26 kB         168 kB
+├ ○ /register                            9.05 kB         150 kB
+└ ƒ /reset-password/[token]              2.78 kB         137 kB
 + First Load JS shared by all            87.1 kB
-  ├ chunks/1dd3208c-03be70ada4b90f47.js  53.6 kB
-  ├ chunks/286-16eb2286b61625ff.js       31.5 kB
-  └ other shared chunks (total)          1.97 kB
+  ├ chunks/1dd3208c-facad935c9beb71f.js  53.6 kB
+  ├ chunks/286-2e59079ab65bac8c.js       31.5 kB
+  └ other shared chunks (total)          1.98 kB
 
 
 ○  (Static)   prerendered as static content

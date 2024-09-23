@@ -5,9 +5,7 @@ generator client {
 datasource db {
   provider = "mysql"
   url      = env("DATABASE_URL") 
-    previewFeatures = ["logQueries"] 
-      engineType = "binary" 
-}
+   }
 
 model category {
   id           Int            @id @unique(map: "id") @default(autoincrement())

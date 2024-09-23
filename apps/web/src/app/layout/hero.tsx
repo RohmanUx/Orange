@@ -16,7 +16,7 @@ const Hero: React.FC = () => {
         await router.push(
           `/eventSearch?searchTerm=${encodeURIComponent(trimmedQuery)}`,
         );
-        setLoading(false); // Hide loading indicator
+        setLoading (false); // Hide loading indicator
       }
     }, 1000),
     [setLoading, router],
@@ -30,18 +30,18 @@ const Hero: React.FC = () => {
 
   return (
     <div>
-      <div className="relative w-full h-screen">
+      <div className="relative w-full h-screen bg-gray-900/30 z-10">
         <Image
           src="/narthan.gif"
           alt="Hero"
           layout="fill"
-          objectFit="cover"
-          className="absolute inset-0 w-full h-full object-cover"
+                    fill style={{ objectFit: 'cover' }} 
+          className="absolute inset-0 w-full h-full bg-gray-900/90 z-0"
         />
         <div className="bg-opacity-50 flex flex-col justify-center items-center w-full h-full absolute top-0 left-0">
-          <div className="backdrop-blur-md flex flex-col items-center p-8 md:p-14 rounded-xl border border-white bg-white bg-opacity-40">
+          <div className="backdrop-blur-md flex flex-col items-center p-8 md:p-14 rounded-xl border border-white bg-white bg-opacity-10">
             <div className="flex mt-4">
-              <h1 className="text-gray-800 text-3xl md:text-4xl lg:text-6xl font-extrabold mb-2 text-center font-KalesiRoundedDemo">
+              <h1 className="text-gray-700 text-3xl md:text-4xl lg:text-6xl font-bold mb-2 text-center font-KalesiRoundedDemo">
                 Discover Event{' '}
               </h1>
               <svg
@@ -69,16 +69,16 @@ const Hero: React.FC = () => {
                 type="text"
                 value={searchTerm}
                 onChange={onSearchChange}
-                placeholder="Search your event"
-                className="px-4 md:px-6 lg:px-10 w-full md:w-96 py-2 rounded-lg border-gray-500 bg-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-200 border bg-opacity-60 text-gray-950 placeholder-gray-700 text-base md:text-lg shadow-sm font-sans hover:placeholder-gray-900 hover:bg-gray-300 hover:text-gray-900"
+                placeholder="search event? "
+                className="px-4 md:px-4 lg:px-6 w-full md:w-96 py-1 rounded-xl border-gray-600 bg-gray-50 focus:outline-none focus:ring-2 focus:ring-blue-200 border bg-opacity-60 text-gray-950 placeholder-gray-700 text-base md:text-lg shadow-sm font-sans hover:placeholder-gray-900 hover:bg-gray-300 hover:text-gray-900"
               />
             </div>
           </div>
         </div>
       </div>
       <div className="">
-        <div className="overflow-hidden w-full mt-[-24px] z-50  absolute bg-gray-800 bg-opacity-80">
-          <div className="animate-marquee whitespace-nowrap text-gray-100 text-base font-KalesiRoundedDemo tracking-wider">
+        <div className="overflow-hidden w-full mt-[-28px] z-10  absolute bg-gray-100/40 bg-opacity-80 border-t-[1px] border-white/60 backdrop-blur-3xl">
+          <div className="animate-marquee whitespace-nowrap text-gray-900 font-sans tracking-wider text-lg">
             Get your tickets now! Best prices available! Don&apos;t miss out on
             the world&apos;s biggest events!
           </div>

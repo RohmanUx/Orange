@@ -6,8 +6,8 @@ import * as React from 'react';
 import { MdVisibility, MdVisibilityOff } from 'react-icons/md';
 import { toast } from 'react-toastify';
 import { Navbar } from '@/app/layout/navbar';
-
-interface ILoginPageProps {}
+import Image from 'next/image'
+interface ILoginPageProps { }
 
 const LoginPage: React.FunctionComponent<ILoginPageProps> = (props) => {
   const router = useRouter();
@@ -19,7 +19,7 @@ const LoginPage: React.FunctionComponent<ILoginPageProps> = (props) => {
 
   const onSubmit = async ( ) : Promise < void > => {
     try {
-      const { data } = await apiCall.post('/auth/login', {
+      const { data } = await apiCall.post('api/auth/login', {
         email: emailRef.current?.value,
         password: passwordRef.current?.value,
       });
@@ -56,28 +56,39 @@ const LoginPage: React.FunctionComponent<ILoginPageProps> = (props) => {
   }
 
   return (
-    <div>
-      <Navbar />
-      <div className="bg-slate-50 h-screen flex items-center">
+    <div className='pt-0'>
+      <Navbar /> 
+
+
+      <div className=" h-screen flex items-center pt-14">
+      <Image
+        src="/Untitled design.png"
+        alt="Login Background"
+        layout="fill"
+        objectFit="cover"
+        className="absolute inset-0 -z-10 pt-14"
+      />
         <div
           id="container"
-          className="w-4/12 bg-slate-100 m-auto shadow-lg rounded-md p-8"
+          className="w-96 bg-slate-100/60 m-auto shadow-lg rounded-md p-7 backdrop-blur-3xl"
         >
-          <h1 className="w-full text-center font-semibold text-2xl">Login</h1>
-          <div className="h-96 flex flex-col justify-between mt-16 px-24">
+          <h1 className="w-full text-center font-semibold text-2xl">LOGIN </h1>
+          <div className="h-80 flex flex-col justify-between mt-4 px-0">
             <div>
-              <label className="block text-xl my-2">Email</label>
+              <label className="block text-xl my-2">Email </label>
               <input
-                className="w-full p-2 rounded-md flex-1"
+                className="w-full p-2 rounded-md flex-1 border-2 border-black/60 bg-gray-300/0 placeholder-black" 
+                placeholder='mail'
                 type="text"
                 ref={emailRef}
               />
             </div>
             <div>
-              <label className="block text-xl my-2">Password</label>
+              <label className="block text-xl my-2">Password </label>
               <div className="relative flex items-center">
                 <input
-                  className="w-full p-2 rounded-md flex-1"
+                  className="w-full p-2 rounded-md flex-1 border-2 border-black/60 bg-gray-300/0 placeholder-black" 
+                  placeholder='password'
                   type={isVisible ? 'text' : 'password'}
                   ref={passwordRef}
                 />
@@ -108,9 +119,10 @@ const LoginPage: React.FunctionComponent<ILoginPageProps> = (props) => {
                 Login
               </button>
             </div>
-            <div className="bg-slate-200 justify-center flex">
+            <div className="w-full p-0 rounded-md bg-gray-100/0 text-center" 
+            >
               { ' ' }
-              Reset password { ' ' }
+              Reset password? { ' ' }
             </div>
           </div>
         </div>

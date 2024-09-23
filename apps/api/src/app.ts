@@ -15,6 +15,7 @@ import { AuthRouter } from './routers/auth.router';
 import { ProfileRouter } from './routers/profile.router';
 import { EventRouter } from './routers/event.router';
 import { TransactionRouter } from './routers/transaction.router';
+import { LocationRouter } from './routers/location.router';
 import { TestimonialRouter } from './routers/testimonial.router';
 import { DiscountRouter } from './routers/discount.route';
 import { PromotionRouter } from './routers/promotion.router';
@@ -70,6 +71,7 @@ export default class App {
     const testimonialRouter = new TestimonialRouter();
     const discountRouter = new DiscountRouter();
     const balancePointRouter = new PointBalanceRouter();
+    const locationRouter = new LocationRouter();
     const promotionRouter = new PromotionRouter();
     const categoryRouter = new CategoryRouter(); // Initialize CategoryRouter
 
@@ -86,6 +88,7 @@ export default class App {
     this.app.use('/api/balance-point', balancePointRouter.getRouter());
     this.app.use('/api/promotion', promotionRouter.getRouter());
     this.app.use('/api/category', categoryRouter.getRouter()); // Use CategoryRouter
+    this.app.use('/api/location', locationRouter.getRouter()); // Use CategoryRouter
   }
 
   public start(): void {

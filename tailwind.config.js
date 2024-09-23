@@ -6,22 +6,7 @@ module.exports = {
     './components/**/*.{ts,tsx}',
     './app/**/*.{ts,tsx}',
     './src/**/*.{ts,tsx}',
-  ], 
-      theme: {
-      extend: {
-        animation: {
-          rotateText: 'rotateText 10s linear infinite',
-        },
-        keyframes: {
-          rotateText: {
-            '0%': { transform: 'rotate(360deg)' },
-            '100%': { transform: 'rotate(0deg)' },
-          },
-        },
-      },
-    },
-  
-  prefix: "",
+	],
   theme: {
     container: {
       center: true,
@@ -73,12 +58,12 @@ module.exports = {
       },
       keyframes: {
         "accordion-down": {
-          from: { height: "0" },
+          from: { height: 0 },
           to: { height: "var(--radix-accordion-content-height)" },
         },
         "accordion-up": {
           from: { height: "var(--radix-accordion-content-height)" },
-          to: { height: "0" },
+          to: { height: 0 },
         },
       },
       animation: {
@@ -88,5 +73,4 @@ module.exports = {
     },
   },
   plugins: [require("tailwindcss-animate")],
-} 
-
+}

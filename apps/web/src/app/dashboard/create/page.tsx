@@ -24,9 +24,7 @@ const PostEventForm: React.FC = () => {
 
   type FormDataKey = keyof typeof formData;
 
-  const handleInputChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
-  ) => {
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
     setFormData((prevFormData) => ({
       ...prevFormData,
@@ -57,7 +55,7 @@ const PostEventForm: React.FC = () => {
       formDataToSend.append(key, formData[key as FormDataKey]);
     });
 
-    files.forEach((file) => formDataToSend.append('files', file));
+    files.forEach((file) => formDataToSend.append('eve', file)); // Corrected the name to 'eve'
 
     try {
       const response = await axios.post(
@@ -89,7 +87,10 @@ const PostEventForm: React.FC = () => {
         setError(response.data.message || 'Error posting event.');
       }
     } catch (err) {
-      setError('An error occurred while posting the event.');
+      const errorMessage = axios.isAxiosError(err) && err.response
+        ? err.response.data.message
+        : 'An error occurred while posting the event.';
+      setError(errorMessage);
     } finally {
       setLoading(false);
     }
@@ -201,4 +202,4 @@ const PostEventForm: React.FC = () => {
   );
 };
 
-export default withRole(PostEventForm,'ADMIN') 
+export default withRole(PostEventForm, 'ADMIN');

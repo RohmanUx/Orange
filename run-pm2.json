@@ -1,7 +1,7 @@
 {
   "script": "run",
   "name": "run",
-  "filter_env": [],
+  "filter_env": [ ],
   "namespace": "default",
   "env": {},
   "merge_logs": true,

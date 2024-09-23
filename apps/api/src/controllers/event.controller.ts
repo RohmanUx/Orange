@@ -77,7 +77,7 @@ export class EventController {
       const totalEvents = await prisma.event.count();
 
       return res.status(200).send({
-        success: false,
+        success: true,
         message: 'Events successfully',
         data: events,
         pagination: {
@@ -203,7 +203,7 @@ export class EventController {
       const files = req.files as Express.Multer.File[];
       const imagePaths = files
         ? files.map((file) => `/assets/product/${file.filename}`)
-        : [];
+        : [ ];
 
       // Check its create
       let categoryData = await this.eventService.findCategoryByName(category);

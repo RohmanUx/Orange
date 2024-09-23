@@ -1,0 +1,463 @@
+
+> api@1.0.0 dev
+> cross-env NODE_ENV=development ts-node-dev -r tsconfig-paths/register src/index.ts
+
+[INFO] 11:46:08 ts-node-dev ver. 2.0.0 (using ts-node ver. 10.9.2, typescript ver. 5.6.2)
+  ➜  [API] Local: http://localhost:8000/
+prisma:info Starting a mysql pool with 9 connections.
+bldh8ueX
+Error :  MulterError: Unexpected field
+    at wrappedFileFilter (C:\Users\Chicky Chill\Downloads\resume\orange-portofolio\node_modules\multer\index.js:40:19)
+    at Multipart.<anonymous> (C:\Users\Chicky Chill\Downloads\resume\orange-portofolio\node_modules\multer\lib\make-middleware.js:107:7)
+    at Multipart.emit (node:events:519:28)
+    at HeaderParser.cb (C:\Users\Chicky Chill\Downloads\resume\orange-portofolio\node_modules\busboy\lib\types\multipart.js:358:14)
+    at HeaderParser.push (C:\Users\Chicky Chill\Downloads\resume\orange-portofolio\node_modules\busboy\lib\types\multipart.js:162:20)
+    at SBMH.ssCb [as _cb] (C:\Users\Chicky Chill\Downloads\resume\orange-portofolio\node_modules\busboy\lib\types\multipart.js:394:37)
+    at feed (C:\Users\Chicky Chill\Downloads\resume\orange-portofolio\node_modules\streamsearch\lib\sbmh.js:248:10)
+    at SBMH.push (C:\Users\Chicky Chill\Downloads\resume\orange-portofolio\node_modules\streamsearch\lib\sbmh.js:104:16)
+    at Multipart._write (C:\Users\Chicky Chill\Downloads\resume\orange-portofolio\node_modules\busboy\lib\types\multipart.js:567:19)
+    at writeOrBuffer (node:internal/streams/writable:572:12)
+Error :  MulterError: Unexpected field
+    at wrappedFileFilter (C:\Users\Chicky Chill\Downloads\resume\orange-portofolio\node_modules\multer\index.js:40:19)
+    at Multipart.<anonymous> (C:\Users\Chicky Chill\Downloads\resume\orange-portofolio\node_modules\multer\lib\make-middleware.js:107:7)
+    at Multipart.emit (node:events:519:28)
+    at HeaderParser.cb (C:\Users\Chicky Chill\Downloads\resume\orange-portofolio\node_modules\busboy\lib\types\multipart.js:358:14)
+    at HeaderParser.push (C:\Users\Chicky Chill\Downloads\resume\orange-portofolio\node_modules\busboy\lib\types\multipart.js:162:20)
+    at SBMH.ssCb [as _cb] (C:\Users\Chicky Chill\Downloads\resume\orange-portofolio\node_modules\busboy\lib\types\multipart.js:394:37)
+    at feed (C:\Users\Chicky Chill\Downloads\resume\orange-portofolio\node_modules\streamsearch\lib\sbmh.js:248:10)
+    at SBMH.push (C:\Users\Chicky Chill\Downloads\resume\orange-portofolio\node_modules\streamsearch\lib\sbmh.js:104:16)
+    at Multipart._write (C:\Users\Chicky Chill\Downloads\resume\orange-portofolio\node_modules\busboy\lib\types\multipart.js:567:19)
+    at writeOrBuffer (node:internal/streams/writable:572:12)
+[INFO] 11:54:17 Restarting: C:\Users\Chicky Chill\Downloads\resume\orange-portofolio\apps\api\src\middleware\uploader.ts has been modified
+Compilation error in C:\Users\Chicky Chill\Downloads\resume\orange-portofolio\apps\api\src\middleware\uploader.ts
+[ERROR] 11:54:19 ⨯ Unable to compile TypeScript:
+src/middleware/uploader.ts(3,10): error TS2305: Module '"../../"' has no exported member 'Request'.
+
+[INFO] 11:54:23 Restarting: C:\Users\Chicky Chill\Downloads\resume\orange-portofolio\apps\api\src\middleware\uploader.ts has been modified
+Compilation error in C:\Users\Chicky Chill\Downloads\resume\orange-portofolio\apps\api\src\middleware\uploader.ts
+[ERROR] 11:54:26 ⨯ Unable to compile TypeScript:
+src/middleware/uploader.ts(3,10): error TS2305: Module '"../../"' has no exported member 'Request'.
+
+[INFO] 11:54:30 Restarting: C:\Users\Chicky Chill\Downloads\resume\orange-portofolio\apps\api\src\middleware\uploader.ts has been modified
+  ➜  [API] Local: http://localhost:8000/
+prisma:info Starting a mysql pool with 9 connections.
+PrismaClientValidationError: 
+Invalid `prisma.event.create()` invocation in
+C:\Users\Chicky Chill\Downloads\resume\orange-portofolio\apps\api\src\controllers\event.controller.ts:224:43
+
+  221 const eventPrice = ticketType === 'PAID' ? Number(price) : 0;
+  222 
+  223 // Create event list should there is
+→ 224 const newEvent = await prisma.event.create({
+        data: {
+          title: "hallo",
+          description: "rxtyvbhmk \r\n",
+          totalSeats: 345,
+          price: 1234512,
+          ticketType: "PAID",
+          startTime: new Date("Invalid Date"),
+                     ~~~~~~~~~~~~~~~~~~~~~~~~
+          endTime: new Date("2024-09-23T04:02:00.000Z"),
+          userId: 3,
+          categoryId: 1,
+          locationId: 1,
+          images: {
+            create: [
+              {
+                path: "/assets/product/EVE_1727064166962.png"
+              }
+            ]
+          },
+          isDeleted: false
+        },
+        include: {
+          images: true
+        }
+      })
+
+Invalid value for argument `startTime`: Provided Date object is invalid. Expected Date.
+    at In (C:\Users\Chicky Chill\Downloads\resume\orange-portofolio\node_modules\@prisma\client\runtime\library.js:114:7526)
+    at e.throwValidationError (C:\Users\Chicky Chill\Downloads\resume\orange-portofolio\node_modules\@prisma\client\runtime\library.js:114:12187)
+    at il (C:\Users\Chicky Chill\Downloads\resume\orange-portofolio\node_modules\@prisma\client\runtime\library.js:114:10208)
+    at ol (C:\Users\Chicky Chill\Downloads\resume\orange-portofolio\node_modules\@prisma\client\runtime\library.js:114:11344)
+    at il (C:\Users\Chicky Chill\Downloads\resume\orange-portofolio\node_modules\@prisma\client\runtime\library.js:114:10901)
+    at ol (C:\Users\Chicky Chill\Downloads\resume\orange-portofolio\node_modules\@prisma\client\runtime\library.js:114:11344)
+    at Or (C:\Users\Chicky Chill\Downloads\resume\orange-portofolio\node_modules\@prisma\client\runtime\library.js:114:8607)
+    at nl (C:\Users\Chicky Chill\Downloads\resume\orange-portofolio\node_modules\@prisma\client\runtime\library.js:114:8472)
+    at C:\Users\Chicky Chill\Downloads\resume\orange-portofolio\node_modules\@prisma\client\runtime\library.js:130:10186
+    at Object.runInChildSpan (C:\Users\Chicky Chill\Downloads\resume\orange-portofolio\node_modules\@prisma\client\runtime\library.js:121:1519) {
+  clientVersion: '5.19.1'
+}
+Error :  undefined
+PrismaClientValidationError: 
+Invalid `prisma.event.create()` invocation in
+C:\Users\Chicky Chill\Downloads\resume\orange-portofolio\apps\api\src\controllers\event.controller.ts:224:43
+
+  221 const eventPrice = ticketType === 'PAID' ? Number(price) : 0;
+  222 
+  223 // Create event list should there is
+→ 224 const newEvent = await prisma.event.create({
+        data: {
+          title: "hallo",
+          description: "rxtyvbhmk \r\n",
+          totalSeats: 345,
+          price: 1234512,
+          ticketType: "PAID",
+          startTime: new Date("Invalid Date"),
+                     ~~~~~~~~~~~~~~~~~~~~~~~~
+          endTime: new Date("2024-09-23T04:02:00.000Z"),
+          userId: 3,
+          categoryId: 1,
+          locationId: 1,
+          images: {
+            create: [
+              {
+                path: "/assets/product/EVE_1727064181220.png"
+              }
+            ]
+          },
+          isDeleted: false
+        },
+        include: {
+          images: true
+        }
+      })
+
+Invalid value for argument `startTime`: Provided Date object is invalid. Expected Date.
+    at In (C:\Users\Chicky Chill\Downloads\resume\orange-portofolio\node_modules\@prisma\client\runtime\library.js:114:7526)
+    at e.throwValidationError (C:\Users\Chicky Chill\Downloads\resume\orange-portofolio\node_modules\@prisma\client\runtime\library.js:114:12187)
+    at il (C:\Users\Chicky Chill\Downloads\resume\orange-portofolio\node_modules\@prisma\client\runtime\library.js:114:10208)
+    at ol (C:\Users\Chicky Chill\Downloads\resume\orange-portofolio\node_modules\@prisma\client\runtime\library.js:114:11344)
+    at il (C:\Users\Chicky Chill\Downloads\resume\orange-portofolio\node_modules\@prisma\client\runtime\library.js:114:10901)
+    at ol (C:\Users\Chicky Chill\Downloads\resume\orange-portofolio\node_modules\@prisma\client\runtime\library.js:114:11344)
+    at Or (C:\Users\Chicky Chill\Downloads\resume\orange-portofolio\node_modules\@prisma\client\runtime\library.js:114:8607)
+    at nl (C:\Users\Chicky Chill\Downloads\resume\orange-portofolio\node_modules\@prisma\client\runtime\library.js:114:8472)
+    at C:\Users\Chicky Chill\Downloads\resume\orange-portofolio\node_modules\@prisma\client\runtime\library.js:130:10186
+    at Object.runInChildSpan (C:\Users\Chicky Chill\Downloads\resume\orange-portofolio\node_modules\@prisma\client\runtime\library.js:121:1519) {
+  clientVersion: '5.19.1'
+}
+Error :  undefined
+PrismaClientValidationError: 
+Invalid `prisma.event.create()` invocation in
+C:\Users\Chicky Chill\Downloads\resume\orange-portofolio\apps\api\src\controllers\event.controller.ts:224:43
+
+  221 const eventPrice = ticketType === 'PAID' ? Number(price) : 0;
+  222 
+  223 // Create event list should there is
+→ 224 const newEvent = await prisma.event.create({
+        data: {
+          title: "hallo",
+          description: "rxtyvbhmk \r\n",
+          totalSeats: 345,
+          price: 1234512,
+          ticketType: "PAID",
+          startTime: new Date("Invalid Date"),
+                     ~~~~~~~~~~~~~~~~~~~~~~~~
+          endTime: new Date("2024-09-23T04:02:00.000Z"),
+          userId: 3,
+          categoryId: 1,
+          locationId: 1,
+          images: {
+            create: [
+              {
+                path: "/assets/product/EVE_1727064181765.png"
+              }
+            ]
+          },
+          isDeleted: false
+        },
+        include: {
+          images: true
+        }
+      })
+
+Invalid value for argument `startTime`: Provided Date object is invalid. Expected Date.
+    at In (C:\Users\Chicky Chill\Downloads\resume\orange-portofolio\node_modules\@prisma\client\runtime\library.js:114:7526)
+    at e.throwValidationError (C:\Users\Chicky Chill\Downloads\resume\orange-portofolio\node_modules\@prisma\client\runtime\library.js:114:12187)
+    at il (C:\Users\Chicky Chill\Downloads\resume\orange-portofolio\node_modules\@prisma\client\runtime\library.js:114:10208)
+    at ol (C:\Users\Chicky Chill\Downloads\resume\orange-portofolio\node_modules\@prisma\client\runtime\library.js:114:11344)
+    at il (C:\Users\Chicky Chill\Downloads\resume\orange-portofolio\node_modules\@prisma\client\runtime\library.js:114:10901)
+    at ol (C:\Users\Chicky Chill\Downloads\resume\orange-portofolio\node_modules\@prisma\client\runtime\library.js:114:11344)
+    at Or (C:\Users\Chicky Chill\Downloads\resume\orange-portofolio\node_modules\@prisma\client\runtime\library.js:114:8607)
+    at nl (C:\Users\Chicky Chill\Downloads\resume\orange-portofolio\node_modules\@prisma\client\runtime\library.js:114:8472)
+    at C:\Users\Chicky Chill\Downloads\resume\orange-portofolio\node_modules\@prisma\client\runtime\library.js:130:10186
+    at Object.runInChildSpan (C:\Users\Chicky Chill\Downloads\resume\orange-portofolio\node_modules\@prisma\client\runtime\library.js:121:1519) {
+  clientVersion: '5.19.1'
+}
+Error :  undefined
+PrismaClientValidationError: 
+Invalid `prisma.event.create()` invocation in
+C:\Users\Chicky Chill\Downloads\resume\orange-portofolio\apps\api\src\controllers\event.controller.ts:224:43
+
+  221 const eventPrice = ticketType === 'PAID' ? Number(price) : 0;
+  222 
+  223 // Create event list should there is
+→ 224 const newEvent = await prisma.event.create({
+        data: {
+          title: "hallo",
+          description: "rxtyvbhmk \r\n",
+          totalSeats: 345,
+          price: 1234512,
+          ticketType: "PAID",
+          startTime: new Date("Invalid Date"),
+                     ~~~~~~~~~~~~~~~~~~~~~~~~
+          endTime: new Date("2024-09-23T04:02:00.000Z"),
+          userId: 3,
+          categoryId: 1,
+          locationId: 1,
+          images: {
+            create: [
+              {
+                path: "/assets/product/EVE_1727064265063.png"
+              }
+            ]
+          },
+          isDeleted: false
+        },
+        include: {
+          images: true
+        }
+      })
+
+Invalid value for argument `startTime`: Provided Date object is invalid. Expected Date.
+    at In (C:\Users\Chicky Chill\Downloads\resume\orange-portofolio\node_modules\@prisma\client\runtime\library.js:114:7526)
+    at e.throwValidationError (C:\Users\Chicky Chill\Downloads\resume\orange-portofolio\node_modules\@prisma\client\runtime\library.js:114:12187)
+    at il (C:\Users\Chicky Chill\Downloads\resume\orange-portofolio\node_modules\@prisma\client\runtime\library.js:114:10208)
+    at ol (C:\Users\Chicky Chill\Downloads\resume\orange-portofolio\node_modules\@prisma\client\runtime\library.js:114:11344)
+    at il (C:\Users\Chicky Chill\Downloads\resume\orange-portofolio\node_modules\@prisma\client\runtime\library.js:114:10901)
+    at ol (C:\Users\Chicky Chill\Downloads\resume\orange-portofolio\node_modules\@prisma\client\runtime\library.js:114:11344)
+    at Or (C:\Users\Chicky Chill\Downloads\resume\orange-portofolio\node_modules\@prisma\client\runtime\library.js:114:8607)
+    at nl (C:\Users\Chicky Chill\Downloads\resume\orange-portofolio\node_modules\@prisma\client\runtime\library.js:114:8472)
+    at C:\Users\Chicky Chill\Downloads\resume\orange-portofolio\node_modules\@prisma\client\runtime\library.js:130:10186
+    at Object.runInChildSpan (C:\Users\Chicky Chill\Downloads\resume\orange-portofolio\node_modules\@prisma\client\runtime\library.js:121:1519) {
+  clientVersion: '5.19.1'
+}
+Error :  undefined
+PrismaClientValidationError: 
+Invalid `prisma.event.create()` invocation in
+C:\Users\Chicky Chill\Downloads\resume\orange-portofolio\apps\api\src\controllers\event.controller.ts:224:43
+
+  221 const eventPrice = ticketType === 'PAID' ? Number(price) : 0;
+  222 
+  223 // Create event list should there is
+→ 224 const newEvent = await prisma.event.create({
+        data: {
+          title: "hallo",
+          description: "rxtyvbhmk \r\n",
+          totalSeats: 345,
+          price: 1234512,
+          ticketType: "PAID",
+          startTime: new Date("Invalid Date"),
+                     ~~~~~~~~~~~~~~~~~~~~~~~~
+          endTime: new Date("2024-09-23T04:02:00.000Z"),
+          userId: 3,
+          categoryId: 1,
+          locationId: 1,
+          images: {
+            create: [
+              {
+                path: "/assets/product/EVE_1727064266152.png"
+              }
+            ]
+          },
+          isDeleted: false
+        },
+        include: {
+          images: true
+        }
+      })
+
+Invalid value for argument `startTime`: Provided Date object is invalid. Expected Date.
+    at In (C:\Users\Chicky Chill\Downloads\resume\orange-portofolio\node_modules\@prisma\client\runtime\library.js:114:7526)
+    at e.throwValidationError (C:\Users\Chicky Chill\Downloads\resume\orange-portofolio\node_modules\@prisma\client\runtime\library.js:114:12187)
+    at il (C:\Users\Chicky Chill\Downloads\resume\orange-portofolio\node_modules\@prisma\client\runtime\library.js:114:10208)
+    at ol (C:\Users\Chicky Chill\Downloads\resume\orange-portofolio\node_modules\@prisma\client\runtime\library.js:114:11344)
+    at il (C:\Users\Chicky Chill\Downloads\resume\orange-portofolio\node_modules\@prisma\client\runtime\library.js:114:10901)
+    at ol (C:\Users\Chicky Chill\Downloads\resume\orange-portofolio\node_modules\@prisma\client\runtime\library.js:114:11344)
+    at Or (C:\Users\Chicky Chill\Downloads\resume\orange-portofolio\node_modules\@prisma\client\runtime\library.js:114:8607)
+    at nl (C:\Users\Chicky Chill\Downloads\resume\orange-portofolio\node_modules\@prisma\client\runtime\library.js:114:8472)
+    at C:\Users\Chicky Chill\Downloads\resume\orange-portofolio\node_modules\@prisma\client\runtime\library.js:130:10186
+    at Object.runInChildSpan (C:\Users\Chicky Chill\Downloads\resume\orange-portofolio\node_modules\@prisma\client\runtime\library.js:121:1519) {
+  clientVersion: '5.19.1'
+}
+Error :  undefined
+PrismaClientValidationError: 
+Invalid `prisma.event.create()` invocation in
+C:\Users\Chicky Chill\Downloads\resume\orange-portofolio\apps\api\src\controllers\event.controller.ts:224:43
+
+  221 const eventPrice = ticketType === 'PAID' ? Number(price) : 0;
+  222 
+  223 // Create event list should there is
+→ 224 const newEvent = await prisma.event.create({
+        data: {
+          title: "hallo",
+          description: "rxtyvbhmk \r\n",
+          totalSeats: 345,
+          price: 1234512,
+          ticketType: "PAID",
+          startTime: new Date("Invalid Date"),
+                     ~~~~~~~~~~~~~~~~~~~~~~~~
+          endTime: new Date("2024-09-23T04:02:00.000Z"),
+          userId: 3,
+          categoryId: 1,
+          locationId: 1,
+          images: {
+            create: [
+              {
+                path: "/assets/product/EVE_1727064266865.png"
+              }
+            ]
+          },
+          isDeleted: false
+        },
+        include: {
+          images: true
+        }
+      })
+
+Invalid value for argument `startTime`: Provided Date object is invalid. Expected Date.
+    at In (C:\Users\Chicky Chill\Downloads\resume\orange-portofolio\node_modules\@prisma\client\runtime\library.js:114:7526)
+    at e.throwValidationError (C:\Users\Chicky Chill\Downloads\resume\orange-portofolio\node_modules\@prisma\client\runtime\library.js:114:12187)
+    at il (C:\Users\Chicky Chill\Downloads\resume\orange-portofolio\node_modules\@prisma\client\runtime\library.js:114:10208)
+    at ol (C:\Users\Chicky Chill\Downloads\resume\orange-portofolio\node_modules\@prisma\client\runtime\library.js:114:11344)
+    at il (C:\Users\Chicky Chill\Downloads\resume\orange-portofolio\node_modules\@prisma\client\runtime\library.js:114:10901)
+    at ol (C:\Users\Chicky Chill\Downloads\resume\orange-portofolio\node_modules\@prisma\client\runtime\library.js:114:11344)
+    at Or (C:\Users\Chicky Chill\Downloads\resume\orange-portofolio\node_modules\@prisma\client\runtime\library.js:114:8607)
+    at nl (C:\Users\Chicky Chill\Downloads\resume\orange-portofolio\node_modules\@prisma\client\runtime\library.js:114:8472)
+    at C:\Users\Chicky Chill\Downloads\resume\orange-portofolio\node_modules\@prisma\client\runtime\library.js:130:10186
+    at Object.runInChildSpan (C:\Users\Chicky Chill\Downloads\resume\orange-portofolio\node_modules\@prisma\client\runtime\library.js:121:1519) {
+  clientVersion: '5.19.1'
+}
+Error :  undefined
+PrismaClientValidationError: 
+Invalid `prisma.event.create()` invocation in
+C:\Users\Chicky Chill\Downloads\resume\orange-portofolio\apps\api\src\controllers\event.controller.ts:224:43
+
+  221 const eventPrice = ticketType === 'PAID' ? Number(price) : 0;
+  222 
+  223 // Create event list should there is
+→ 224 const newEvent = await prisma.event.create({
+        data: {
+          title: "hallo",
+          description: "rxtyvbhmk \r\n",
+          totalSeats: 345,
+          price: 1234512,
+          ticketType: "PAID",
+          startTime: new Date("Invalid Date"),
+                     ~~~~~~~~~~~~~~~~~~~~~~~~
+          endTime: new Date("2024-09-23T04:02:00.000Z"),
+          userId: 3,
+          categoryId: 1,
+          locationId: 1,
+          images: {
+            create: [
+              {
+                path: "/assets/product/EVE_1727064272620.png"
+              }
+            ]
+          },
+          isDeleted: false
+        },
+        include: {
+          images: true
+        }
+      })
+
+Invalid value for argument `startTime`: Provided Date object is invalid. Expected Date.
+    at In (C:\Users\Chicky Chill\Downloads\resume\orange-portofolio\node_modules\@prisma\client\runtime\library.js:114:7526)
+    at e.throwValidationError (C:\Users\Chicky Chill\Downloads\resume\orange-portofolio\node_modules\@prisma\client\runtime\library.js:114:12187)
+    at il (C:\Users\Chicky Chill\Downloads\resume\orange-portofolio\node_modules\@prisma\client\runtime\library.js:114:10208)
+    at ol (C:\Users\Chicky Chill\Downloads\resume\orange-portofolio\node_modules\@prisma\client\runtime\library.js:114:11344)
+    at il (C:\Users\Chicky Chill\Downloads\resume\orange-portofolio\node_modules\@prisma\client\runtime\library.js:114:10901)
+    at ol (C:\Users\Chicky Chill\Downloads\resume\orange-portofolio\node_modules\@prisma\client\runtime\library.js:114:11344)
+    at Or (C:\Users\Chicky Chill\Downloads\resume\orange-portofolio\node_modules\@prisma\client\runtime\library.js:114:8607)
+    at nl (C:\Users\Chicky Chill\Downloads\resume\orange-portofolio\node_modules\@prisma\client\runtime\library.js:114:8472)
+    at C:\Users\Chicky Chill\Downloads\resume\orange-portofolio\node_modules\@prisma\client\runtime\library.js:130:10186
+    at Object.runInChildSpan (C:\Users\Chicky Chill\Downloads\resume\orange-portofolio\node_modules\@prisma\client\runtime\library.js:121:1519) {
+  clientVersion: '5.19.1'
+}
+Error :  undefined
+PrismaClientValidationError: 
+Invalid `prisma.event.create()` invocation in
+C:\Users\Chicky Chill\Downloads\resume\orange-portofolio\apps\api\src\controllers\event.controller.ts:224:43
+
+  221 const eventPrice = ticketType === 'PAID' ? Number(price) : 0;
+  222 
+  223 // Create event list should there is
+→ 224 const newEvent = await prisma.event.create({
+        data: {
+          title: "hallo",
+          description: "rxtyvbhmk \r\n",
+          totalSeats: 345,
+          price: 1234512,
+          ticketType: "PAID",
+          startTime: new Date("Invalid Date"),
+                     ~~~~~~~~~~~~~~~~~~~~~~~~
+          endTime: new Date("2024-09-23T04:02:00.000Z"),
+          userId: 3,
+          categoryId: 1,
+          locationId: 1,
+          images: {
+            create: [
+              {
+                path: "/assets/product/EVE_1727064273866.png"
+              }
+            ]
+          },
+          isDeleted: false
+        },
+        include: {
+          images: true
+        }
+      })
+
+Invalid value for argument `startTime`: Provided Date object is invalid. Expected Date.
+    at In (C:\Users\Chicky Chill\Downloads\resume\orange-portofolio\node_modules\@prisma\client\runtime\library.js:114:7526)
+    at e.throwValidationError (C:\Users\Chicky Chill\Downloads\resume\orange-portofolio\node_modules\@prisma\client\runtime\library.js:114:12187)
+    at il (C:\Users\Chicky Chill\Downloads\resume\orange-portofolio\node_modules\@prisma\client\runtime\library.js:114:10208)
+    at ol (C:\Users\Chicky Chill\Downloads\resume\orange-portofolio\node_modules\@prisma\client\runtime\library.js:114:11344)
+    at il (C:\Users\Chicky Chill\Downloads\resume\orange-portofolio\node_modules\@prisma\client\runtime\library.js:114:10901)
+    at ol (C:\Users\Chicky Chill\Downloads\resume\orange-portofolio\node_modules\@prisma\client\runtime\library.js:114:11344)
+    at Or (C:\Users\Chicky Chill\Downloads\resume\orange-portofolio\node_modules\@prisma\client\runtime\library.js:114:8607)
+    at nl (C:\Users\Chicky Chill\Downloads\resume\orange-portofolio\node_modules\@prisma\client\runtime\library.js:114:8472)
+    at C:\Users\Chicky Chill\Downloads\resume\orange-portofolio\node_modules\@prisma\client\runtime\library.js:130:10186
+    at Object.runInChildSpan (C:\Users\Chicky Chill\Downloads\resume\orange-portofolio\node_modules\@prisma\client\runtime\library.js:121:1519) {
+  clientVersion: '5.19.1'
+}
+Error :  undefined
+PrismaClientValidationError: 
+Invalid `prisma.event.create()` invocation in
+C:\Users\Chicky Chill\Downloads\resume\orange-portofolio\apps\api\src\controllers\event.controller.ts:224:43
+
+  221 const eventPrice = ticketType === 'PAID' ? Number(price) : 0;
+  222 
+  223 // Create event list should there is
+→ 224 const newEvent = await prisma.event.create({
+        data: {
+          title: "hallo",
+          description: "rxtyvbhmk \r\n",
+          totalSeats: 345,
+          price: 1234512,
+          ticketType: "PAID",
+          startTime: new Date("Invalid Date"),
+                     ~~~~~~~~~~~~~~~~~~~~~~~~
+          endTime: new Date("2024-09-23T04:02:00.000Z"),
+          userId: 3,
+          categoryId: 1,
+          locationId: 1,
+          images: {
+            create: [
+              {
+                path: "/assets/product/EVE_1727064335869.png"
+              }
+            ]
+          },
+          isDeleted: false
+        },
+        include: {
+          images: true
+        }
+      })
+
+Invalid value for argument `startTime`: Provided Date object is invalid. Expected Date.
+    at In (C:\Users\Chicky Chill\Downloads\resume\orange-portofolio\node_modules\@prisma\client\runtime\library.js:114:7526)

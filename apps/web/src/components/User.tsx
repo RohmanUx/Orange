@@ -1,9 +1,9 @@
   
 
   import * as React from 'react';
-  import { Button } from './ui/button';
+  import { Button } from '@/components/ui/button';
   import { DropdownMenu } from '@radix-ui/react-dropdown-menu';
-  import { DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from './ui/dropdown-menu';
+  import { DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from '@/components/ui/dropdown-menu';
   import { Avatar } from '@radix-ui/react-avatar';
   import router from 'next/router';
   import Image from 'next/image';
