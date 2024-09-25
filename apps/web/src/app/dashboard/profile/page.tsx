@@ -43,7 +43,11 @@ const Profile = ( ) => {
           Authorization: `Bearer ${token}`,
         },
       });
-
+      if (!data) {
+        setComment('Authentication token missing. Please log in.');
+        return;
+      }
+  
       if (data.data.result.length > 0) {
         setGet(data.data.result[0]);
         setProfile(data.data.result[0]);
@@ -71,8 +75,7 @@ const Profile = ( ) => {
       setComment('Authentication token missing. Please log in.');
       return;
     }
-
-    e.preventDefault();
+        e.preventDefault();
     try {
       if (isProfilePosted) {
         // Update existing profile

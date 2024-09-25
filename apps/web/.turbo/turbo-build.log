@@ -6,13 +6,40 @@
   - Environments: .env
 
    Creating an optimized production build ...
-uncaughtException [Error: EPERM: operation not permitted, open 'C:\Users\Chicky Chill\Downloads\resume\orange-portofolio\apps\web\.next\trace'] {
-  errno: -4048,
-  code: 'EPERM',
-  syscall: 'open',
-  path: 'C:\\Users\\Chicky Chill\\Downloads\\resume\\orange-portofolio\\apps\\web\\.next\\trace'
-}
-npm error Lifecycle script `build` failed with error:
-npm error Error: command failed
-npm error   in workspace: web@0.1.0
-npm error   at location: C:\Users\Chicky Chill\Downloads\resume\orange-portofolio\apps\web
+ ✓ Compiled successfully
+   Skipping linting
+   Checking validity of types ...
+   Collecting page data ...
+   Generating static pages (0/16) ...
+   Generating static pages (4/16) 
+   Generating static pages (8/16) 
+   Generating static pages (12/16) 
+ ✓ Generating static pages (16/16)
+   Finalizing page optimization ...
+   Collecting build traces ...
+
+Route (app)                              Size     First Load JS
+┌ ○ /                                    30.3 kB         179 kB
+├ ○ /_not-found                          873 B            88 kB
+├ ○ /dashboard/balance                   1.91 kB         117 kB
+├ ○ /dashboard/create                    1.99 kB         117 kB
+├ ○ /dashboard/profile                   1.72 kB         111 kB
+├ ○ /event                               3.08 kB        90.2 kB
+├ ○ /eventCheck                          1.4 kB          129 kB
+├ ○ /eventSearch                         37.5 kB         165 kB
+├ ƒ /eventSearch/[id]                    19.8 kB         149 kB
+├ ○ /eventsHome                          183 B           149 kB
+├ ○ /forgot-password                     2.52 kB         135 kB
+├ ○ /landing                             1.4 kB          122 kB
+├ ○ /login                               1.14 kB         166 kB
+├ ○ /register                            9.07 kB         150 kB
+└ ƒ /reset-password/[token]              2.78 kB         137 kB
++ First Load JS shared by all            87.1 kB
+  ├ chunks/1dd3208c-facad935c9beb71f.js  53.6 kB
+  ├ chunks/286-2e59079ab65bac8c.js       31.5 kB
+  └ other shared chunks (total)          1.98 kB
+
+
+○  (Static)   prerendered as static content
+ƒ  (Dynamic)  server-rendered on demand
+

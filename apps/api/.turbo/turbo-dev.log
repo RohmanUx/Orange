@@ -1,5 +1,0 @@
-
-> api@1.0.0 dev
-> cross-env NODE_ENV=development ts-node-dev -r tsconfig-paths/register src/index.ts
-
-[INFO] 14:16:54 ts-node-dev ver. 2.0.0 (using ts-node ver. 10.9.2, typescript ver. 5.6.2)
