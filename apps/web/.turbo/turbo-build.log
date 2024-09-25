@@ -6,39 +6,13 @@
   - Environments: .env
 
    Creating an optimized production build ...
- ✓ Compiled successfully
-   Skipping linting
-   Checking validity of types ...
-   Collecting page data ...
-   Generating static pages (0/15) ...
-   Generating static pages (3/15) 
-   Generating static pages (7/15) 
-   Generating static pages (11/15) 
- ✓ Generating static pages (15/15)
-   Finalizing page optimization ...
-   Collecting build traces ...
-
-Route (app)                              Size     First Load JS
-┌ ○ /                                    30.4 kB         155 kB
-├ ○ /_not-found                          873 B            88 kB
-├ ○ /dashboard/create                    1.9 kB          117 kB
-├ ○ /dashboard/profile                   583 B          87.7 kB
-├ ○ /event                               2.18 kB        89.3 kB
-├ ○ /eventCheck                          1.4 kB          129 kB
-├ ○ /eventSearch                         37.5 kB         165 kB
-├ ƒ /eventSearch/[id]                    9.64 kB         130 kB
-├ ○ /eventsHome                          275 B           125 kB
-├ ○ /forgot-password                     2.52 kB         135 kB
-├ ○ /landing                             1.34 kB         122 kB
-├ ○ /login                               2.26 kB         168 kB
-├ ○ /register                            9.05 kB         150 kB
-└ ƒ /reset-password/[token]              2.78 kB         137 kB
-+ First Load JS shared by all            87.1 kB
-  ├ chunks/1dd3208c-facad935c9beb71f.js  53.6 kB
-  ├ chunks/286-2e59079ab65bac8c.js       31.5 kB
-  └ other shared chunks (total)          1.98 kB
-
-
-○  (Static)   prerendered as static content
-ƒ  (Dynamic)  server-rendered on demand
-
+uncaughtException [Error: EPERM: operation not permitted, open 'C:\Users\Chicky Chill\Downloads\resume\orange-portofolio\apps\web\.next\trace'] {
+  errno: -4048,
+  code: 'EPERM',
+  syscall: 'open',
+  path: 'C:\\Users\\Chicky Chill\\Downloads\\resume\\orange-portofolio\\apps\\web\\.next\\trace'
+}
+npm error Lifecycle script `build` failed with error:
+npm error Error: command failed
+npm error   in workspace: web@0.1.0
+npm error   at location: C:\Users\Chicky Chill\Downloads\resume\orange-portofolio\apps\web

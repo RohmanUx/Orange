@@ -10,8 +10,7 @@ export class PointBalanceController {
     try {
       const updatedUser = await prisma.user.update({
         where: { id: parseInt(userId, 10) },
-        data: { balance, 
-          points },
+        data: { balance, points },
       });
 
       res.send(updatedUser);
@@ -22,14 +21,46 @@ export class PointBalanceController {
     }
   }
 
+  async createBalance(req: Request, res: Response) {
+    // const { userId } = req.params;
+    const { points, balance } = req.body;
+    const userId = res.locals.decrypt.id;
+    if (!userId || isNaN(parseInt(userId, 10))) {
+      return res.status(400).send({ message: 'Invalid or missing userId.' });
+    }
+    try {
+      // First, check if the user already exists
+      const existingUser = await prisma.user.findUnique({
+        where: { id: parseInt(userId, 10) },
+      });
+
+      if (existingUser) {
+        // Update the existing user's balance
+        const updatedUser = await prisma.user.update({
+          where: { id: parseInt(userId, 10) },
+          data: {
+            balance: existingUser.balance + (balance || 0), // Update balance
+            points: (existingUser.points || 0) + (points || 0), // Update points
+          },
+        });
+
+        res.status(200).send(updatedUser);
+      } else {
+        res.status(500).send('fix it again');
+      }
+    } catch (error) {
+      res
+        .status(500)
+        .send({ message: 'Failed to create or update user balance.', error });
+    }
+  }
   async getBalance(req: Request, res: Response) {
     const { userId } = req.params;
-
     try {
       const user = await prisma.user.findUnique({
         where: { id: parseInt(userId, 10) },
         select: { balance: true, points: true },
-              });
+      });
 
       if (!user) {
         return res.status(404).send({ message: 'User not found.' });

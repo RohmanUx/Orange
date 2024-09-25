@@ -1,3 +1,4 @@
+import { verifyToken } from 'src/middleware/verifyToken';
 import { PointBalanceController } from '../controllers/poin.balance';
 import { Router } from 'express' ; 
 
@@ -14,6 +15,8 @@ export class PointBalanceRouter {
   private initializeRoutes(): void {
     this.router.put('/user/:userId/', this.pointBalanceController.updateBalance); 
         this.router.get('/user/:userId/', this.pointBalanceController.getBalance);
+        this.router.post('/user/', verifyToken,
+           this.pointBalanceController.createBalance);
   }
 
   public getRouter(): Router {

@@ -1,0 +1,431 @@
+
+> web@0.1.0 dev
+> next dev
+
+  ▲ Next.js 14.2.5
+  - Local:        http://localhost:3000
+  - Environments: .env
+
+ ✓ Starting...
+ ✓ Ready in 3.7s
+ ○ Compiling /dashboard/profile ...
+ ✓ Compiled /dashboard/profile in 4.3s (935 modules)
+ GET /dashboard/profile 200 in 5242ms
+ ○ Compiling /favicon.ico ...
+ ✓ Compiled /favicon.ico in 1922ms (965 modules)
+ GET /favicon.ico 200 in 1140ms
+ GET /favicon.ico 200 in 30ms
+ ✓ Compiled in 570ms (440 modules)
+ GET /dashboard/profile?firstName=eka&lastName=dzakir&address=222&dateOfBirth=&phoneNumber=085646831030&gender=MALE&location=atlanta 200 in 214ms
+ GET /favicon.ico 200 in 34ms
+ ○ Compiling /_not-found ...
+ ✓ Compiled /_not-found in 601ms (954 modules)
+ GET /_next/static/chunks/app/react-toastify.esm.mjs.map 404 in 832ms
+ GET /dashboard/bts.webp 404 in 44ms
+ ⨯ ./src/app/dashboard/profile/page.tsx
+Error: 
+  [31mx[0m Unexpected token `div`. Expected jsx identifier
+     ,-[[36;1;4mC:\Users\Chicky Chill\Downloads\resume\orange-portofolio\apps\web\src\app\dashboard\profile\page.tsx[0m:201:1]
+ [2m201[0m | 
+ [2m202[0m | export default Profile;
+ [2m203[0m | 
+ [2m204[0m |       <div className="flex items-center flex-col h-[700px]">
+     : [31;1m       ^^^[0m
+ [2m205[0m |         <div className="py-40">
+ [2m206[0m |           <h1 className="text-3xl sm:text-3xl md:text-3xl font-medium mb-8 text-gray-900 text-center font-sans">
+ [2m206[0m |             Free test account
+     `----
+
+Caused by:
+    Syntax Error
+
+Import trace for requested module:
+./src/app/dashboard/profile/page.tsx
+ ○ Compiling /_error ...
+ ⨯ ./src/app/dashboard/profile/page.tsx
+Error: 
+  [31mx[0m Expected ',', got 'className'
+     ,-[[36;1;4mC:\Users\Chicky Chill\Downloads\resume\orange-portofolio\apps\web\src\app\dashboard\profile\page.tsx[0m:196:1]
+ [2m196[0m |         </div>
+ [2m197[0m |       </div>
+ [2m198[0m |     </div>
+ [2m199[0m |         <div className="flex items-center flex-col h-[700px]">
+     : [31;1m             ^^^^^^^^^[0m
+ [2m200[0m |         <div className="py-40">
+ [2m201[0m |           <h1 className="text-3xl sm:text-3xl md:text-3xl font-medium mb-8 text-gray-900 text-center font-sans">
+ [2m201[0m |             Free test account
+     `----
+
+Caused by:
+    Syntax Error
+
+Import trace for requested module:
+./src/app/dashboard/profile/page.tsx
+ GET /dashboard/profile?firstName=eka&lastName=dzakir&address=222&dateOfBirth=&phoneNumber=085646831030&gender=MALE&location=atlanta 500 in 47ms
+ ⨯ ./src/app/dashboard/profile/page.tsx
+Error: 
+  [31mx[0m Unexpected token `div`. Expected jsx identifier
+     ,-[[36;1;4mC:\Users\Chicky Chill\Downloads\resume\orange-portofolio\apps\web\src\app\dashboard\profile\page.tsx[0m:101:1]
+ [2m101[0m |   if (error) return <div>{error}</div>;
+ [2m102[0m | 
+ [2m103[0m |   return (
+ [2m104[0m |     <div className="h-[1500px] bg-black bg-opacity-50 backdrop-blur-lg mt-14">
+     : [31;1m     ^^^[0m
+ [2m105[0m |       <div className="flex justify-center flex-wrap border-b-2">
+ [2m106[0m |         <h1 className="text-3xl font-medium mb-0 text-gray-900 text-center font-sans w-full pt-24">
+ [2m106[0m |           Your account
+     `----
+
+Caused by:
+    Syntax Error
+
+Import trace for requested module:
+./src/app/dashboard/profile/page.tsx
+ GET /_next/static/webpack/adbe3ce236e1d7ae.webpack.hot-update.json 500 in 680ms
+ ⚠ Fast Refresh had to perform a full reload. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+ GET /dashboard/profile?firstName=eka&lastName=dzakir&address=222&dateOfBirth=&phoneNumber=085646831030&gender=MALE&location=atlanta 200 in 36ms
+ GET /dashboard/profile?firstName=eka&lastName=dzakir&address=222&dateOfBirth=&phoneNumber=085646831030&gender=MALE&location=atlanta 500 in 22ms
+ ⨯ ./src/app/dashboard/profile/page.tsx
+Error: 
+  [31mx[0m Unexpected token `div`. Expected jsx identifier
+     ,-[[36;1;4mC:\Users\Chicky Chill\Downloads\resume\orange-portofolio\apps\web\src\app\dashboard\profile\page.tsx[0m:101:1]
+ [2m101[0m |   if (error) return <div>{error}</div>;
+ [2m102[0m | 
+ [2m103[0m |   return (
+ [2m104[0m |     <div className="h-[1500px] bg-black bg-opacity-50 backdrop-blur-lg mt-14">
+     : [31;1m     ^^^[0m
+ [2m105[0m |       <div className="flex justify-center flex-wrap border-b-2">
+ [2m106[0m |         <h1 className="text-3xl font-medium mb-0 text-gray-900 text-center font-sans w-full pt-24">
+ [2m106[0m |           Your account
+     `----
+
+Caused by:
+    Syntax Error
+
+Import trace for requested module:
+./src/app/dashboard/profile/page.tsx
+ GET /_next/static/webpack/adbe3ce236e1d7ae.webpack.hot-update.json 500 in 503ms
+ GET /favicon.ico 500 in 571ms
+ ⚠ Fast Refresh had to perform a full reload. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+ GET /dashboard/profile?firstName=eka&lastName=dzakir&address=222&dateOfBirth=&phoneNumber=085646831030&gender=MALE&location=atlanta 500 in 16ms
+ ⨯ ./src/app/dashboard/profile/page.tsx
+Error: 
+  [31mx[0m Unexpected token `div`. Expected jsx identifier
+     ,-[[36;1;4mC:\Users\Chicky Chill\Downloads\resume\orange-portofolio\apps\web\src\app\dashboard\profile\page.tsx[0m:101:1]
+ [2m101[0m |   if (error) return <div>{error}</div>;
+ [2m102[0m | 
+ [2m103[0m |   return (
+ [2m104[0m |     <div className="h-[1500px] bg-black bg-opacity-50 backdrop-blur-lg mt-14">
+     : [31;1m     ^^^[0m
+ [2m105[0m |       <div className="flex justify-center flex-wrap border-b-2">
+ [2m106[0m |         <h1 className="text-3xl font-medium mb-0 text-gray-900 text-center font-sans w-full pt-24">
+ [2m106[0m |           Your account
+     `----
+
+Caused by:
+    Syntax Error
+
+Import trace for requested module:
+./src/app/dashboard/profile/page.tsx
+ GET /_next/static/webpack/adbe3ce236e1d7ae.webpack.hot-update.json 500 in 661ms
+ GET /favicon.ico 500 in 707ms
+ ⚠ Fast Refresh had to perform a full reload. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+ GET /dashboard/profile?firstName=eka&lastName=dzakir&address=222&dateOfBirth=&phoneNumber=085646831030&gender=MALE&location=atlanta 500 in 16ms
+ GET /dashboard/profile?firstName=eka&lastName=dzakir&address=222&dateOfBirth=&phoneNumber=085646831030&gender=MALE&location=atlanta 500 in 20ms
+ ✓ Compiled /favicon.ico in 1018ms (1191 modules)
+ ✓ Compiled in 654ms (1191 modules)
+ ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+ GET /dashboard/profile?firstName=eka&lastName=dzakir&address=222&dateOfBirth=&phoneNumber=085646831030&gender=MALE&location=atlanta 200 in 588ms
+ GET /favicon.ico 200 in 54ms
+ GET /_next/static/chunks/app/react-toastify.esm.mjs.map 404 in 32ms
+ GET /favicon.ico 200 in 21ms
+ GET /dashboard/bts.webp 404 in 54ms
+ GET /_next/static/chunks/app/react-toastify.esm.mjs.map 404 in 37ms
+ GET /dashboard/profile?firstName=eka&lastName=dzakir&address=222&dateOfBirth=&phoneNumber=085646831030&gender=MALE&location=atlanta 200 in 88ms
+ GET /favicon.ico 200 in 60ms
+ GET /_next/static/chunks/app/react-toastify.esm.mjs.map 404 in 30ms
+ GET /favicon.ico 200 in 17ms
+ GET /assets/profile/undefined 404 in 54ms
+ ✓ Compiled in 1515ms (1156 modules)
+ ✓ Compiled in 623ms (1156 modules)
+ ✓ Compiled in 552ms (1156 modules)
+ ✓ Compiled in 684ms (1156 modules)
+ ✓ Compiled in 617ms (1156 modules)
+ ✓ Compiled in 1066ms (1156 modules)
+ ✓ Compiled in 530ms (1156 modules)
+ ✓ Compiled in 434ms (1156 modules)
+ ✓ Compiled in 632ms (1156 modules)
+ ✓ Compiled in 425ms (1156 modules)
+ ✓ Compiled in 635ms (1156 modules)
+ ✓ Compiled in 959ms (1156 modules)
+ ✓ Compiled in 520ms (1156 modules)
+ ✓ Compiled in 463ms (1156 modules)
+ ✓ Compiled in 610ms (1156 modules)
+ ✓ Compiled in 455ms (1156 modules)
+ ✓ Compiled in 449ms (1156 modules)
+ ✓ Compiled in 653ms (1156 modules)
+ ✓ Compiled in 1567ms (1156 modules)
+ ○ Compiling /event ...
+ ✓ Compiled /event in 935ms (1160 modules)
+ ○ Compiling /dashboard/balance ...
+ ✓ Compiled /dashboard/balance in 761ms (1168 modules)
+ ○ Compiling /eventCheck ...
+ ✓ Compiled /eventCheck in 594ms (1203 modules)
+ ⚠ The "images.domains" configuration is deprecated. Please use "images.remotePatterns" configuration instead.
+ ○ Compiling / ...
+ ✓ Compiled / in 1305ms (1889 modules)
+ ⚠ The requested resource "/narthan.gif" is an animated image so it will not be optimized. Consider adding the "unoptimized" property to the <Image>.
+ ⚠ The requested resource "/105408.gif" is an animated image so it will not be optimized. Consider adding the "unoptimized" property to the <Image>.
+Image with src "/narthan.gif" has legacy prop "layout". Did you forget to run the codemod?
+Read more: https://nextjs.org/docs/messages/next-image-upgrade-to-13
+ GET / 200 in 613ms
+ ○ Compiling /favicon.ico ...
+ ✓ Compiled /favicon.ico in 1440ms (942 modules)
+ GET /favicon.ico 200 in 1832ms
+ GET /favicon.ico 200 in 21ms
+ ✓ Compiled in 2.8s (1884 modules)
+ ⨯ Error: Cannot find module './522.js'
+Require stack:
+- C:\Users\Chicky Chill\Downloads\resume\orange-portofolio\apps\web\.next\server\webpack-runtime.js
+- C:\Users\Chicky Chill\Downloads\resume\orange-portofolio\apps\web\.next\server\app\page.js
+- C:\Users\Chicky Chill\Downloads\resume\orange-portofolio\node_modules\next\dist\server\require.js
+- C:\Users\Chicky Chill\Downloads\resume\orange-portofolio\node_modules\next\dist\server\load-components.js
+- C:\Users\Chicky Chill\Downloads\resume\orange-portofolio\node_modules\next\dist\build\utils.js
+- C:\Users\Chicky Chill\Downloads\resume\orange-portofolio\node_modules\next\dist\server\dev\hot-middleware.js
+- C:\Users\Chicky Chill\Downloads\resume\orange-portofolio\node_modules\next\dist\server\dev\hot-reloader-webpack.js
+- C:\Users\Chicky Chill\Downloads\resume\orange-portofolio\node_modules\next\dist\server\lib\router-utils\setup-dev-bundler.js
+- C:\Users\Chicky Chill\Downloads\resume\orange-portofolio\node_modules\next\dist\server\lib\router-server.js
+- C:\Users\Chicky Chill\Downloads\resume\orange-portofolio\node_modules\next\dist\server\lib\start-server.js
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1248:15)
+    at C:\Users\Chicky Chill\Downloads\resume\orange-portofolio\node_modules\next\dist\server\require-hook.js:55:36
+    at Module._load (node:internal/modules/cjs/loader:1074:27)
+    at TracingChannel.traceSync (node:diagnostics_channel:315:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:217:24)
+    at Module.require (node:internal/modules/cjs/loader:1339:12)
+    at mod.require (C:\Users\Chicky Chill\Downloads\resume\orange-portofolio\node_modules\next\dist\server\require-hook.js:65:28)
+    at require (node:internal/modules/helpers:135:16)
+    at __webpack_require__.f.require (C:\Users\Chicky Chill\Downloads\resume\orange-portofolio\apps\web\.next\server\webpack-runtime.js:203:28)
+    at C:\Users\Chicky Chill\Downloads\resume\orange-portofolio\apps\web\.next\server\webpack-runtime.js:111:40
+    at Array.reduce (<anonymous>)
+    at __webpack_require__.e (C:\Users\Chicky Chill\Downloads\resume\orange-portofolio\apps\web\.next\server\webpack-runtime.js:110:67)
+    at Array.map (<anonymous>)
+    at __webpack_require__.X (C:\Users\Chicky Chill\Downloads\resume\orange-portofolio\apps\web\.next\server\webpack-runtime.js:162:22)
+    at C:\Users\Chicky Chill\Downloads\resume\orange-portofolio\apps\web\.next\server\app\page.js:9:24096
+    at Object.<anonymous> (C:\Users\Chicky Chill\Downloads\resume\orange-portofolio\apps\web\.next\server\app\page.js:9:24160)
+    at Module._compile (node:internal/modules/cjs/loader:1546:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1691:10)
+    at Module.load (node:internal/modules/cjs/loader:1317:32)
+    at Module._load (node:internal/modules/cjs/loader:1127:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:315:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:217:24)
+    at Module.require (node:internal/modules/cjs/loader:1339:12)
+    at mod.require (C:\Users\Chicky Chill\Downloads\resume\orange-portofolio\node_modules\next\dist\server\require-hook.js:65:28)
+    at require (node:internal/modules/helpers:135:16)
+    at requirePage (C:\Users\Chicky Chill\Downloads\resume\orange-portofolio\node_modules\next\dist\server\require.js:109:84)
+    at C:\Users\Chicky Chill\Downloads\resume\orange-portofolio\node_modules\next\dist\server\load-components.js:98:84
+    at async loadComponentsImpl (C:\Users\Chicky Chill\Downloads\resume\orange-portofolio\node_modules\next\dist\server\load-components.js:98:26)
+    at async DevServer.findPageComponentsImpl (C:\Users\Chicky Chill\Downloads\resume\orange-portofolio\node_modules\next\dist\server\next-server.js:710:36)
+    at async DevServer.findPageComponents (C:\Users\Chicky Chill\Downloads\resume\orange-portofolio\node_modules\next\dist\server\dev\next-dev-server.js:577:20)
+    at async DevServer.renderPageComponent (C:\Users\Chicky Chill\Downloads\resume\orange-portofolio\node_modules\next\dist\server\base-server.js:1917:24)
+    at async DevServer.renderToResponseImpl (C:\Users\Chicky Chill\Downloads\resume\orange-portofolio\node_modules\next\dist\server\base-server.js:1969:32)
+    at async DevServer.pipeImpl (C:\Users\Chicky Chill\Downloads\resume\orange-portofolio\node_modules\next\dist\server\base-server.js:920:25)
+    at async NextNodeServer.handleCatchallRenderRequest (C:\Users\Chicky Chill\Downloads\resume\orange-portofolio\node_modules\next\dist\server\next-server.js:272:17)
+    at async DevServer.handleRequestImpl (C:\Users\Chicky Chill\Downloads\resume\orange-portofolio\node_modules\next\dist\server\base-server.js:816:17)
+    at async C:\Users\Chicky Chill\Downloads\resume\orange-portofolio\node_modules\next\dist\server\dev\next-dev-server.js:339:20
+    at async Span.traceAsyncFn (C:\Users\Chicky Chill\Downloads\resume\orange-portofolio\node_modules\next\dist\trace\trace.js:154:20)
+    at async DevServer.handleRequest (C:\Users\Chicky Chill\Downloads\resume\orange-portofolio\node_modules\next\dist\server\dev\next-dev-server.js:336:24)
+    at async invokeRender (C:\Users\Chicky Chill\Downloads\resume\orange-portofolio\node_modules\next\dist\server\lib\router-server.js:174:21)
+    at async handleRequest (C:\Users\Chicky Chill\Downloads\resume\orange-portofolio\node_modules\next\dist\server\lib\router-server.js:353:24)
+    at async requestHandlerImpl (C:\Users\Chicky Chill\Downloads\resume\orange-portofolio\node_modules\next\dist\server\lib\router-server.js:377:13)
+    at async Server.requestListener (C:\Users\Chicky Chill\Downloads\resume\orange-portofolio\node_modules\next\dist\server\lib\start-server.js:141:13) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [
+    'C:\\Users\\Chicky Chill\\Downloads\\resume\\orange-portofolio\\apps\\web\\.next\\server\\webpack-runtime.js',
+    'C:\\Users\\Chicky Chill\\Downloads\\resume\\orange-portofolio\\apps\\web\\.next\\server\\app\\page.js',
+    'C:\\Users\\Chicky Chill\\Downloads\\resume\\orange-portofolio\\node_modules\\next\\dist\\server\\require.js',
+    'C:\\Users\\Chicky Chill\\Downloads\\resume\\orange-portofolio\\node_modules\\next\\dist\\server\\load-components.js',
+    'C:\\Users\\Chicky Chill\\Downloads\\resume\\orange-portofolio\\node_modules\\next\\dist\\build\\utils.js',
+    'C:\\Users\\Chicky Chill\\Downloads\\resume\\orange-portofolio\\node_modules\\next\\dist\\server\\dev\\hot-middleware.js',
+    'C:\\Users\\Chicky Chill\\Downloads\\resume\\orange-portofolio\\node_modules\\next\\dist\\server\\dev\\hot-reloader-webpack.js',
+    'C:\\Users\\Chicky Chill\\Downloads\\resume\\orange-portofolio\\node_modules\\next\\dist\\server\\lib\\router-utils\\setup-dev-bundler.js',
+    'C:\\Users\\Chicky Chill\\Downloads\\resume\\orange-portofolio\\node_modules\\next\\dist\\server\\lib\\router-server.js',
+    'C:\\Users\\Chicky Chill\\Downloads\\resume\\orange-portofolio\\node_modules\\next\\dist\\server\\lib\\start-server.js'
+  ],
+  page: '/'
+}
+ ○ Compiling /_error ...
+ ✓ Compiled /_error in 1210ms (1872 modules)
+ ⨯ Error: Cannot find module './135.js'
+Require stack:
+- C:\Users\Chicky Chill\Downloads\resume\orange-portofolio\apps\web\.next\server\webpack-runtime.js
+- C:\Users\Chicky Chill\Downloads\resume\orange-portofolio\apps\web\.next\server\pages\_document.js
+- C:\Users\Chicky Chill\Downloads\resume\orange-portofolio\node_modules\next\dist\server\require.js
+- C:\Users\Chicky Chill\Downloads\resume\orange-portofolio\node_modules\next\dist\server\load-components.js
+- C:\Users\Chicky Chill\Downloads\resume\orange-portofolio\node_modules\next\dist\build\utils.js
+- C:\Users\Chicky Chill\Downloads\resume\orange-portofolio\node_modules\next\dist\server\dev\hot-middleware.js
+- C:\Users\Chicky Chill\Downloads\resume\orange-portofolio\node_modules\next\dist\server\dev\hot-reloader-webpack.js
+- C:\Users\Chicky Chill\Downloads\resume\orange-portofolio\node_modules\next\dist\server\lib\router-utils\setup-dev-bundler.js
+- C:\Users\Chicky Chill\Downloads\resume\orange-portofolio\node_modules\next\dist\server\lib\router-server.js
+- C:\Users\Chicky Chill\Downloads\resume\orange-portofolio\node_modules\next\dist\server\lib\start-server.js
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1248:15)
+    at C:\Users\Chicky Chill\Downloads\resume\orange-portofolio\node_modules\next\dist\server\require-hook.js:55:36
+    at Module._load (node:internal/modules/cjs/loader:1074:27)
+    at TracingChannel.traceSync (node:diagnostics_channel:315:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:217:24)
+    at Module.require (node:internal/modules/cjs/loader:1339:12)
+    at mod.require (C:\Users\Chicky Chill\Downloads\resume\orange-portofolio\node_modules\next\dist\server\require-hook.js:65:28)
+    at require (node:internal/modules/helpers:135:16)
+    at __webpack_require__.f.require (C:\Users\Chicky Chill\Downloads\resume\orange-portofolio\apps\web\.next\server\webpack-runtime.js:203:28)
+    at C:\Users\Chicky Chill\Downloads\resume\orange-portofolio\apps\web\.next\server\webpack-runtime.js:111:40
+    at Array.reduce (<anonymous>)
+    at __webpack_require__.e (C:\Users\Chicky Chill\Downloads\resume\orange-portofolio\apps\web\.next\server\webpack-runtime.js:110:67)
+    at Array.map (<anonymous>)
+    at __webpack_require__.X (C:\Users\Chicky Chill\Downloads\resume\orange-portofolio\apps\web\.next\server\webpack-runtime.js:162:22)
+    at C:\Users\Chicky Chill\Downloads\resume\orange-portofolio\apps\web\.next\server\pages\_document.js:1:335
+    at Object.<anonymous> (C:\Users\Chicky Chill\Downloads\resume\orange-portofolio\apps\web\.next\server\pages\_document.js:1:376)
+    at Module._compile (node:internal/modules/cjs/loader:1546:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1691:10)
+    at Module.load (node:internal/modules/cjs/loader:1317:32)
+    at Module._load (node:internal/modules/cjs/loader:1127:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:315:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:217:24)
+    at Module.require (node:internal/modules/cjs/loader:1339:12)
+    at mod.require (C:\Users\Chicky Chill\Downloads\resume\orange-portofolio\node_modules\next\dist\server\require-hook.js:65:28)
+    at require (node:internal/modules/helpers:135:16)
+    at requirePage (C:\Users\Chicky Chill\Downloads\resume\orange-portofolio\node_modules\next\dist\server\require.js:109:84)
+    at C:\Users\Chicky Chill\Downloads\resume\orange-portofolio\node_modules\next\dist\server\load-components.js:72:65
+    at async Promise.all (index 0)
+    at async loadComponentsImpl (C:\Users\Chicky Chill\Downloads\resume\orange-portofolio\node_modules\next\dist\server\load-components.js:71:33)
+    at async DevServer.findPageComponentsImpl (C:\Users\Chicky Chill\Downloads\resume\orange-portofolio\node_modules\next\dist\server\next-server.js:710:36) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [
+    'C:\\Users\\Chicky Chill\\Downloads\\resume\\orange-portofolio\\apps\\web\\.next\\server\\webpack-runtime.js',
+    'C:\\Users\\Chicky Chill\\Downloads\\resume\\orange-portofolio\\apps\\web\\.next\\server\\pages\\_document.js',
+    'C:\\Users\\Chicky Chill\\Downloads\\resume\\orange-portofolio\\node_modules\\next\\dist\\server\\require.js',
+    'C:\\Users\\Chicky Chill\\Downloads\\resume\\orange-portofolio\\node_modules\\next\\dist\\server\\load-components.js',
+    'C:\\Users\\Chicky Chill\\Downloads\\resume\\orange-portofolio\\node_modules\\next\\dist\\build\\utils.js',
+    'C:\\Users\\Chicky Chill\\Downloads\\resume\\orange-portofolio\\node_modules\\next\\dist\\server\\dev\\hot-middleware.js',
+    'C:\\Users\\Chicky Chill\\Downloads\\resume\\orange-portofolio\\node_modules\\next\\dist\\server\\dev\\hot-reloader-webpack.js',
+    'C:\\Users\\Chicky Chill\\Downloads\\resume\\orange-portofolio\\node_modules\\next\\dist\\server\\lib\\router-utils\\setup-dev-bundler.js',
+    'C:\\Users\\Chicky Chill\\Downloads\\resume\\orange-portofolio\\node_modules\\next\\dist\\server\\lib\\router-server.js',
+    'C:\\Users\\Chicky Chill\\Downloads\\resume\\orange-portofolio\\node_modules\\next\\dist\\server\\lib\\start-server.js'
+  ]
+}
+ ⨯ Error: Cannot find module './522.js'
+Require stack:
+- C:\Users\Chicky Chill\Downloads\resume\orange-portofolio\apps\web\.next\server\webpack-runtime.js
+- C:\Users\Chicky Chill\Downloads\resume\orange-portofolio\apps\web\.next\server\pages\_document.js
+- C:\Users\Chicky Chill\Downloads\resume\orange-portofolio\node_modules\next\dist\server\require.js
+- C:\Users\Chicky Chill\Downloads\resume\orange-portofolio\node_modules\next\dist\server\load-components.js
+- C:\Users\Chicky Chill\Downloads\resume\orange-portofolio\node_modules\next\dist\build\utils.js
+- C:\Users\Chicky Chill\Downloads\resume\orange-portofolio\node_modules\next\dist\server\dev\hot-middleware.js
+- C:\Users\Chicky Chill\Downloads\resume\orange-portofolio\node_modules\next\dist\server\dev\hot-reloader-webpack.js
+- C:\Users\Chicky Chill\Downloads\resume\orange-portofolio\node_modules\next\dist\server\lib\router-utils\setup-dev-bundler.js
+- C:\Users\Chicky Chill\Downloads\resume\orange-portofolio\node_modules\next\dist\server\lib\router-server.js
+- C:\Users\Chicky Chill\Downloads\resume\orange-portofolio\node_modules\next\dist\server\lib\start-server.js
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1248:15)
+    at C:\Users\Chicky Chill\Downloads\resume\orange-portofolio\node_modules\next\dist\server\require-hook.js:55:36
+    at Module._load (node:internal/modules/cjs/loader:1074:27)
+    at TracingChannel.traceSync (node:diagnostics_channel:315:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:217:24)
+    at Module.require (node:internal/modules/cjs/loader:1339:12)
+    at mod.require (C:\Users\Chicky Chill\Downloads\resume\orange-portofolio\node_modules\next\dist\server\require-hook.js:65:28)
+    at require (node:internal/modules/helpers:135:16)
+    at __webpack_require__.f.require (C:\Users\Chicky Chill\Downloads\resume\orange-portofolio\apps\web\.next\server\webpack-runtime.js:203:28)
+    at C:\Users\Chicky Chill\Downloads\resume\orange-portofolio\apps\web\.next\server\webpack-runtime.js:111:40
+    at Array.reduce (<anonymous>)
+    at __webpack_require__.e (C:\Users\Chicky Chill\Downloads\resume\orange-portofolio\apps\web\.next\server\webpack-runtime.js:110:67)
+    at Array.map (<anonymous>)
+    at __webpack_require__.X (C:\Users\Chicky Chill\Downloads\resume\orange-portofolio\apps\web\.next\server\webpack-runtime.js:162:22)
+    at C:\Users\Chicky Chill\Downloads\resume\orange-portofolio\apps\web\.next\server\app\page.js:9:24096
+    at Object.<anonymous> (C:\Users\Chicky Chill\Downloads\resume\orange-portofolio\apps\web\.next\server\app\page.js:9:24160)
+    at Module._compile (node:internal/modules/cjs/loader:1546:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1691:10)
+    at Module.load (node:internal/modules/cjs/loader:1317:32)
+    at Module._load (node:internal/modules/cjs/loader:1127:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:315:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:217:24)
+    at Module.require (node:internal/modules/cjs/loader:1339:12)
+    at mod.require (C:\Users\Chicky Chill\Downloads\resume\orange-portofolio\node_modules\next\dist\server\require-hook.js:65:28)
+    at require (node:internal/modules/helpers:135:16)
+    at requirePage (C:\Users\Chicky Chill\Downloads\resume\orange-portofolio\node_modules\next\dist\server\require.js:109:84)
+    at C:\Users\Chicky Chill\Downloads\resume\orange-portofolio\node_modules\next\dist\server\load-components.js:98:84
+    at async loadComponentsImpl (C:\Users\Chicky Chill\Downloads\resume\orange-portofolio\node_modules\next\dist\server\load-components.js:98:26)
+    at async DevServer.findPageComponentsImpl (C:\Users\Chicky Chill\Downloads\resume\orange-portofolio\node_modules\next\dist\server\next-server.js:710:36)
+    at async DevServer.findPageComponents (C:\Users\Chicky Chill\Downloads\resume\orange-portofolio\node_modules\next\dist\server\dev\next-dev-server.js:577:20)
+    at async DevServer.renderPageComponent (C:\Users\Chicky Chill\Downloads\resume\orange-portofolio\node_modules\next\dist\server\base-server.js:1917:24)
+    at async DevServer.renderToResponseImpl (C:\Users\Chicky Chill\Downloads\resume\orange-portofolio\node_modules\next\dist\server\base-server.js:1969:32)
+    at async DevServer.pipeImpl (C:\Users\Chicky Chill\Downloads\resume\orange-portofolio\node_modules\next\dist\server\base-server.js:920:25)
+    at async NextNodeServer.handleCatchallRenderRequest (C:\Users\Chicky Chill\Downloads\resume\orange-portofolio\node_modules\next\dist\server\next-server.js:272:17)
+    at async DevServer.handleRequestImpl (C:\Users\Chicky Chill\Downloads\resume\orange-portofolio\node_modules\next\dist\server\base-server.js:816:17)
+    at async C:\Users\Chicky Chill\Downloads\resume\orange-portofolio\node_modules\next\dist\server\dev\next-dev-server.js:339:20
+    at async Span.traceAsyncFn (C:\Users\Chicky Chill\Downloads\resume\orange-portofolio\node_modules\next\dist\trace\trace.js:154:20)
+    at async DevServer.handleRequest (C:\Users\Chicky Chill\Downloads\resume\orange-portofolio\node_modules\next\dist\server\dev\next-dev-server.js:336:24)
+    at async invokeRender (C:\Users\Chicky Chill\Downloads\resume\orange-portofolio\node_modules\next\dist\server\lib\router-server.js:174:21)
+    at async handleRequest (C:\Users\Chicky Chill\Downloads\resume\orange-portofolio\node_modules\next\dist\server\lib\router-server.js:353:24)
+    at async requestHandlerImpl (C:\Users\Chicky Chill\Downloads\resume\orange-portofolio\node_modules\next\dist\server\lib\router-server.js:377:13)
+    at async Server.requestListener (C:\Users\Chicky Chill\Downloads\resume\orange-portofolio\node_modules\next\dist\server\lib\start-server.js:141:13) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [
+    'C:\\Users\\Chicky Chill\\Downloads\\resume\\orange-portofolio\\apps\\web\\.next\\server\\webpack-runtime.js',
+    'C:\\Users\\Chicky Chill\\Downloads\\resume\\orange-portofolio\\apps\\web\\.next\\server\\pages\\_document.js',
+    'C:\\Users\\Chicky Chill\\Downloads\\resume\\orange-portofolio\\node_modules\\next\\dist\\server\\require.js',
+    'C:\\Users\\Chicky Chill\\Downloads\\resume\\orange-portofolio\\node_modules\\next\\dist\\server\\load-components.js',
+    'C:\\Users\\Chicky Chill\\Downloads\\resume\\orange-portofolio\\node_modules\\next\\dist\\build\\utils.js',
+    'C:\\Users\\Chicky Chill\\Downloads\\resume\\orange-portofolio\\node_modules\\next\\dist\\server\\dev\\hot-middleware.js',
+    'C:\\Users\\Chicky Chill\\Downloads\\resume\\orange-portofolio\\node_modules\\next\\dist\\server\\dev\\hot-reloader-webpack.js',
+    'C:\\Users\\Chicky Chill\\Downloads\\resume\\orange-portofolio\\node_modules\\next\\dist\\server\\lib\\router-utils\\setup-dev-bundler.js',
+    'C:\\Users\\Chicky Chill\\Downloads\\resume\\orange-portofolio\\node_modules\\next\\dist\\server\\lib\\router-server.js',
+    'C:\\Users\\Chicky Chill\\Downloads\\resume\\orange-portofolio\\node_modules\\next\\dist\\server\\lib\\start-server.js'
+  ],
+  page: '/'
+}
+ ⨯ Error: Cannot find module './135.js'
+Require stack:
+- C:\Users\Chicky Chill\Downloads\resume\orange-portofolio\apps\web\.next\server\webpack-runtime.js
+- C:\Users\Chicky Chill\Downloads\resume\orange-portofolio\apps\web\.next\server\pages\_document.js
+- C:\Users\Chicky Chill\Downloads\resume\orange-portofolio\node_modules\next\dist\server\require.js
+- C:\Users\Chicky Chill\Downloads\resume\orange-portofolio\node_modules\next\dist\server\load-components.js
+- C:\Users\Chicky Chill\Downloads\resume\orange-portofolio\node_modules\next\dist\build\utils.js
+- C:\Users\Chicky Chill\Downloads\resume\orange-portofolio\node_modules\next\dist\server\dev\hot-middleware.js
+- C:\Users\Chicky Chill\Downloads\resume\orange-portofolio\node_modules\next\dist\server\dev\hot-reloader-webpack.js
+- C:\Users\Chicky Chill\Downloads\resume\orange-portofolio\node_modules\next\dist\server\lib\router-utils\setup-dev-bundler.js
+- C:\Users\Chicky Chill\Downloads\resume\orange-portofolio\node_modules\next\dist\server\lib\router-server.js
+- C:\Users\Chicky Chill\Downloads\resume\orange-portofolio\node_modules\next\dist\server\lib\start-server.js
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1248:15)
+    at C:\Users\Chicky Chill\Downloads\resume\orange-portofolio\node_modules\next\dist\server\require-hook.js:55:36
+    at Module._load (node:internal/modules/cjs/loader:1074:27)
+    at TracingChannel.traceSync (node:diagnostics_channel:315:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:217:24)
+    at Module.require (node:internal/modules/cjs/loader:1339:12)
+    at mod.require (C:\Users\Chicky Chill\Downloads\resume\orange-portofolio\node_modules\next\dist\server\require-hook.js:65:28)
+    at require (node:internal/modules/helpers:135:16)
+ GET / 500 in 41ms
+    at __webpack_require__.f.require (C:\Users\Chicky Chill\Downloads\resume\orange-portofolio\apps\web\.next\server\webpack-runtime.js:203:28)
+    at C:\Users\Chicky Chill\Downloads\resume\orange-portofolio\apps\web\.next\server\webpack-runtime.js:111:40
+    at Array.reduce (<anonymous>)
+    at __webpack_require__.e (C:\Users\Chicky Chill\Downloads\resume\orange-portofolio\apps\web\.next\server\webpack-runtime.js:110:67)
+    at Array.map (<anonymous>)
+    at __webpack_require__.X (C:\Users\Chicky Chill\Downloads\resume\orange-portofolio\apps\web\.next\server\webpack-runtime.js:162:22)
+    at C:\Users\Chicky Chill\Downloads\resume\orange-portofolio\apps\web\.next\server\pages\_document.js:1:335
+    at Object.<anonymous> (C:\Users\Chicky Chill\Downloads\resume\orange-portofolio\apps\web\.next\server\pages\_document.js:1:376)
+    at Module._compile (node:internal/modules/cjs/loader:1546:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1691:10)
+    at Module.load (node:internal/modules/cjs/loader:1317:32)
+    at Module._load (node:internal/modules/cjs/loader:1127:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:315:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:217:24)
+    at Module.require (node:internal/modules/cjs/loader:1339:12)
+    at mod.require (C:\Users\Chicky Chill\Downloads\resume\orange-portofolio\node_modules\next\dist\server\require-hook.js:65:28)
+    at require (node:internal/modules/helpers:135:16)
+    at requirePage (C:\Users\Chicky Chill\Downloads\resume\orange-portofolio\node_modules\next\dist\server\require.js:109:84)
+    at C:\Users\Chicky Chill\Downloads\resume\orange-portofolio\node_modules\next\dist\server\load-components.js:72:65
+    at async Promise.all (index 0)
+    at async loadComponentsImpl (C:\Users\Chicky Chill\Downloads\resume\orange-portofolio\node_modules\next\dist\server\load-components.js:71:33)
+    at async DevServer.findPageComponentsImpl (C:\Users\Chicky Chill\Downloads\resume\orange-portofolio\node_modules\next\dist\server\next-server.js:710:36) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [
+    'C:\\Users\\Chicky Chill\\Downloads\\resume\\orange-portofolio\\apps\\web\\.next\\server\\webpack-runtime.js',
+    'C:\\Users\\Chicky Chill\\Downloads\\resume\\orange-portofolio\\apps\\web\\.next\\server\\pages\\_document.js',
+    'C:\\Users\\Chicky Chill\\Downloads\\resume\\orange-portofolio\\node_modules\\next\\dist\\server\\require.js',
+    'C:\\Users\\Chicky Chill\\Downloads\\resume\\orange-portofolio\\node_modules\\next\\dist\\server\\load-components.js',

@@ -9,6 +9,8 @@ import Image from 'next/image';
 import withRole  from '@/hoc/roleGuard';
 import Markdown from 'markdown-to-jsx';
 import { ClassNames } from '@emotion/react';
+import { Carousel, CarouselContent, CarouselItem } from '@/components/ui/carousel';
+import { FaChevronLeft, FaChevronRight } from 'react-icons/fa';
 type Event = {
   user: number;
   ticketType: string;
@@ -58,6 +60,7 @@ const EventDetailPage: React.FC<Props> = ({ params }: Props) => {
   const [loading, setLoading] = useState(true);
   const [pagination, setPagination] = useState<Pagination | null>(null);
   const router = useRouter();
+  const [currentIndex, setCurrentIndex] = useState(0);
 
   useEffect(() => {
     const fetchEventDetails = async () => {
@@ -255,6 +258,19 @@ const EventDetailPage: React.FC<Props> = ({ params }: Props) => {
   if (loading) return <p>Loading ... </p>;
   if (!event) return <p>Event not found </p>;
 
+        
+    const handlePrev = () => {
+      setCurrentIndex((prevIndex) =>
+        prevIndex === 0 ? event.images.length - 1 : prevIndex - 1
+      );
+    };
+  
+    const handleNext = () => {
+      setCurrentIndex((prevIndex) =>
+        prevIndex === event.images.length - 1 ? 0 : prevIndex + 1
+      );
+    };
+  
   const currentTime = new Date().getTime();
   const startTime = new Date(event.startTime).getTime();
   const endTime = new Date(event.endTime).getTime();
@@ -265,18 +281,42 @@ const EventDetailPage: React.FC<Props> = ({ params }: Props) => {
       <div className="flex flex-col lg:flex-row justify-between">
         <div className="w-full lg:w-2/3">
           <ToastContainer />
-          <div className="w-96 h-96 flex">
-            {event.images.length > 0 && (
-              <Image
-                src={`http://localhost:8000${event.images[0].path}`}
-                alt={event.title}
-                width={400}
-                height={400}
-                className="rounded-sm my-5 shadow-sm w-full h-auto max-w-full"
-              />
-            )} { ' ' }
-          </div>
-
+          <div className="relative w-96 h-96 flex">
+      {event.images.length > 0 && (
+        <Carousel>
+          <CarouselContent
+            style={{ transform: `translateX(-${currentIndex * 100}%)` }}
+          >
+            {event.images.map((image) => (
+              <CarouselItem key={image.id} className="flex-shrink-0 w-[120px] h-[400px]">
+                <Image
+                  src={`http://localhost:8000${image.path}`}
+                  alt={event.title}
+                  width={400}
+                  height={400} 
+                  objectFit='layout'
+                  className="rounded-sm my-5 shadow-sm w-full h-auto max-w-full bg-black/40"
+                />
+              </CarouselItem>
+            ))}
+          </CarouselContent>
+          {/* Left Navigation */}
+          <button
+            onClick={handlePrev}
+            className="absolute top-1/2 left-0 transform -translate-y-1/2 bg-gray-800/40 text-white p-1 rounded-full backdrop-blur-3xl border-white/60 border-2 mx-1"
+          >
+            <FaChevronLeft size={20} />
+          </button>
+          {/* Right Navigation */}
+          <button
+            onClick={handleNext}
+            className="absolute top-1/2 right-0 transform -translate-y-1/2 bg-gray-800/40 text-white p- rounded-full  backdrop-blur-3xl border-white/60 border-2 mx-1"
+          >
+            <FaChevronRight size={20} />
+          </button>
+        </Carousel>
+      )}
+    </div>
           <div className="bg-gray-50 flex rounded-sm font-sans flex-col py-5 text-gray-100">
             <h1 className="text-2xl md:text-3xl font-medium text-gray-900 font-sans uppercase">
               {event.title}

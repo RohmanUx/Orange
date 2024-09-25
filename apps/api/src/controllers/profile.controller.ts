@@ -39,6 +39,15 @@ export class ProfileController {
               locationName: true,
             },
           },
+          user: {
+            select: {
+              email: true,
+              points: true,
+              identificationId: true,
+              balance: true,
+              referralCode: true,
+            },
+          },
           image: true,
         },
       });
@@ -52,7 +61,8 @@ export class ProfileController {
 
       next({ success: false, message: 'Failed to get your information' });
     }
-`  `  }
+    `  `;
+  }
   async addProfileUser(req: Request, res: Response, next: NextFunction) {
     try {
       const {
@@ -168,8 +178,15 @@ export class ProfileController {
             userId: res.locals.decrypt.id,
           },
         });
+        // If the user profile is not found, return an error
+        if (!findUser) {
+          return res.status(404).send({
+            success: false,
+            message: 'User profile not found',
+          });
+        }
 
-        if (findUser?.image) {
+        if (findUser.image) {
           const oldImagePath = path.join(
             __dirname,
             '../../public',
@@ -190,9 +207,9 @@ export class ProfileController {
             dateOfBirth: dateOfBirth
               ? new Date(dateOfBirth).toISOString()
               : findUser?.dateOfBirth,
-            image: req.file
-              ? `/assets/profile/${req.file?.filename}`
-              : findUser?.image,
+            // image: req.file
+            //   ? `/assets/profile/${req.file?.filename}`
+            //   : findUser?.image,
           },
           where: {
             id: findUser?.id,

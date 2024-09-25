@@ -39,7 +39,7 @@ const Hero: React.FC = () => {
           className="absolute inset-0 w-full h-full bg-gray-900/90 z-0"
         />
         <div className="bg-opacity-50 flex flex-col justify-center items-center w-full h-full absolute top-0 left-0">
-          <div className="backdrop-blur-md flex flex-col items-center p-8 md:p-14 rounded-xl border border-white bg-white bg-opacity-10">
+          <div className="backdrop-blur-md flex flex-col items-center p-8 md:p-14 rounded-none border border-white bg-white bg-opacity-10">
             <div className="flex mt-4">
               <h1 className="text-gray-700 text-3xl md:text-4xl lg:text-6xl font-bold mb-2 text-center font-KalesiRoundedDemo">
                 Discover Event{' '}
@@ -69,8 +69,8 @@ const Hero: React.FC = () => {
                 type="text"
                 value={searchTerm}
                 onChange={onSearchChange}
-                placeholder="search event? "
-                className="px-4 md:px-4 lg:px-6 w-full md:w-96 py-1 rounded-xl border-gray-600 bg-gray-50 focus:outline-none focus:ring-2 focus:ring-blue-200 border bg-opacity-60 text-gray-950 placeholder-gray-700 text-base md:text-lg shadow-sm font-sans hover:placeholder-gray-900 hover:bg-gray-300 hover:text-gray-900"
+                placeholder="Search event? "
+                className="px-4 md:px-4 lg:px-5 w-full md:w-96 py-1 rounded-full border-gray-600 bg-gray-50 focus:outline-none focus:ring-2 focus:ring-blue-200 border bg-opacity-60 text-gray-950 placeholder-gray-700 text-sm md:text-sm h-10 shadow-sm font-sans hover:placeholder-gray-900 hover:bg-gray-300 hover:text-gray-900"
               />
             </div>
           </div>

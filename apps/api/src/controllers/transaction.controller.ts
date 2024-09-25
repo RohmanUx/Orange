@@ -1,5 +1,5 @@
 import { Request, Response } from 'express';
-import prisma from '../prisma'; 
+import prisma from '../prisma';
 
 export class TransactionController {
   async createTransaction(req: Request, res: Response) {
@@ -69,29 +69,39 @@ export class TransactionController {
     }
   }
 
-  async readTransaction(req: Request, res: Response) {
-    const { userId, eventId } = req.params;
-
+  async readTransaction(req: Request , res: Response) {
+    const userId = res.locals.decrypt.id;
+  
     try {
-      const purchase = await prisma.ticket.findFirst({
+      // Fetch the user's transaction records
+      const transactions = await prisma.ticket.findMany({
         where: {
           userId: parseInt(userId, 10),
-          eventId: parseInt(eventId, 10),
+        },
+        select: { 
+          id: true, 
+          userId: true, 
+          qty: true,
+          eventId: true,
+          total: true,
+          status: true,
+          transactionDate: true,
         },
       });
-
-      if (purchase) {
-        res.send({ purchase: true });
-      } else {
-        res.send({ purchase: false });
-      }
+  
+      // Return the transactions if found
+      return res.status(200).send({
+        data: transactions,
+      });
     } catch (error) {
-      res
-        .status(500)
-        .send({ message: 'Error checking purchase status.', error });
+      // Handle any errors during the query
+      return res.status(500).send({
+        message: 'Error checking purchase status.',
+        error,
+      });
     }
   }
-  async updateTransaction(req: Request, res: Response) {
+    async updateTransaction(req: Request, res: Response) {
     const { id } = req.params;
     const { qty, discountCode } = req.body;
 

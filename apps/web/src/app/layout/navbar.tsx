@@ -39,13 +39,13 @@ export const Navbar: React.FC = () => {
 
   return (
     <nav
-      className={`fixed top-0 w-full z-50 transition-all backdrop-blur-3xl border-b-[1px] border-white/60 justify-around  ${
+      className={`fixed top-0 w-full z-50 transition-all backdrop-blur-3xl justify-around  ${
         pathname === '/login' || pathname === '/register'
           ? 'bg-transparent'
-          : 'bg-white/90'
+          : 'bg-white/40'
       }`}
     >
-      <div className="flex justify-between items-center px-20 py-2 lg:px-36">
+      <div className="flex justify-between items-center px-20 py-1 lg:px-36">
         {/* Logo */}
         <div>
           <Link href="/" className="font-medium text-2xl lg:text-2xl border-black/30 border-2 px-2 text-black/80 bg-orange-100  xl:sm:w-40">
@@ -71,9 +71,9 @@ export const Navbar: React.FC = () => {
           <Popover open={isOpen} onOpenChange={setIsOpen}>
             <PopoverTrigger asChild>
               <button className="flex items-end justify-end space-x-2   xl:sm:w-36 ">
-                <Avatar>
+                <Avatar className='h-9 w-9'>
                   <AvatarImage
-                    src={user.image ? `http://localhost:8000${user.image}` : '/pngegg.png'}
+                    src={user.image ? `http://localhost:800${user.image}` : 'bts.webp'}
                   />
                   <AvatarFallback>{user.name}</AvatarFallback>
                 </Avatar>

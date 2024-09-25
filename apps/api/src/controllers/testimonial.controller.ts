@@ -33,7 +33,8 @@ export class TestimonialController {
   async createTestimonial(req: Request, res: Response) {
     const { userId, eventId, reviewDescription, rating } = req.body;
 
-    try {
+    try { 
+  
       // // Check if the user can create a testimonial
       // const canCreate = await this.canCreateTestimonial(Number(userId), Number(eventId));
       

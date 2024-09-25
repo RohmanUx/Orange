@@ -20,6 +20,7 @@ import apiCall from '@/helper/apiCall';
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { useRouter } from 'next/navigation';
+import { Toast } from 'react-toastify/dist/components';
 
 interface IRegisterProps {}
 
@@ -48,8 +49,9 @@ const Register: React.FunctionComponent<IRegisterProps> = (props) => {
     onSuccess: (data) => {
       console.log(data.result);
       localStorage.setItem('token', data.result.token);
-      router.replace('/');
-    },
+      router.replace('/'); 
+      toast.success('Operation was successful!');
+    }, 
     onError: (error: any) => {
       console.log(error);
       toast(error.response.data.message);

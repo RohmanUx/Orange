@@ -1,8 +1,7 @@
-  'use client';
-
-import React, { useState } from 'react';
+'use client'
 import axios from 'axios';
 import withRole from '@/hoc/roleGuard'; // Assuming you're using a role guard HOC
+import React, { useState, useEffect } from 'react';
 
 const PostEventForm: React.FC = () => {
   const [formData, setFormData] = useState({
@@ -50,7 +49,7 @@ const PostEventForm: React.FC = () => {
       return;
     }
 
-    const formDataToSend = new FormData();
+    const formDataToSend = new FormData(); 
     Object.keys(formData).forEach((key) => {
       formDataToSend.append(key, formData[key as FormDataKey]);
     });
@@ -62,11 +61,11 @@ const PostEventForm: React.FC = () => {
         'http://localhost:8000/api/event/event',
         formDataToSend,
         {
-          headers: {
+          headers: { 
             'Content-Type': 'multipart/form-data',
             Authorization: `Bearer ${token}`,
           },
-        }
+        },
       );
 
       if (response.data.success) {
@@ -198,7 +197,8 @@ const PostEventForm: React.FC = () => {
       </form>
       {error && <p className="text-red-500">{error}</p>}
       {success && <p className="text-green-500">Event posted successfully!</p>}
-    </div>
+    </div> 
+  
   );
 };
 

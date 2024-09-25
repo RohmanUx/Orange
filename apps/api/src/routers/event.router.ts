@@ -39,7 +39,7 @@ export class EventRouter {
     );
 
         this.router.delete(
-      '/delete-event/:eventId',
+      '/delete/:eventId',
       verifyToken,
       this.eventController.deleteEvent,
     );
