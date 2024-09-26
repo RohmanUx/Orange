@@ -101,7 +101,7 @@ export class CategoryController {
       res.status(500).send({ error: 'Error updating category' });
     }
   }
-
+   
   // Delete Category
   async deleteCategory(req: Request, res: Response) {
     try {

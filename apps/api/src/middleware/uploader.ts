@@ -7,7 +7,7 @@ type MulterFile = Express.Multer.File;
 
 export const uploader = (dirName: string | null, prefixName?: string) => {
   // Base directory for file storage
-  const mainDir = path.join(__dirname, '../../public'); 
+  const mainDir = path.join(__dirname, '../../public');
 
   // Configure storage for multer
   const configFileStore = multer.diskStorage({
@@ -36,4 +36,4 @@ export const uploader = (dirName: string | null, prefixName?: string) => {
     storage: configFileStore,
     limits: { fileSize: 50 * 1024 * 1024 }, // 50 MB limit
   });
-};
+ };

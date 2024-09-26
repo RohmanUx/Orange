@@ -32,7 +32,7 @@ export class AuthController {
         });
 
         if (referrer) {
-          //     const updatedPoints = Math.round(referrer.points + 10000);
+          const updatedPoints = Math.round(Number(referrer.points) + 10000);
           const validTo = new Date(
             Date.now() + 3 * 30 * 24 * 60 * 60 * 1000,
           ).toISOString();
@@ -102,7 +102,7 @@ export class AuthController {
     }
   }
 
-  async login(req: Request, res: Response, next: NextFunction) {
+  async login (req: Request, res: Response, next: NextFunction) {
     try {
       const { email, password } = req.body;
 

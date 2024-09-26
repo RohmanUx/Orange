@@ -25,7 +25,7 @@ Route (app)                              Size     First Load JS
 ├ ○ /dashboard/create                    2 kB            117 kB
 ├ ○ /dashboard/profile                   1.75 kB         117 kB
 ├ ○ /event                               3.93 kB        91.1 kB
-├ ○ /eventCheck                          1.62 kB         129 kB
+├ ○ /eventCheck                          1.58 kB         129 kB
 ├ ○ /eventSearch                         37.5 kB         165 kB
 ├ ƒ /eventSearch/[id]                    12.2 kB         150 kB
 ├ ○ /eventsHome                          408 B           134 kB

@@ -13,7 +13,7 @@ import cors from 'cors';
 import { PORT } from './config';
 import { AuthRouter } from './routers/auth.router';
 import { ProfileRouter } from './routers/profile.router';
-import { EventRouter } from './routers/event.router';
+import { EventRouter } from './routers/events.router';
 import { TransactionRouter } from './routers/transaction.router';
 import { LocationRouter } from './routers/location.router';
 import { TestimonialRouter } from './routers/testimonial.router';

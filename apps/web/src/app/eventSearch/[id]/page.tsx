@@ -72,7 +72,7 @@ const EventDetailPage: React.FC<Props> = ({ params }: Props) => {
       try {
         // event
         const eventResponse = await axios.get(
-          `http://localhost:8000/api/event/events/${id}`,
+          `http://localhost:8000/api/event/events-all/${id}`,
         );
         setEvent(eventResponse.data.data);
 

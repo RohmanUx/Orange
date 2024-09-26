@@ -22,20 +22,7 @@ type Event = {
 };
 
 const EventList: React.FC = () => {
-  const [events, setEvents] = useState({
-    ticketType: '',
-    location: { id: 0, locationName: '' },
-    id: 0,
-    title: '',
-    description: '',
-    totalSeats: 0,
-    images: { id: '', path: '', eventId: '' },
-    price: 0,
-    startTime: '',
-    endTime: '',
-    isDeleted: false,
-  });
-
+  const [events, setEvents] = useState<Event[]>([]);
   const [page, setPage] = useState<number>(1);
   const [totalPages, setTotalPages] = useState<number>(1);
   const [hide, setHide] = useState(false);
@@ -45,23 +32,23 @@ const EventList: React.FC = () => {
       try {
         const token = localStorage.getItem('token');
         const response = await axios.get(
-          'http://localhost:8000/api/event/events-user',
+          'http://localhost:8000/api/event/events-users',
           {
             headers: {
               'Content-Type': 'multipart/form-data',
               Authorization: `Bearer ${token}`,
             },
           },
-        ); 
+        );
         console.log(response, 'hallo');
         setEvents(response.data.data);
         if (response.data.data) {
-          console.log('succes there data');
-          return true;
+          console.log('succes there data'); 
+          return true
         }
 
-        // setTotalPages(response.data.pagination.totalPages);
-        setHide(true);
+        setTotalPages(response.data.pagination.totalPages);
+        setHide(false);
       } catch (error) {
         console.log('Error fetching events', error);
       }
@@ -73,14 +60,12 @@ const EventList: React.FC = () => {
   const handleDelete = async (eventId: number) => {
     const token = localStorage.getItem('token');
     try {
-      await axios.delete(`http://localhost:8000/api/event/events/`, {
+      await axios.delete(`http://localhost:8000/api/event/events-delete/${eventId}`, {
         headers: {
-          Authorization: `Bearer ${token}`, 
-          'Content-Type': 'multipart/form-data',
-
+          Authorization: `Bearer ${token}`,
         },
-      }); 
-      //  setEvents(event.filter((event) => event.id !== eventId));
+      });
+      setEvents(events.filter((event) => event.id !== eventId));
     } catch (error) {
       console.log('Error deleting event', error);
       toast.error('do You not have permition within owner event can delete', {
@@ -108,58 +93,61 @@ const EventList: React.FC = () => {
             </div>{' '}
           </div>
 
-          {events && events.id ? (
-  <ul className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-    <li
-      key={events.id}
-      className="bg-gray-100 rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300 ease-in-out border-black border-[1px]"
-    >
-      <div className="relative">
-        <Image
-          src={``}
-          alt={events.title}
-          height={200}
-          width={400}
-          className="object-cover w-full h-48 p-4"
-        />
-      </div>
-      <div className="p-4">
-        <div className="mb-4 h-32">
-          <h2 className="text-xl font-semibold text-gray-800 mb-2 line-clamp-2">
-            {events.title}
-          </h2>
-          <p className="text-gray-600 line-clamp-3">
-            {events.description}
-          </p>
-        </div>
-        <div className="text-sm text-gray-600 bg-gray-100 p-2 rounded-lg">
-          <div className="flex items-center mb-1">
-            <span className="font-medium">Location:</span>
-            <span className="ml-2">{events.location.locationName}</span>
-          </div>
-          <div className="flex items-center mb-1">
-            <span className="font-medium">Ticket:</span>
-            <span className="ml-2">{events.ticketType}</span>
-          </div>
-          <div className="flex items-center mb-1">
-            <span className="font-medium">Seats:</span>
-            <span className="ml-2">{events.totalSeats}</span>
-          </div>
-        </div>
-        <div className="flex space-x-4 mt-4">
-          <button
-            className="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600 transition duration-300"
-            onClick={() => handleDelete(events.id)}
-          >
-            Delete
-          </button>
-        </div>
-      </div>
-    </li>
-  </ul>
-) : (
-  <p className="text-center text-gray-500">No events available.</p>
-)}
+          <ul className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 ">
+            {events.map((event) => (
+              <li
+                key={event.id}
+                className="bg-gray-100 rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300 ease-in-out border-black border-[1px]"
+              >
+                <div className="relative">
+                  {event.images.length > 0 && (
+                    <Image
+                      src={`http://localhost:8000${event.images[0].path}`}
+                      alt={event.title}
+                      height={200}
+                      width={400}
+                      className="object-cover w-full h-48 p-4"
+                    />
+                  )}
+                </div>
+                <div className="p-4">
+                  <div className="mb-4 h-32">
+                    <h2 className="text-xl font-semibold text-gray-800 mb-2 line-clamp-2">
+                      {event.title}
+                    </h2>
+                    <p className="text-gray-600 line-clamp-3">
+                      {event.description}
+                    </p>
+                  </div>
+                  <div className="text-sm text-gray-600 bg-gray-100 p-2 rounded-lg">
+                    <div className="flex items-center mb-1">
+                      <span className="font-medium">Location:</span>
+                      <span className="ml-2">
+                        {event.location.locationName}
+                      </span>
+                    </div>
+                    <div className="flex items-center mb-1">
+                      <span className="font-medium">Ticket:</span>
+                      <span className="ml-2">{event.ticketType}</span>
+                    </div>
+                    <div className="flex items-center mb-1">
+                      <span className="font-medium">Seats:</span>
+                      <span className="ml-2">{event.totalSeats}</span>
+                    </div>
+                  </div>
+
+                  <div className="flex space-x-4 mt-4">
+                    <button
+                      className="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600 transition duration-300"
+                      onClick={() => handleDelete(event.id)}
+                    >
+                      Delete
+                    </button>
+                  </div>
+                </div>
+              </li>
+            ))}
+          </ul>
 
           <div className="mt-8 flex justify-between items-end">
             <button

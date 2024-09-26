@@ -9,11 +9,11 @@
       "outputs": []
     },
     "test": {
-      "dependsOn": ["build"],
+      "dependsOn": ["^dev"],
       "outputs": []
     },
     "dev": {
-      "dependsOn": ["build"],
+      "dependsOn": ["^dev"],
       "outputs": [".next/**", "dist/**"]
     }
   }

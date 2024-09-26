@@ -58,7 +58,7 @@ const PostEventForm: React.FC = () => {
 
     try {
       const response = await axios.post(
-        'http://localhost:8000/api/event/event',
+        'http://localhost:8000/api/event/events-post',
         formDataToSend,
         {
           headers: { 

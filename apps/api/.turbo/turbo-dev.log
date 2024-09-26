@@ -2,99 +2,370 @@
 > api@1.0.0 dev
 > cross-env NODE_ENV=development ts-node-dev -r tsconfig-paths/register src/index.ts
 
-[INFO] 10:42:59 ts-node-dev ver. 2.0.0 (using ts-node ver. 10.9.2, typescript ver. 5.6.2)
+[INFO] 19:11:13 ts-node-dev ver. 2.0.0 (using ts-node ver. 10.9.2, typescript ver. 5.6.2)
   ➜  [API] Local: http://localhost:8000/
+Error :  Error: Multipart: Boundary not found
+    at new Multipart (C:\Users\Chicky Chill\Downloads\resume\orange-portofolio\node_modules\busboy\lib\types\multipart.js:233:13)
+    at getInstance (C:\Users\Chicky Chill\Downloads\resume\orange-portofolio\node_modules\busboy\lib\index.js:33:12)
+    at module.exports (C:\Users\Chicky Chill\Downloads\resume\orange-portofolio\node_modules\busboy\lib\index.js:56:10)
+    at multerMiddleware (C:\Users\Chicky Chill\Downloads\resume\orange-portofolio\node_modules\multer\lib\make-middleware.js:28:16)
+    at Layer.handle [as handle_request] (C:\Users\Chicky Chill\Downloads\resume\orange-portofolio\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\Users\Chicky Chill\Downloads\resume\orange-portofolio\node_modules\express\lib\router\route.js:149:13)
+    at C:\Users\Chicky Chill\Downloads\resume\orange-portofolio\apps\api\src\middleware\verifyToken.ts:34:5
+    at Generator.next (<anonymous>)
+    at C:\Users\Chicky Chill\Downloads\resume\orange-portofolio\apps\api\src\middleware\verifyToken.ts:8:71
+    at new Promise (<anonymous>)
+Error :  Error: Multipart: Boundary not found
+    at new Multipart (C:\Users\Chicky Chill\Downloads\resume\orange-portofolio\node_modules\busboy\lib\types\multipart.js:233:13)
+    at getInstance (C:\Users\Chicky Chill\Downloads\resume\orange-portofolio\node_modules\busboy\lib\index.js:33:12)
+    at module.exports (C:\Users\Chicky Chill\Downloads\resume\orange-portofolio\node_modules\busboy\lib\index.js:56:10)
+    at multerMiddleware (C:\Users\Chicky Chill\Downloads\resume\orange-portofolio\node_modules\multer\lib\make-middleware.js:28:16)
+    at Layer.handle [as handle_request] (C:\Users\Chicky Chill\Downloads\resume\orange-portofolio\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\Users\Chicky Chill\Downloads\resume\orange-portofolio\node_modules\express\lib\router\route.js:149:13)
+    at C:\Users\Chicky Chill\Downloads\resume\orange-portofolio\apps\api\src\middleware\verifyToken.ts:34:5
+    at Generator.next (<anonymous>)
+    at C:\Users\Chicky Chill\Downloads\resume\orange-portofolio\apps\api\src\middleware\verifyToken.ts:8:71
+    at new Promise (<anonymous>)
+Error :  Error: Multipart: Boundary not found
+    at new Multipart (C:\Users\Chicky Chill\Downloads\resume\orange-portofolio\node_modules\busboy\lib\types\multipart.js:233:13)
+    at getInstance (C:\Users\Chicky Chill\Downloads\resume\orange-portofolio\node_modules\busboy\lib\index.js:33:12)
+    at module.exports (C:\Users\Chicky Chill\Downloads\resume\orange-portofolio\node_modules\busboy\lib\index.js:56:10)
+    at multerMiddleware (C:\Users\Chicky Chill\Downloads\resume\orange-portofolio\node_modules\multer\lib\make-middleware.js:28:16)
+    at Layer.handle [as handle_request] (C:\Users\Chicky Chill\Downloads\resume\orange-portofolio\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\Users\Chicky Chill\Downloads\resume\orange-portofolio\node_modules\express\lib\router\route.js:149:13)
+    at C:\Users\Chicky Chill\Downloads\resume\orange-portofolio\apps\api\src\middleware\verifyToken.ts:34:5
+    at Generator.next (<anonymous>)
+    at C:\Users\Chicky Chill\Downloads\resume\orange-portofolio\apps\api\src\middleware\verifyToken.ts:8:71
+    at new Promise (<anonymous>)
+Error :  Error: Multipart: Boundary not found
+    at new Multipart (C:\Users\Chicky Chill\Downloads\resume\orange-portofolio\node_modules\busboy\lib\types\multipart.js:233:13)
+    at getInstance (C:\Users\Chicky Chill\Downloads\resume\orange-portofolio\node_modules\busboy\lib\index.js:33:12)
+    at module.exports (C:\Users\Chicky Chill\Downloads\resume\orange-portofolio\node_modules\busboy\lib\index.js:56:10)
+    at multerMiddleware (C:\Users\Chicky Chill\Downloads\resume\orange-portofolio\node_modules\multer\lib\make-middleware.js:28:16)
+    at Layer.handle [as handle_request] (C:\Users\Chicky Chill\Downloads\resume\orange-portofolio\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\Users\Chicky Chill\Downloads\resume\orange-portofolio\node_modules\express\lib\router\route.js:149:13)
+    at C:\Users\Chicky Chill\Downloads\resume\orange-portofolio\apps\api\src\middleware\verifyToken.ts:34:5
+    at Generator.next (<anonymous>)
+    at C:\Users\Chicky Chill\Downloads\resume\orange-portofolio\apps\api\src\middleware\verifyToken.ts:8:71
+    at new Promise (<anonymous>)
+Error :  Error: Multipart: Boundary not found
+    at new Multipart (C:\Users\Chicky Chill\Downloads\resume\orange-portofolio\node_modules\busboy\lib\types\multipart.js:233:13)
+    at getInstance (C:\Users\Chicky Chill\Downloads\resume\orange-portofolio\node_modules\busboy\lib\index.js:33:12)
+    at module.exports (C:\Users\Chicky Chill\Downloads\resume\orange-portofolio\node_modules\busboy\lib\index.js:56:10)
+    at multerMiddleware (C:\Users\Chicky Chill\Downloads\resume\orange-portofolio\node_modules\multer\lib\make-middleware.js:28:16)
+    at Layer.handle [as handle_request] (C:\Users\Chicky Chill\Downloads\resume\orange-portofolio\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\Users\Chicky Chill\Downloads\resume\orange-portofolio\node_modules\express\lib\router\route.js:149:13)
+    at C:\Users\Chicky Chill\Downloads\resume\orange-portofolio\apps\api\src\middleware\verifyToken.ts:34:5
+    at Generator.next (<anonymous>)
+    at C:\Users\Chicky Chill\Downloads\resume\orange-portofolio\apps\api\src\middleware\verifyToken.ts:8:71
+    at new Promise (<anonymous>)
+Error :  Error: Multipart: Boundary not found
+    at new Multipart (C:\Users\Chicky Chill\Downloads\resume\orange-portofolio\node_modules\busboy\lib\types\multipart.js:233:13)
+    at getInstance (C:\Users\Chicky Chill\Downloads\resume\orange-portofolio\node_modules\busboy\lib\index.js:33:12)
+    at module.exports (C:\Users\Chicky Chill\Downloads\resume\orange-portofolio\node_modules\busboy\lib\index.js:56:10)
+    at multerMiddleware (C:\Users\Chicky Chill\Downloads\resume\orange-portofolio\node_modules\multer\lib\make-middleware.js:28:16)
+    at Layer.handle [as handle_request] (C:\Users\Chicky Chill\Downloads\resume\orange-portofolio\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\Users\Chicky Chill\Downloads\resume\orange-portofolio\node_modules\express\lib\router\route.js:149:13)
+    at C:\Users\Chicky Chill\Downloads\resume\orange-portofolio\apps\api\src\middleware\verifyToken.ts:34:5
+    at Generator.next (<anonymous>)
+    at C:\Users\Chicky Chill\Downloads\resume\orange-portofolio\apps\api\src\middleware\verifyToken.ts:8:71
+    at new Promise (<anonymous>)
+Error :  Error: Multipart: Boundary not found
+    at new Multipart (C:\Users\Chicky Chill\Downloads\resume\orange-portofolio\node_modules\busboy\lib\types\multipart.js:233:13)
+    at getInstance (C:\Users\Chicky Chill\Downloads\resume\orange-portofolio\node_modules\busboy\lib\index.js:33:12)
+    at module.exports (C:\Users\Chicky Chill\Downloads\resume\orange-portofolio\node_modules\busboy\lib\index.js:56:10)
+    at multerMiddleware (C:\Users\Chicky Chill\Downloads\resume\orange-portofolio\node_modules\multer\lib\make-middleware.js:28:16)
+    at Layer.handle [as handle_request] (C:\Users\Chicky Chill\Downloads\resume\orange-portofolio\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\Users\Chicky Chill\Downloads\resume\orange-portofolio\node_modules\express\lib\router\route.js:149:13)
+    at C:\Users\Chicky Chill\Downloads\resume\orange-portofolio\apps\api\src\middleware\verifyToken.ts:34:5
+    at Generator.next (<anonymous>)
+    at C:\Users\Chicky Chill\Downloads\resume\orange-portofolio\apps\api\src\middleware\verifyToken.ts:8:71
+    at new Promise (<anonymous>)
 prisma:info Starting a mysql pool with 9 connections.
+Login attempt with email: tania@gmail.com
+Error :  Error: Multipart: Boundary not found
+    at new Multipart (C:\Users\Chicky Chill\Downloads\resume\orange-portofolio\node_modules\busboy\lib\types\multipart.js:233:13)
+    at getInstance (C:\Users\Chicky Chill\Downloads\resume\orange-portofolio\node_modules\busboy\lib\index.js:33:12)
+    at module.exports (C:\Users\Chicky Chill\Downloads\resume\orange-portofolio\node_modules\busboy\lib\index.js:56:10)
+    at multerMiddleware (C:\Users\Chicky Chill\Downloads\resume\orange-portofolio\node_modules\multer\lib\make-middleware.js:28:16)
+    at Layer.handle [as handle_request] (C:\Users\Chicky Chill\Downloads\resume\orange-portofolio\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\Users\Chicky Chill\Downloads\resume\orange-portofolio\node_modules\express\lib\router\route.js:149:13)
+    at C:\Users\Chicky Chill\Downloads\resume\orange-portofolio\apps\api\src\middleware\verifyToken.ts:34:5
+    at Generator.next (<anonymous>)
+    at C:\Users\Chicky Chill\Downloads\resume\orange-portofolio\apps\api\src\middleware\verifyToken.ts:8:71
+    at new Promise (<anonymous>)
+Event created successfully {
+  id: 10,
+  userId: 1,
+  categoryId: 10,
+  title: 'Live 789',
+  description: 'Join us for an unforgettable night of music and fun with your favorite artists!',
+  price: 150000,
+  totalSeats: 200,
+  locationId: 9,
+  startTime: 2024-10-05T19:00:00.000Z,
+  endTime: 2024-10-05T22:00:00.000Z,
+  createdAt: 2024-09-26T11:14:21.000Z,
+  ticketType: 'PAID',
+  isDeleted: false,
+  statusEvent: null,
+  images: []
+}
+Event created successfully {
+  id: 11,
+  userId: 1,
+  categoryId: 10,
+  title: 'Live 789',
+  description: 'Join us for an unforgettable night of music and fun with your favorite artists!',
+  price: 150000,
+  totalSeats: 200,
+  locationId: 9,
+  startTime: 2024-10-05T19:00:00.000Z,
+  endTime: 2024-10-05T22:00:00.000Z,
+  createdAt: 2024-09-26T11:14:56.000Z,
+  ticketType: 'PAID',
+  isDeleted: false,
+  statusEvent: null,
+  images: []
+}
+succest title found
+Error :  undefined
+succest title found
+Error :  undefined
+succest title found
+Error :  undefined
+succest title found
+Error :  undefined
+succest title found
+Error :  undefined
+Error :  Error: Multipart: Boundary not found
+    at new Multipart (C:\Users\Chicky Chill\Downloads\resume\orange-portofolio\node_modules\busboy\lib\types\multipart.js:233:13)
+    at getInstance (C:\Users\Chicky Chill\Downloads\resume\orange-portofolio\node_modules\busboy\lib\index.js:33:12)
+    at module.exports (C:\Users\Chicky Chill\Downloads\resume\orange-portofolio\node_modules\busboy\lib\index.js:56:10)
+    at multerMiddleware (C:\Users\Chicky Chill\Downloads\resume\orange-portofolio\node_modules\multer\lib\make-middleware.js:28:16)
+    at Layer.handle [as handle_request] (C:\Users\Chicky Chill\Downloads\resume\orange-portofolio\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\Users\Chicky Chill\Downloads\resume\orange-portofolio\node_modules\express\lib\router\route.js:149:13)
+    at C:\Users\Chicky Chill\Downloads\resume\orange-portofolio\apps\api\src\middleware\verifyToken.ts:34:5
+    at Generator.next (<anonymous>)
+    at C:\Users\Chicky Chill\Downloads\resume\orange-portofolio\apps\api\src\middleware\verifyToken.ts:8:71
+    at new Promise (<anonymous>)
+Error :  Error: Multipart: Boundary not found
+    at new Multipart (C:\Users\Chicky Chill\Downloads\resume\orange-portofolio\node_modules\busboy\lib\types\multipart.js:233:13)
+    at getInstance (C:\Users\Chicky Chill\Downloads\resume\orange-portofolio\node_modules\busboy\lib\index.js:33:12)
+    at module.exports (C:\Users\Chicky Chill\Downloads\resume\orange-portofolio\node_modules\busboy\lib\index.js:56:10)
+    at multerMiddleware (C:\Users\Chicky Chill\Downloads\resume\orange-portofolio\node_modules\multer\lib\make-middleware.js:28:16)
+    at Layer.handle [as handle_request] (C:\Users\Chicky Chill\Downloads\resume\orange-portofolio\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\Users\Chicky Chill\Downloads\resume\orange-portofolio\node_modules\express\lib\router\route.js:149:13)
+    at C:\Users\Chicky Chill\Downloads\resume\orange-portofolio\apps\api\src\middleware\verifyToken.ts:34:5
+    at Generator.next (<anonymous>)
+    at C:\Users\Chicky Chill\Downloads\resume\orange-portofolio\apps\api\src\middleware\verifyToken.ts:8:71
+    at new Promise (<anonymous>)
+Error :  Error: Multipart: Boundary not found
+    at new Multipart (C:\Users\Chicky Chill\Downloads\resume\orange-portofolio\node_modules\busboy\lib\types\multipart.js:233:13)
+    at getInstance (C:\Users\Chicky Chill\Downloads\resume\orange-portofolio\node_modules\busboy\lib\index.js:33:12)
+    at module.exports (C:\Users\Chicky Chill\Downloads\resume\orange-portofolio\node_modules\busboy\lib\index.js:56:10)
+    at multerMiddleware (C:\Users\Chicky Chill\Downloads\resume\orange-portofolio\node_modules\multer\lib\make-middleware.js:28:16)
+    at Layer.handle [as handle_request] (C:\Users\Chicky Chill\Downloads\resume\orange-portofolio\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\Users\Chicky Chill\Downloads\resume\orange-portofolio\node_modules\express\lib\router\route.js:149:13)
+    at C:\Users\Chicky Chill\Downloads\resume\orange-portofolio\apps\api\src\middleware\verifyToken.ts:34:5
+    at Generator.next (<anonymous>)
+    at C:\Users\Chicky Chill\Downloads\resume\orange-portofolio\apps\api\src\middleware\verifyToken.ts:8:71
+    at new Promise (<anonymous>)
+Error :  Error: Multipart: Boundary not found
+    at new Multipart (C:\Users\Chicky Chill\Downloads\resume\orange-portofolio\node_modules\busboy\lib\types\multipart.js:233:13)
+    at getInstance (C:\Users\Chicky Chill\Downloads\resume\orange-portofolio\node_modules\busboy\lib\index.js:33:12)
+    at module.exports (C:\Users\Chicky Chill\Downloads\resume\orange-portofolio\node_modules\busboy\lib\index.js:56:10)
+    at multerMiddleware (C:\Users\Chicky Chill\Downloads\resume\orange-portofolio\node_modules\multer\lib\make-middleware.js:28:16)
+    at Layer.handle [as handle_request] (C:\Users\Chicky Chill\Downloads\resume\orange-portofolio\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\Users\Chicky Chill\Downloads\resume\orange-portofolio\node_modules\express\lib\router\route.js:149:13)
+    at C:\Users\Chicky Chill\Downloads\resume\orange-portofolio\apps\api\src\middleware\verifyToken.ts:34:5
+    at Generator.next (<anonymous>)
+    at C:\Users\Chicky Chill\Downloads\resume\orange-portofolio\apps\api\src\middleware\verifyToken.ts:8:71
+    at new Promise (<anonymous>)
+Error :  Error: Multipart: Boundary not found
+    at new Multipart (C:\Users\Chicky Chill\Downloads\resume\orange-portofolio\node_modules\busboy\lib\types\multipart.js:233:13)
+    at getInstance (C:\Users\Chicky Chill\Downloads\resume\orange-portofolio\node_modules\busboy\lib\index.js:33:12)
+    at module.exports (C:\Users\Chicky Chill\Downloads\resume\orange-portofolio\node_modules\busboy\lib\index.js:56:10)
+    at multerMiddleware (C:\Users\Chicky Chill\Downloads\resume\orange-portofolio\node_modules\multer\lib\make-middleware.js:28:16)
+    at Layer.handle [as handle_request] (C:\Users\Chicky Chill\Downloads\resume\orange-portofolio\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\Users\Chicky Chill\Downloads\resume\orange-portofolio\node_modules\express\lib\router\route.js:149:13)
+    at C:\Users\Chicky Chill\Downloads\resume\orange-portofolio\apps\api\src\middleware\verifyToken.ts:34:5
+    at Generator.next (<anonymous>)
+    at C:\Users\Chicky Chill\Downloads\resume\orange-portofolio\apps\api\src\middleware\verifyToken.ts:8:71
+    at new Promise (<anonymous>)
+Error :  Error: Multipart: Boundary not found
+    at new Multipart (C:\Users\Chicky Chill\Downloads\resume\orange-portofolio\node_modules\busboy\lib\types\multipart.js:233:13)
+    at getInstance (C:\Users\Chicky Chill\Downloads\resume\orange-portofolio\node_modules\busboy\lib\index.js:33:12)
+    at module.exports (C:\Users\Chicky Chill\Downloads\resume\orange-portofolio\node_modules\busboy\lib\index.js:56:10)
+    at multerMiddleware (C:\Users\Chicky Chill\Downloads\resume\orange-portofolio\node_modules\multer\lib\make-middleware.js:28:16)
+    at Layer.handle [as handle_request] (C:\Users\Chicky Chill\Downloads\resume\orange-portofolio\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\Users\Chicky Chill\Downloads\resume\orange-portofolio\node_modules\express\lib\router\route.js:149:13)
+    at C:\Users\Chicky Chill\Downloads\resume\orange-portofolio\apps\api\src\middleware\verifyToken.ts:34:5
+    at Generator.next (<anonymous>)
+    at C:\Users\Chicky Chill\Downloads\resume\orange-portofolio\apps\api\src\middleware\verifyToken.ts:8:71
+    at new Promise (<anonymous>)
+Error :  Error: Multipart: Boundary not found
+    at new Multipart (C:\Users\Chicky Chill\Downloads\resume\orange-portofolio\node_modules\busboy\lib\types\multipart.js:233:13)
+    at getInstance (C:\Users\Chicky Chill\Downloads\resume\orange-portofolio\node_modules\busboy\lib\index.js:33:12)
+    at module.exports (C:\Users\Chicky Chill\Downloads\resume\orange-portofolio\node_modules\busboy\lib\index.js:56:10)
+    at multerMiddleware (C:\Users\Chicky Chill\Downloads\resume\orange-portofolio\node_modules\multer\lib\make-middleware.js:28:16)
+    at Layer.handle [as handle_request] (C:\Users\Chicky Chill\Downloads\resume\orange-portofolio\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\Users\Chicky Chill\Downloads\resume\orange-portofolio\node_modules\express\lib\router\route.js:149:13)
+    at C:\Users\Chicky Chill\Downloads\resume\orange-portofolio\apps\api\src\middleware\verifyToken.ts:34:5
+    at Generator.next (<anonymous>)
+    at C:\Users\Chicky Chill\Downloads\resume\orange-portofolio\apps\api\src\middleware\verifyToken.ts:8:71
+    at new Promise (<anonymous>)
+succest title found
+Error :  undefined
 prisma:error 
-Invalid `prisma.event.deleteMany()` invocation in
-C:\Users\Chicky Chill\Downloads\resume\orange-portofolio\apps\api\src\controllers\event.controller.ts:373:47
+Invalid `prisma.user.findUnique()` invocation in
+C:\Users\Chicky Chill\Downloads\resume\orange-portofolio\apps\api\src\controllers\events.controller.ts:272:42
 
-  370    // Decrypt the ID if it's encrypted, assuming it's done before this function
-  371 const {  userId } = res.locals.decrypt.id;
-  372    // Delete the event using the decrypted ID
-→ 373    const deletedEvent = await prisma.event.deleteMany(
-Foreign key constraint violated: `eventId`
-Error deleting event: PrismaClientKnownRequestError: 
-Invalid `prisma.event.deleteMany()` invocation in
-C:\Users\Chicky Chill\Downloads\resume\orange-portofolio\apps\api\src\controllers\event.controller.ts:373:47
+  269   endTime,
+  270 } = req.body;
+  271 
+→ 272 const findUser = await prisma.user.findUnique(
+Can't reach database server at `cendrawasih.kencang.com:3306`
 
-  370    // Decrypt the ID if it's encrypted, assuming it's done before this function
-  371 const {  userId } = res.locals.decrypt.id;
-  372    // Delete the event using the decrypted ID
-→ 373    const deletedEvent = await prisma.event.deleteMany(
-Foreign key constraint violated: `eventId`
+Please make sure your database server is running at `cendrawasih.kencang.com:3306`.
+Error :  undefined
+prisma:error 
+Invalid `prisma.event.findMany()` invocation in
+C:\Users\Chicky Chill\Downloads\resume\orange-portofolio\apps\api\src\controllers\events.controller.ts:114:40
+
+  111   });
+  112 }
+  113 
+→ 114 const event = await prisma.event.findMany(
+Can't reach database server at `cendrawasih.kencang.com:3306`
+
+Please make sure your database server is running at `cendrawasih.kencang.com:3306`.
+Error :  undefined
+PrismaClientKnownRequestError: 
+Invalid `prisma.event.findMany()` invocation in
+C:\Users\Chicky Chill\Downloads\resume\orange-portofolio\apps\api\src\controllers\events.controller.ts:114:40
+
+  111   });
+  112 }
+  113 
+→ 114 const event = await prisma.event.findMany(
+Can't reach database server at `cendrawasih.kencang.com:3306`
+
+Please make sure your database server is running at `cendrawasih.kencang.com:3306`.
     at Mn.handleRequestError (C:\Users\Chicky Chill\Downloads\resume\orange-portofolio\node_modules\@prisma\client\runtime\library.js:121:7753)
     at Mn.handleAndLogRequestError (C:\Users\Chicky Chill\Downloads\resume\orange-portofolio\node_modules\@prisma\client\runtime\library.js:121:7061)
     at Mn.request (C:\Users\Chicky Chill\Downloads\resume\orange-portofolio\node_modules\@prisma\client\runtime\library.js:121:6745)
     at l (C:\Users\Chicky Chill\Downloads\resume\orange-portofolio\node_modules\@prisma\client\runtime\library.js:130:9633) {
-  code: 'P2003',
+  code: 'P1001',
   clientVersion: '5.20.0',
-  meta: { modelName: 'event', field_name: 'eventId' }
+  meta: {
+    modelName: 'event',
+    database_host: 'cendrawasih.kencang.com',
+    database_port: 3306
+  }
 }
-[INFO] 10:44:04 Restarting: C:\Users\Chicky Chill\Downloads\resume\orange-portofolio\apps\api\src\controllers\event.controller.ts has been modified
-  ➜  [API] Local: http://localhost:8000/
-[INFO] 10:44:12 Restarting: C:\Users\Chicky Chill\Downloads\resume\orange-portofolio\apps\api\src\controllers\event.controller.ts has been modified
-  ➜  [API] Local: http://localhost:8000/
-[INFO] 10:48:57 Restarting: C:\Users\Chicky Chill\Downloads\resume\orange-portofolio\apps\api\src\controllers\event.controller.ts has been modified
-  ➜  [API] Local: http://localhost:8000/
-[INFO] 10:49:03 Restarting: C:\Users\Chicky Chill\Downloads\resume\orange-portofolio\apps\api\src\controllers\event.controller.ts has been modified
-Compilation error in C:\Users\Chicky Chill\Downloads\resume\orange-portofolio\apps\api\src\controllers\event.controller.ts
-[ERROR] 10:49:05 ⨯ Unable to compile TypeScript:
-src/controllers/event.controller.ts(377,11): error TS2353: Object literal may only specify known properties, and 'event' does not exist in type 'eventSelect<DefaultArgs>'.
+prisma:error 
+Invalid `prisma.event.findMany()` invocation in
+C:\Users\Chicky Chill\Downloads\resume\orange-portofolio\apps\api\src\controllers\events.controller.ts:114:40
 
-[INFO] 10:49:08 Restarting: C:\Users\Chicky Chill\Downloads\resume\orange-portofolio\apps\api\src\controllers\event.controller.ts has been modified
-  ➜  [API] Local: http://localhost:8000/
-[INFO] 10:49:10 Restarting: C:\Users\Chicky Chill\Downloads\resume\orange-portofolio\apps\api\src\controllers\event.controller.ts has been modified
-  ➜  [API] Local: http://localhost:8000/
-[INFO] 10:50:33 Restarting: C:\Users\Chicky Chill\Downloads\resume\orange-portofolio\apps\api\src\controllers\event.controller.ts has been modified
-[ERROR] 10:50:34 [Error: ENOSPC: no space left on device, write] {
-  errno: -4055,
-  code: 'ENOSPC',
-  syscall: 'write'
+  111   });
+PrismaClientKnownRequestError: 
+  112 }
+  113 
+Invalid `prisma.event.findMany()` invocation in
+→ 114 const event = await prisma.event.findMany(
+C:\Users\Chicky Chill\Downloads\resume\orange-portofolio\apps\api\src\controllers\events.controller.ts:114:40
+Can't reach database server at `cendrawasih.kencang.com:3306`
+
+
+Please make sure your database server is running at `cendrawasih.kencang.com:3306`.
+  111   });
+Error :  undefined
+  112 }
+  113 
+→ 114 const event = await prisma.event.findMany(
+Can't reach database server at `cendrawasih.kencang.com:3306`
+
+Please make sure your database server is running at `cendrawasih.kencang.com:3306`.
+    at Mn.handleRequestError (C:\Users\Chicky Chill\Downloads\resume\orange-portofolio\node_modules\@prisma\client\runtime\library.js:121:7753)
+    at Mn.handleAndLogRequestError (C:\Users\Chicky Chill\Downloads\resume\orange-portofolio\node_modules\@prisma\client\runtime\library.js:121:7061)
+    at Mn.request (C:\Users\Chicky Chill\Downloads\resume\orange-portofolio\node_modules\@prisma\client\runtime\library.js:121:6745)
+    at l (C:\Users\Chicky Chill\Downloads\resume\orange-portofolio\node_modules\@prisma\client\runtime\library.js:130:9633) {
+  code: 'P1001',
+  clientVersion: '5.20.0',
+  meta: {
+    modelName: 'event',
+    database_host: 'cendrawasih.kencang.com',
+    database_port: 3306
+  }
 }
-TypeError: event_controller_1.EventController is not a constructor
-    at new EventRouter (C:\Users\Chicky Chill\Downloads\resume\orange-portofolio\apps\api\src\routers\event.router.ts:12:28)
-    at App.routes (C:\Users\Chicky Chill\Downloads\resume\orange-portofolio\apps\api\src\app.ts:69:25)
-[ERROR] 10:50:35 TypeError: event_controller_1.EventController is not a constructor
-    at new App (C:\Users\Chicky Chill\Downloads\resume\orange-portofolio\apps\api\src\app.ts:32:10)
-    at main (C:\Users\Chicky Chill\Downloads\resume\orange-portofolio\apps\api\src\index.ts:6:15)
-    at Object.<anonymous> (C:\Users\Chicky Chill\Downloads\resume\orange-portofolio\apps\api\src\index.ts:10:1)
-    at Module._compile (node:internal/modules/cjs/loader:1546:14)
-    at Module._compile (C:\Users\Chicky Chill\Downloads\resume\orange-portofolio\node_modules\source-map-support\source-map-support.js:521:25)
-    at Module.m._compile (C:\Users\CHICKY~1\AppData\Local\Temp\ts-node-dev-hook-22637211225841036.js:69:33)
-    at Module._extensions..js (node:internal/modules/cjs/loader:1691:10)
-    at require.extensions..jsx.require.extensions..js (C:\Users\CHICKY~1\AppData\Local\Temp\ts-node-dev-hook-22637211225841036.js:114:20)
-[INFO] 10:51:12 Restarting: C:\Users\Chicky Chill\Downloads\resume\orange-portofolio\apps\api\src\controllers\event.controller.ts has been modified
-[ERROR] 10:51:12 [Error: ENOSPC: no space left on device, write] {
-  errno: -4055,
-  code: 'ENOSPC',
-  syscall: 'write'
+prisma:error 
+Invalid `prisma.event.findMany()` invocation in
+PrismaClientKnownRequestError: 
+C:\Users\Chicky Chill\Downloads\resume\orange-portofolio\apps\api\src\controllers\events.controller.ts:114:40
+
+Invalid `prisma.event.findMany()` invocation in
+  111   });
+C:\Users\Chicky Chill\Downloads\resume\orange-portofolio\apps\api\src\controllers\events.controller.ts:114:40
+  112 }
+  113 
+→ 114 const event = await prisma.event.findMany(
+Can't reach database server at `cendrawasih.kencang.com:3306`
+
+
+Please make sure your database server is running at `cendrawasih.kencang.com:3306`.
+  111   });
+  112 }
+  113 
+Error :  undefined
+→ 114 const event = await prisma.event.findMany(
+Can't reach database server at `cendrawasih.kencang.com:3306`
+
+Please make sure your database server is running at `cendrawasih.kencang.com:3306`.
+    at Mn.handleRequestError (C:\Users\Chicky Chill\Downloads\resume\orange-portofolio\node_modules\@prisma\client\runtime\library.js:121:7753)
+    at Mn.handleAndLogRequestError (C:\Users\Chicky Chill\Downloads\resume\orange-portofolio\node_modules\@prisma\client\runtime\library.js:121:7061)
+    at Mn.request (C:\Users\Chicky Chill\Downloads\resume\orange-portofolio\node_modules\@prisma\client\runtime\library.js:121:6745)
+    at l (C:\Users\Chicky Chill\Downloads\resume\orange-portofolio\node_modules\@prisma\client\runtime\library.js:130:9633) {
+  code: 'P1001',
+  clientVersion: '5.20.0',
+  meta: {
+    modelName: 'event',
+    database_host: 'cendrawasih.kencang.com',
+    database_port: 3306
+  }
 }
-TypeError: event_controller_1.EventController is not a constructor
-    at new EventRouter (C:\Users\Chicky Chill\Downloads\resume\orange-portofolio\apps\api\src\routers\event.router.ts:12:28)
-    at App.routes (C:\Users\Chicky Chill\Downloads\resume\orange-portofolio\apps\api\src\app.ts:69:25)
-[ERROR] 10:51:13 TypeError: event_controller_1.EventController is not a constructor
-    at new App (C:\Users\Chicky Chill\Downloads\resume\orange-portofolio\apps\api\src\app.ts:32:10)
-    at main (C:\Users\Chicky Chill\Downloads\resume\orange-portofolio\apps\api\src\index.ts:6:15)
-    at Object.<anonymous> (C:\Users\Chicky Chill\Downloads\resume\orange-portofolio\apps\api\src\index.ts:10:1)
-    at Module._compile (node:internal/modules/cjs/loader:1546:14)
-    at Module._compile (C:\Users\Chicky Chill\Downloads\resume\orange-portofolio\node_modules\source-map-support\source-map-support.js:521:25)
-    at Module.m._compile (C:\Users\CHICKY~1\AppData\Local\Temp\ts-node-dev-hook-22637211225841036.js:69:33)
-    at Module._extensions..js (node:internal/modules/cjs/loader:1691:10)
-    at require.extensions..jsx.require.extensions..js (C:\Users\CHICKY~1\AppData\Local\Temp\ts-node-dev-hook-22637211225841036.js:114:20)
-[INFO] 10:51:14 Restarting: C:\Users\Chicky Chill\Downloads\resume\orange-portofolio\apps\api\src\controllers\event.controller.ts has been modified
-TypeError: event_controller_1.EventController is not a constructor
-    at new EventRouter (C:\Users\Chicky Chill\Downloads\resume\orange-portofolio\apps\api\src\routers\event.router.ts:12:28)
-    at App.routes (C:\Users\Chicky Chill\Downloads\resume\orange-portofolio\apps\api\src\app.ts:69:25)
-    at new App (C:\Users\Chicky Chill\Downloads\resume\orange-portofolio\apps\api\src\app.ts:32:10)
-[ERROR] 10:51:16 TypeError: event_controller_1.EventController is not a constructor
-    at main (C:\Users\Chicky Chill\Downloads\resume\orange-portofolio\apps\api\src\index.ts:6:15)
-    at Object.<anonymous> (C:\Users\Chicky Chill\Downloads\resume\orange-portofolio\apps\api\src\index.ts:10:1)
-    at Module._compile (node:internal/modules/cjs/loader:1546:14)
-    at Module._compile (C:\Users\Chicky Chill\Downloads\resume\orange-portofolio\node_modules\source-map-support\source-map-support.js:521:25)
-    at Module.m._compile (C:\Users\CHICKY~1\AppData\Local\Temp\ts-node-dev-hook-22637211225841036.js:69:33)
-    at Module._extensions..js (node:internal/modules/cjs/loader:1691:10)
-    at require.extensions..jsx.require.extensions..js (C:\Users\CHICKY~1\AppData\Local\Temp\ts-node-dev-hook-22637211225841036.js:114:20)
-[INFO] 10:51:28 Restarting: C:\Users\Chicky Chill\Downloads\resume\orange-portofolio\apps\api\src\controllers\event.controller.ts has been modified
-Compilation error in C:\Users\Chicky Chill\Downloads\resume\orange-portofolio\apps\api\src\controllers\event.controller.ts
-[ERROR] 10:51:29 ⨯ Unable to compile TypeScript:
+prisma:error 
+Invalid `prisma.event.findMany()` invocation in
+PrismaClientKnownRequestError: 
+C:\Users\Chicky Chill\Downloads\resume\orange-portofolio\apps\api\src\controllers\events.controller.ts:114:40
+
+  111   });
+  112 }
+Invalid `prisma.event.findMany()` invocation in
+C:\Users\Chicky Chill\Downloads\resume\orange-portofolio\apps\api\src\controllers\events.controller.ts:114:40
+  113 
+→ 114 const event = await prisma.event.findMany(
+Can't reach database server at `cendrawasih.kencang.com:3306`
+
+
+Please make sure your database server is running at `cendrawasih.kencang.com:3306`.
+  111   });
+Error :  undefined
+  112 }
+  113 
+→ 114 const event = await prisma.event.findMany(
+Can't reach database server at `cendrawasih.kencang.com:3306`
+
+Please make sure your database server is running at `cendrawasih.kencang.com:3306`.
+    at Mn.handleRequestError (C:\Users\Chicky Chill\Downloads\resume\orange-portofolio\node_modules\@prisma\client\runtime\library.js:121:7753)
+    at Mn.handleAndLogRequestError (C:\Users\Chicky Chill\Downloads\resume\orange-portofolio\node_modules\@prisma\client\runtime\library.js:121:7061)
+    at Mn.request (C:\Users\Chicky Chill\Downloads\resume\orange-portofolio\node_modules\@prisma\client\runtime\library.js:121:6745)
+    at l (C:\Users\Chicky Chill\Downloads\resume\orange-portofolio\node_modules\@prisma\client\runtime\library.js:130:9633) {
+  code: 'P1001',
+  clientVersion: '5.20.0',
+  meta: {
+    modelName: 'event',
+    database_host: 'cendrawasih.kencang.com',
+    database_port: 3306
+  }
+}

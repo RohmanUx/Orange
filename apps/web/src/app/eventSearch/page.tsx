@@ -40,7 +40,7 @@ const CategorySeach: React.FC = () => {
   const [searchTerm, setSearchTerm] = useState<string>('');
   const router = useRouter();
   // const searchParams = useRouter ( ) ;
-
+ 
   useEffect(() => {
     const fetchCategories = async () => {
       try {
