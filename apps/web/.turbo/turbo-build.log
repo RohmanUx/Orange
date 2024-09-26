@@ -19,19 +19,19 @@
    Collecting build traces ...
 
 Route (app)                              Size     First Load JS
-┌ ○ /                                    30.3 kB         179 kB
+┌ ○ /                                    30.5 kB         164 kB
 ├ ○ /_not-found                          873 B            88 kB
-├ ○ /dashboard/balance                   1.91 kB         117 kB
-├ ○ /dashboard/create                    1.99 kB         117 kB
-├ ○ /dashboard/profile                   1.72 kB         111 kB
-├ ○ /event                               3.08 kB        90.2 kB
-├ ○ /eventCheck                          1.4 kB          129 kB
+├ ○ /dashboard/balance                   1.45 kB         110 kB
+├ ○ /dashboard/create                    2 kB            117 kB
+├ ○ /dashboard/profile                   1.75 kB         117 kB
+├ ○ /event                               3.93 kB        91.1 kB
+├ ○ /eventCheck                          1.62 kB         129 kB
 ├ ○ /eventSearch                         37.5 kB         165 kB
-├ ƒ /eventSearch/[id]                    19.8 kB         149 kB
-├ ○ /eventsHome                          183 B           149 kB
+├ ƒ /eventSearch/[id]                    12.2 kB         150 kB
+├ ○ /eventsHome                          408 B           134 kB
 ├ ○ /forgot-password                     2.52 kB         135 kB
 ├ ○ /landing                             1.4 kB          122 kB
-├ ○ /login                               1.14 kB         166 kB
+├ ○ /login                               1.16 kB         166 kB
 ├ ○ /register                            9.07 kB         150 kB
 └ ƒ /reset-password/[token]              2.78 kB         137 kB
 + First Load JS shared by all            87.1 kB

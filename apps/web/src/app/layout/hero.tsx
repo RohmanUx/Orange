@@ -32,16 +32,16 @@ const Hero: React.FC = () => {
     <div>
       <div className="relative w-full h-screen bg-gray-900/30 z-10">
         <Image
-          src="/narthan.gif"
+          src="/aespa.webp"
           alt="Hero"
           layout="fill"
                     fill style={{ objectFit: 'cover' }} 
           className="absolute inset-0 w-full h-full bg-gray-900/90 z-0"
         />
         <div className="bg-opacity-50 flex flex-col justify-center items-center w-full h-full absolute top-0 left-0">
-          <div className="backdrop-blur-md flex flex-col items-center p-8 md:p-14 rounded-none border border-white bg-white bg-opacity-10">
+          <div className="backdrop-blur-3xl flex flex-col items-center p-8 md:p-14 rounded-none border border-white bg-white bg-opacity-10">
             <div className="flex mt-4">
-              <h1 className="text-gray-700 text-3xl md:text-4xl lg:text-6xl font-bold mb-2 text-center font-KalesiRoundedDemo">
+              <h1 className="text-gray-900 text-3xl md:text-4xl lg:text-6xl font-bold mb-2 text-center font-KalesiRoundedDemo">
                 Discover Event{' '}
               </h1>
               <svg
@@ -60,7 +60,7 @@ const Hero: React.FC = () => {
                 />
               </svg>
             </div>
-            <p className="text-gray-600 text-sm md:text-lg lg:text-lg font-bold mb-6 text-center font-KalesiRoundedDemo">
+            <p className="text-gray-900 text-sm md:text-lg lg:text-lg font-bold mb-6 text-center font-KalesiRoundedDemo">
               Music, study, mentoring, learning, party, <br />
               government, books, and more
             </p>

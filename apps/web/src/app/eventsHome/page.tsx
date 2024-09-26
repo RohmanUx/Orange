@@ -4,7 +4,11 @@ import axios from 'axios';
 import { Button } from '@/components/ui/button'; // Sesuaikan path sesuai kebutuhan
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
-import { Carousel } from '@/components/ui/carousel'; // Import Carousel dari ShadCN UI
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+} from '@/components/ui/carousel'; // Import Carousel dari ShadCN UI
 import Animation from '../layout/circle';
 import CircularText from '../layout/circle';
 import { Swiper, SwiperSlide } from 'swiper/react';
@@ -130,7 +134,7 @@ const CategoryList: React.FC = () => {
           objectFit="cover"
           className="absolute inset-0 w-full h-full"
         />
-        <div className="relative z-10 flex flex-col items-center pt-4 lg:py-2 bg-gray-100 bg-opacity-60 h-[1460px] sm:h-[1660px] md:h-[1860px] lg:xl:h-[1860px]">
+        <div className="relative z-10 flex flex-col items-center pt-4 lg:py-2 bg-gray-100 bg-opacity-60 h-[1460px] sm:h-[1660px] md:h-[1860px] lg:xl:h-[1860px] backdrop-blur-3xl">
           <div className="p-2 sm:p-4  xl:px-24 lg:px-10 px-2 sm:px-4">
             <div>
               <div className="p-2 sm:p-4 lg:p-4 backdrop-blur-none justify-center h-[1300px] sm:h-[1660px] md:h-[1860px] lg:xl:h-[1800px] ">
@@ -140,7 +144,7 @@ const CategoryList: React.FC = () => {
                   </h1>
                 </div>
                 <div className="mb-4 sm:mb-8 flex flex-nowrap justify-center font-sans rounded-md space-x-1 sm:space-x-2 lg:space-x-4 flex-col items-center ">
-                  <div className="py-1 space-x-2">
+                  <div className="py-0 space-x-1">
                     {' '}
                     {/* Category Filter */}
                     {categories.length > 0 ? (
@@ -148,7 +152,7 @@ const CategoryList: React.FC = () => {
                         <Button
                           key={category.id}
                           onClick={() => handleCategoryClick(category.id)}
-                          className={`px-1 sm:px-2 lg:px-4 py-1 lg:py-2 rounded-full font-semibold transition-transform font-sans text-xs lg:text-base transform border-black/60 border-[1px] ${
+                          className={`px-1 sm:px-2 lg:px-4 py-1 lg:py-1 rounded-full font-semibold transition-transform font-sans text-xs lg:text-base transform border-black/60 border-[1px] ${
                             currentCategory === category.id
                               ? 'bg-orange-400/90 text-gray-900 hover:bg-gray-500/90'
                               : 'bg-orange-300 text-gray-900 hover:bg-gray-400'
@@ -164,7 +168,7 @@ const CategoryList: React.FC = () => {
                     )}{' '}
                   </div>
 
-                  <div className="py-1 space-x-2">
+                  <div className="py-1 space-x-1">
                     {' '}
                     {/* Location Filter */}
                     {locations.length > 0 ? (
@@ -201,39 +205,36 @@ const CategoryList: React.FC = () => {
                         <div className="grid grid-cols-1 mt-2 p-0 mx-0 ">
                           <div
                             key={event.id}
-                            className="p-2 sm:p-4 lg:p-4 rounded-none flex flex-col items-center py-4 font-sans shadow-md hover:shadow-lg transition-shadow cursor-pointer bg-orange-50/40 border-[1px] border-black/60"
+                            className="p-2 sm:p-4 lg:p-4 rounded-none flex flex-col items-center py-4 font-sans shadow-md hover:shadow-lg transition-shadow cursor-pointer bg-orange-900/10 border-[1px] border-black/60 backdrop-blur-3xl"
                             onClick={() => handleEventClick(event.id)}
                           >
-                            <h1 className="text-sm sm:text-base lg:text-lg font-sans mb-2 text-center text-gray-900">
+                            <Carousel>
+                              <CarouselContent
+                                style={{ transform: `translateX(-${100}%)` }}
+                              >
+                                {event.images.map((image) => (
+                                  <CarouselItem
+                                    key={image.id}
+                                    className="flex-shrink-0 w-[120px] h-[200px]"
+                                  >
+                                    <Image
+                                      src={`http://localhost:8000${image.path}`}
+                                      alt={event.title}
+                                      width={400}
+                                      height={400}
+                                      objectFit="layout"
+                                      className="rounded-sm my-5 shadow-sm w-full h-[200px] max-w-full bg-black/40"
+                                    />
+                                  </CarouselItem>
+                                ))}
+                              </CarouselContent>
+                            </Carousel>{' '}
+                            <h1 className="text-sm sm:text-base lg:text-lg font-sans mt-2 lg:mt-4 lg:mb-2 text-center text-gray-900 font-bold line-clamp-3">
                               {event.title}
                             </h1>
-                            <div className="h-32 sm:h-48 w-full flex justify-center">
-                              {event.images.length > 0 && (
-                                <Swiper
-                                  spaceBetween={10}
-                                  slidesPerView={1}
-                                  loop={true}
-                                  className="rounded-sm"
-                                >
-                                  {event.images.map((image, index) => (
-                                    <SwiperSlide key={index}>
-                                      <Image
-                                        src={`http://localhost:8000${image.path}`}
-                                        alt={event.title}
-                                        layout="fill"
-                                        objectFit="cover"
-                                        className="absolute inset-0 w-full h-full"
-                                      />
-                                    </SwiperSlide>
-                                  ))}
-                                </Swiper>
-                              )}
-                            </div>
-
-                            <p className="text-gray-800 font-sans my-2 lg:my-4 line-clamp-3 sm:px-0 px-0 text-center text-sm sm:text-base">
+                            <p className="text-gray-800 font-sans mb-4 line-clamp-2 sm:px-0 px-0 text-center text-sm sm:text-base">
                               {event.description}
                             </p>
-
                             <div className="flex flex-wrap">
                               <div className="text-gray-600 font-sans bg-gray-100 flex rounded-full pl-3 py-0 text-sm lg:text-base items-center text-center">
                                 location:
@@ -242,7 +243,6 @@ const CategoryList: React.FC = () => {
                                 </span>
                               </div>
                             </div>
-
                             <div
                               className={`text-${
                                 isEnded ? 'red' : isOngoing ? 'green' : 'gray'
@@ -257,14 +257,12 @@ const CategoryList: React.FC = () => {
                                     : 'Upcoming'}
                               </span>
                             </div>
-
                             <div className="text-gray-600 font-sans bg-gray-100 flex rounded-full pl-3 my-0 text-sm lg:text-base">
                               ticket:
                               <span className="text-gray-600 font-sans bg-gray-0 flex rounded-full px-1 mr-1 py-0">
                                 {event.ticketType}
                               </span>
                             </div>
-
                             <div className="text-gray-600 font-sans bg-gray-100 rounded-full pl-3 flex my-2 text-sm lg:text-base">
                               seats:
                               <span className="text-gray-600 font-sans bg-gray-0 flex rounded-full px-1 mr-1 py-0">

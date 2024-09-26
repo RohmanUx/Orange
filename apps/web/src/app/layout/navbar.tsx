@@ -42,10 +42,10 @@ export const Navbar: React.FC = () => {
       className={`fixed top-0 w-full z-50 transition-all backdrop-blur-3xl justify-around  ${
         pathname === '/login' || pathname === '/register'
           ? 'bg-transparent'
-          : 'bg-white/40'
+          : 'bg-white/90'
       }`}
     >
-      <div className="flex justify-between items-center px-20 py-1 lg:px-36">
+      <div className="flex justify-between items-center py-[1px] px-20  lg:px-36">
         {/* Logo */}
         <div>
           <Link href="/" className="font-medium text-2xl lg:text-2xl border-black/30 border-2 px-2 text-black/80 bg-orange-100  xl:sm:w-40">
@@ -62,7 +62,7 @@ export const Navbar: React.FC = () => {
             <Button variant="link" className='text-sm font-sans'>Dashboard </Button>
           </Link>
           <Link href="/event"> 
-            <Button variant="link" className='text-sm font-sans'>Helper </Button>
+            <Button variant="link" className='text-sm font-sans'>Blog </Button>
           </Link>
         </div>
 

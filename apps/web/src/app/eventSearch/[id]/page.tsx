@@ -6,10 +6,14 @@ import { useRouter } from 'next/navigation';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Image from 'next/image';
-import withRole  from '@/hoc/roleGuard';
+import withRole from '@/hoc/roleGuard';
 import Markdown from 'markdown-to-jsx';
 import { ClassNames } from '@emotion/react';
-import { Carousel, CarouselContent, CarouselItem } from '@/components/ui/carousel';
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+} from '@/components/ui/carousel';
 import { FaChevronLeft, FaChevronRight } from 'react-icons/fa';
 type Event = {
   user: number;
@@ -80,7 +84,7 @@ const EventDetailPage: React.FC<Props> = ({ params }: Props) => {
         );
 
         if (savedTransaction) {
-          setHasPurchased(true); 
+          setHasPurchased(true);
         }
 
         if (savedEndDate) {
@@ -105,7 +109,7 @@ const EventDetailPage: React.FC<Props> = ({ params }: Props) => {
         const response = await axios.get(
           `http://localhost:8000/api/testimonial/testimonial/${id}`,
         );
-       if (response.data && Array.isArray(response.data)) {
+        if (response.data && Array.isArray(response.data)) {
           setTestimonials(response.data);
         } else {
           setTestimonials([]);
@@ -164,7 +168,7 @@ const EventDetailPage: React.FC<Props> = ({ params }: Props) => {
       });
 
       localStorage.setItem(`purchase_${userId}_${eventId}_${id}`, 'true');
-    localStorage.setItem(`endDate_${eventId}_${id}_${userId}`, event.endTime);
+      localStorage.setItem(`endDate_${eventId}_${id}_${userId}`, event.endTime);
       setHasPurchased(true);
       toast.success('Purchase successful!', {
         className: 'bg-green-100 text-green-700 p-4 rounded-lg',
@@ -258,19 +262,18 @@ const EventDetailPage: React.FC<Props> = ({ params }: Props) => {
   if (loading) return <p>Loading ... </p>;
   if (!event) return <p>Event not found </p>;
 
-        
-    const handlePrev = () => {
-      setCurrentIndex((prevIndex) =>
-        prevIndex === 0 ? event.images.length - 1 : prevIndex - 1
-      );
-    };
-  
-    const handleNext = () => {
-      setCurrentIndex((prevIndex) =>
-        prevIndex === event.images.length - 1 ? 0 : prevIndex + 1
-      );
-    };
-  
+  const handlePrev = () => {
+    setCurrentIndex((prevIndex) =>
+      prevIndex === 0 ? event.images.length - 1 : prevIndex - 1,
+    );
+  };
+
+  const handleNext = () => {
+    setCurrentIndex((prevIndex) =>
+      prevIndex === event.images.length - 1 ? 0 : prevIndex + 1,
+    );
+  };
+
   const currentTime = new Date().getTime();
   const startTime = new Date(event.startTime).getTime();
   const endTime = new Date(event.endTime).getTime();
@@ -281,47 +284,50 @@ const EventDetailPage: React.FC<Props> = ({ params }: Props) => {
       <div className="flex flex-col lg:flex-row justify-between">
         <div className="w-full lg:w-2/3">
           <ToastContainer />
-          <div className="relative w-96 h-96 flex">
-      {event.images.length > 0 && (
-        <Carousel>
-          <CarouselContent
-            style={{ transform: `translateX(-${currentIndex * 100}%)` }}
-          >
-            {event.images.map((image) => (
-              <CarouselItem key={image.id} className="flex-shrink-0 w-[120px] h-[400px]">
-                <Image
-                  src={`http://localhost:8000${image.path}`}
-                  alt={event.title}
-                  width={400}
-                  height={400} 
-                  objectFit='layout'
-                  className="rounded-sm my-5 shadow-sm w-full h-auto max-w-full bg-black/40"
-                />
-              </CarouselItem>
-            ))}
-          </CarouselContent>
-          {/* Left Navigation */}
-          <button
-            onClick={handlePrev}
-            className="absolute top-1/2 left-0 transform -translate-y-1/2 bg-gray-800/40 text-white p-1 rounded-full backdrop-blur-3xl border-white/60 border-2 mx-1"
-          >
-            <FaChevronLeft size={20} />
-          </button>
-          {/* Right Navigation */}
-          <button
-            onClick={handleNext}
-            className="absolute top-1/2 right-0 transform -translate-y-1/2 bg-gray-800/40 text-white p- rounded-full  backdrop-blur-3xl border-white/60 border-2 mx-1"
-          >
-            <FaChevronRight size={20} />
-          </button>
-        </Carousel>
-      )}
-    </div>
+          <div className="relative w-96 h-[380px] flex mb-4">
+            {event.images.length > 0 && (
+              <Carousel>
+                <CarouselContent
+                  style={{ transform: `translateX(-${currentIndex * 100}%)` }}
+                >
+                  {event.images.map((image) => (
+                    <CarouselItem
+                      key={image.id}
+                      className="flex-shrink-0 w-[300px] h-[380px] "
+                    >
+                      <Image
+                        src={`http://localhost:8000${image.path}`}
+                        alt={event.title}
+                        width={300}
+                        height={380}
+                        objectFit="layout"
+                        className="my-5 shadow-sm w-full h-auto max-w-full bg-black/40"
+                      />
+                    </CarouselItem>
+                  ))}
+                </CarouselContent>
+                {/* Left Navigation */}
+                <button
+                  onClick={handlePrev}
+                  className="absolute top-1/2 left-0 transform -translate-y-1/2 bg-gray-800/40 text-white p-1 rounded-full backdrop-blur-3xl border-white/60 border mx-1"
+                >
+                  <FaChevronLeft size={15} />
+                </button>
+                {/* Right Navigation */}
+                <button
+                  onClick={handleNext}
+                  className="absolute top-1/2 right-0 transform -translate-y-1/2 bg-gray-800/40 text-white p-1 rounded-full  backdrop-blur-3xl border-white/60 border mx-1"
+                >
+                  <FaChevronRight size={15} />
+                </button>
+              </Carousel>
+            )}
+          </div>
           <div className="bg-gray-50 flex rounded-sm font-sans flex-col py-5 text-gray-100">
             <h1 className="text-2xl md:text-3xl font-medium text-gray-900 font-sans uppercase">
               {event.title}
             </h1>
-            <div className="my-3"> 
+            <div className="my-3">
               <Markdown className="text-sm md:text-base font-sans text-gray-900">
                 {event.description}
               </Markdown>
@@ -333,7 +339,7 @@ const EventDetailPage: React.FC<Props> = ({ params }: Props) => {
               {formatDateTime(event.endTime)}
             </p>
             <p className="text-gray-900 mt-2 text-sm font-sans">
-              Location: { ' ' }
+              Location:{' '}
               {event.location
                 ? event.location.locationName
                 : 'Location not available'}
@@ -368,7 +374,7 @@ const EventDetailPage: React.FC<Props> = ({ params }: Props) => {
                 LABEL:
               </div>
               <p className="ml-4 text-gray-900 font-sans text-sm mt-2">
-                {event.category.categoryName} { ' ' }
+                {event.category.categoryName}{' '}
               </p>
             </div>
           </div>
@@ -376,9 +382,9 @@ const EventDetailPage: React.FC<Props> = ({ params }: Props) => {
 
         {/* Purchase Form */}
         <div className="relative w-full lg:w-1/3 lg:ml-20">
-          <div className="bg-gray-100 p-6 rounded-lg mt-6 lg:mt-[57px] h-auto lg:h-80 w-full lg:w-80 border-gray-700 opacity-100 border-[1px] sticky top-20">
+          <div className="bg-gray-100/10 p-6 rounded-lg mt-6 lg:mt-[57px] h-auto lg:h-80 w-full lg:w-80 border-gray-700 opacity-100 border-[1px] sticky top-20 backdrop-blur-3xl">
             <h2 className="text-lg font-medium font-sans mb-4">
-              Purchase Tickets { ' ' }
+              Purchase Tickets{' '}
             </h2>
             <label className="block text-sm mb-2 text-gray-900 font-sans">
               Quantity:
@@ -415,7 +421,7 @@ const EventDetailPage: React.FC<Props> = ({ params }: Props) => {
 
       {/* Testimonial Form */}
       {hasPurchased && isEnded && (
-        <div className="mt-8">
+        <div className="mt-8  bg-gray-50/10 backdrop-blur-3xl">
           <div className="p-6 rounded-lg font-sans border-black border-[1px] w-full lg:w-[400px]">
             <h2 className="text-lg font-medium font-sans mb-4 text-gray-900">
               Your Comment
@@ -532,4 +538,4 @@ const EventDetailPage: React.FC<Props> = ({ params }: Props) => {
   );
 };
 
-export default EventDetailPage
+export default EventDetailPage;

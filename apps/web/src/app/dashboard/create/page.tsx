@@ -96,7 +96,7 @@ const PostEventForm: React.FC = () => {
   };
 
   return (
-    <div className="max-w-lg mx-auto p-6 bg-gray-950 backdrop-blur-sm shadow-md rounded-lg bg-opacity-60 my-32">
+    <div className="max-w-lg mx-auto p-6 bg-gray-950 backdrop-blur-sm shadow-md rounded-lg bg-opacity-60 my-32 h-screen">
       <h2 className="text-3xl font-bold text-gray-100 mb-4 flex justify-center">
         Post New Event
       </h2>
@@ -196,7 +196,7 @@ const PostEventForm: React.FC = () => {
         </button>
       </form>
       {error && <p className="text-red-500">{error}</p>}
-      {success && <p className="text-green-500">Event posted successfully!</p>}
+      {success && <p className="text-green-500">Event posted successfully! </p>}
     </div> 
   
   );

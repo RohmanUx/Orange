@@ -75,7 +75,9 @@ const config: Config = {
       borderRadius: {
         lg: 'var(--radius)',
         md: 'calc(var(--radius) - 2px)',
-        sm: 'calc(var(--radius) - 4px)',
+        sm: 'calc(var(--radius) - 4px)', 
+        border: '1px',  
+        block: 'padding-block: 1px', 
       },
     },
   },

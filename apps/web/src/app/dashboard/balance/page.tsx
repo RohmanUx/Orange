@@ -63,7 +63,7 @@ const Balance: React.FC = () => {
   }, []);
 
   const fetchTransactions = async () => {
-    const token = localStorage.getItem ('token') ;
+    const token = localStorage.getItem('token');
     try {
       const response = await axios.get(
         `http://localhost:8000/api/transaction/transaction/`,
@@ -110,72 +110,95 @@ const Balance: React.FC = () => {
 
   return (
     <div className="h-full pt-20 px-32">
-      {loading && <p>Loading...</p>}
-      <div className="h-72">
-        {data ? (
-          <div className="h-72">
-            <h3>Profile Information</h3>
-            <h1>
-              Name: {data.firstName} {data.lastName}
-            </h1>
-            <p>Gender: {data.gender}</p>
-            <p>Address: {data.address}</p>
-            <p>Phone: {data.phoneNumber}</p>
-            <p>
-              Date of Birth: {new Date(data.dateOfBirth).toLocaleDateString()}
-            </p>
-            <p>Balance: {data.user.balance}</p>
-            <p>Point: {data.user.points}</p>
-            <p>Identification: {data.user.identificationId}</p>
-            <p>Email: {data.user.email}</p>
-            <p>Location : {data.location.locationName || 'data error'}</p>
-          </div>
-        ) : (
-          <p>No profile data available.</p>
-        )}
-      </div>
-      <div>
-        <h3>Add balance</h3>
-        {balance && (
-          <div>
-            <input
-              type="number"
-              name="Balance"
-              placeholder="Add your balance"
-              value={balanceValue}
-              onChange={handleInputChange}
-              className="w-full p-2 border rounded mb-4"
-              required
-            />
-            <button onClick={updateBalance} disabled={loading}>
-              {loading ? 'Adding...' : 'Add Balance'}
-            </button>
-          </div>
-        )}
-      </div>
-      <div>
-        <h3>Transactions</h3>
-        <div>
-          {Array.isArray(transaction) && transaction.length > 0 ? (
-            transaction.map((tx) => (
-              <div key={tx.id}>
-                <p>Transaction ID: {tx.id}</p>
-                <p>User ID: {tx.userId}</p>
-                <p>Event ID: {tx.eventId}</p>
-                <p>Quantity: {tx.qty}</p>
-                <p>Total: {tx.total}</p>
-                <p>Status: {tx.status}</p>
-                <p>Status: {tx.transactionDate}</p>
-              </div>
-            ))
+      <div className="h-screen flex items-center justify-center space-x-5 flex-nowrap flex-col">
+        <div className="pb-12 text-4xl"> Your balance </div>
+        <div className="flex items-center justify-center space-x-5">
+          {data ? (
+            <div className=" w-[400px] border-black border-[1px] p-7">
+              <h3>Profile information </h3>
+              <h1>
+                Name: {data.firstName} {data.lastName}
+              </h1>
+              <p>Gender: {data.gender}</p>
+              <p>Address: {data.address}</p>
+              <p>Phone: {data.phoneNumber}</p>
+              <p>
+                Date of Birth: {new Date(data.dateOfBirth).toLocaleDateString()}
+              </p>
+              <p>Location : {data.location.locationName || 'data error'}</p>
+              <p>Identification: {data.user.identificationId}</p>
+              <p>Email: {data.user.email}</p>
+              <p>Balance: {data.user.balance}</p>
+              <p>Point: {data.user.points}</p>
+            </div>
           ) : (
-            <p>No transactions found.</p>
+            <p>No profile data available.</p>
           )}
+          <div className=" w-[400px] border-black border-[1px] p-7">
+            <h3 className="pb-5 text-2xl">Top up</h3>
+            {balance && (
+              <div>
+                <input
+                  type="number"
+                  name="Balance"
+                  placeholder="Add your balance"
+                  value={balanceValue}
+                  onChange={handleInputChange}
+                  className="w-full p-2 border rounded mb-4"
+                  required
+                />
+                <button
+                  onClick={updateBalance}
+                  disabled={loading}
+                  className="border-black border-2 py-1 px-2 rounded-full"
+                >
+                  {loading ? 'Adding...' : 'Free balance'}
+                </button>
+                <button
+                  onClick={updateBalance}
+                  disabled={loading}
+                  className="border-black border-2 py-1 px-2 rounded-full mx-2"
+                >
+                  {loading ? 'Adding...' : 'With midtrans'}
+                </button>
+                <button
+                  onClick={updateBalance}
+                  disabled={loading}
+                  className="border-black border-2 py-1 px-2 rounded-full my-2"
+                >
+                  {loading ? 'Adding...' : 'With paypal'}
+                </button>
+              </div>
+            )}
+          </div>{' '}
+        </div>{' '}
+      </div>
+      <div className="h-screen flex justify-center space-x-5 flex-nowrap pt-20">
+        <div className="">
+          <h3 className="text-4xl pb-2">Transactions event </h3>
+          <div>
+            {Array.isArray(transaction) && transaction.length > 0 ? (
+              transaction.map((tx) => (
+                <div key={tx.id}>
+                  <p>Transaction ID: {tx.id}</p>
+                  <p>User ID: {tx.userId}</p>
+                  <p>Event ID: {tx.eventId}</p>
+                  <p>Quantity: {tx.qty}</p>
+                  <p>Total: {tx.total}</p>
+                  <p>Status: {tx.status}</p>
+                  <p>Status: {tx.transactionDate}</p>
+                </div>
+              ))
+            ) : (
+              <p className="text-red-900 w-full text-center flex justify-center">
+                No transactions found.
+              </p>
+            )}
+          </div>{' '}
         </div>
       </div>
-      {error && <p className="text-red-500">{error}</p>}
     </div>
   );
 };
 
-export default withRole(Balance, 'USER'); // Use role guard for component access
+export default Balance; // Use role guard for component access

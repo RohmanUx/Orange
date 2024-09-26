@@ -1,10 +1,11 @@
-'use client'
+'use client';
 import React, { useState } from 'react';
 import axios from 'axios';
 import { useRouter } from 'next/navigation';
-import { Navbar } from '../layout/navbar'; 
-import Image from 'next/image' 
+import { Navbar } from '../layout/navbar';
+import Image from 'next/image';
 import { MdVisibility, MdVisibilityOff } from 'react-icons/md';
+import Link from 'next/link';
 
 const LoginPage = () => {
   const [email, setEmail] = useState('');
@@ -17,10 +18,13 @@ const LoginPage = () => {
     setError('');
 
     try {
-      const response = await axios.post('http://localhost:8000/api/auth/login', {
-        email,
-        password,
-      });
+      const response = await axios.post(
+        'http://localhost:8000/api/auth/login',
+        {
+          email,
+          password,
+        },
+      );
 
       if (response.data.success) {
         // Store token in localStorage or cookies
@@ -41,16 +45,16 @@ const LoginPage = () => {
     }
   };
 
-return (
-    <div className='pt-0'>
-      <Navbar />
-      <div className="h-screen flex items-center pt-14">
+  return (
+    <div className="pt-0 h-screen">
+      <div className="h-screen flex items-center pt-0">
+        <Navbar />
         <Image
           src="/Untitled design.png"
           alt="Login Background"
           layout="fill"
           objectFit="cover"
-          className="absolute inset-0 -z-10 pt-14"
+          className="absolute inset-0 -z-10 pt-10"
         />
         <div className="w-96 bg-slate-100/60 m-auto shadow-lg rounded-md p-7 backdrop-blur-3xl">
           <h1 className="text-center font-semibold text-2xl">LOGIN</h1>
@@ -59,11 +63,10 @@ return (
               <label className="block text-xl my-2">Email</label>
               <input
                 className="w-full p-2 rounded-md border-2 border-black/60 bg-gray-300/0 placeholder-black"
-                placeholder='Enter email'
+                placeholder="Enter email"
                 type="email"
-                                value={email}
+                value={email}
                 onChange={(e) => setEmail(e.target.value)}
-
               />
             </div>
             <div>
@@ -71,26 +74,15 @@ return (
               <div className="relative flex items-center">
                 <input
                   className="w-full p-2 rounded-md border-2 border-black/60 bg-gray-300/0 placeholder-black"
-                  placeholder='Enter password'
-                 // type={isVisible ? 'text' : 'password'}
+                  placeholder="Enter password"
+                  // type={isVisible ? 'text' : 'password'}
                   value={password}
-                  onChange={(e)=>setPassword(e.target.value)}
+                  onChange={(e) => setPassword(e.target.value)}
                 />
-                <button
-                  type="button"
-                  className="absolute right-4"
-                               >
-                            </button>
+                <button type="button" className="absolute right-4"></button>
               </div>
             </div>
             <div className="flex gap-4">
-              <button
-                type="button"
-                className="border border-slate-600 text-slate-600 p-3 w-full rounded-md shadow my-4"
-                onClick={() => router.push('/register')}
-              >
-                Register
-              </button>
               <button
                 type="button"
                 className="bg-slate-500 text-white p-3 w-full rounded-md shadow my-4"
@@ -100,7 +92,12 @@ return (
               </button>
             </div>
             <div className="text-center">
-              <a href="/forgot-password" className="text-blue-500">Reset password?</a>
+              <a href="/forgot-password" className="text-gray-950">
+                Reset password? if not have account{' '}
+                <Link href="/register" className="underline">
+                  Register Now
+                </Link>
+              </a>
             </div>
           </div>
         </div>
@@ -182,7 +179,7 @@ export default LoginPage;
 //         </div>
 
 //         <button type="submit" className="btn-primary">
-//           Login 
+//           Login
 //         </button>
 //       </form>
 //     </div>

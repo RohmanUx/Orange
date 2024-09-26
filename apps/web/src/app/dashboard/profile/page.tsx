@@ -1,6 +1,8 @@
 'use client';
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const Profile = ( ) => {
   const [profile, setProfile] = useState({
@@ -28,7 +30,6 @@ const Profile = ( ) => {
   const [loading, setLoading] = useState(true);
   const [isProfilePosted, setIsProfilePosted] = useState(false);
 
-  // Fetch user profile
   const fetchProfile = async () => {
     const token = localStorage.getItem('token');
     if (!token) {
@@ -43,15 +44,10 @@ const Profile = ( ) => {
           Authorization: `Bearer ${token}`,
         },
       });
-      if (!data) {
-        setComment('Authentication token missing. Please log in.');
-        return;
-      }
-  
       if (data.data.result.length > 0) {
         setGet(data.data.result[0]);
         setProfile(data.data.result[0]);
-        setIsProfilePosted(true); // Set to true if profile exists
+        setIsProfilePosted(true);
       }
       setLoading(false);
     } catch (error) {
@@ -63,22 +59,20 @@ const Profile = ( ) => {
     fetchProfile();
   }, []);
 
-  // menanangani pristiwa perubahan html
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setProfile({ ...profile, [e.target.name]: e.target.value });
   };
 
-  // Submit Profile Update
   const handleSubmit = async (e: React.FormEvent) => {
     const token = localStorage.getItem('token');
     if (!token) {
       setComment('Authentication token missing. Please log in.');
+      toast.error('token its missing please login or created account');
       return;
     }
-        e.preventDefault();
+    e.preventDefault();
     try {
       if (isProfilePosted) {
-        // Update existing profile
         await axios.patch('http://localhost:8000/api/user/profile/', profile, {
           headers: {
             'Content-Type': 'multipart/form-data',
@@ -86,8 +80,8 @@ const Profile = ( ) => {
           },
         });
         alert('Profile updated successfully');
+        toast.success('your succest update profile');
       } else {
-        // Create new profile
         await axios.post('http://localhost:8000/api/user/profile/', profile, {
           headers: {
             'Content-Type': 'multipart/form-data',
@@ -95,152 +89,149 @@ const Profile = ( ) => {
           },
         });
         alert('Profile created successfully');
-        setIsProfilePosted(true); // Update state after successful post
+        setIsProfilePosted(true);
+        toast.success('your succest created profile');
       }
     } catch (error) {
       console.error('Error updating profile', error);
+      toast.error('please fix it / lengkapi profile kalian');
     }
   };
 
-  if (error) return <div>{error}</div>;
-
   return (
-    <div className="h-[1500px] bg-black bg-opacity-50 backdrop-blur-lg mt-14">
-      <div className="flex justify-center flex-wrap border-b-2">
-        <h1 className="text-3xl font-medium mb-0 text-gray-900 text-center font-sans w-full pt-24">
-          Your account
-        </h1>
-        <div className="space-x-4 h-screen flex justify-center py-10">
-          <div className="p-6 rounded-lg max-w-md bg-white bg-opacity-10 backdrop-blur-md h-[460px] w-[900px]">
-            <div className="profile-container">
-              {comment && <p>{comment}</p>}
-              <div className="h-60 border-2 border-black mb-4">
-                {get.image && <img src={get.image} alt="Profile" />}
+    <div>
+      <ToastContainer
+        position="top-right"
+        autoClose={2000} // Toast disappears after 2 seconds
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss={false}
+        draggable
+        pauseOnHover={false}
+        className="text-white text-sm" // Custom styling for small text
+      />
+      <div className=" bg-gray-200 bg-opacity-60 backdrop-blur-lg mt-10 justify-center items-center flex h-[700px]">
+        <div className="container mx-auto w-full ">
+          <div className="flex flex-wrap justify-center items-center">
+            <h1 className="text-4xl font-medium text-gray-900 mb-10 text-center w-full">
+              Your account
+            </h1>
+            <div className="flex flex-col lg:flex-row gap-8 justify-center w-full px-4 lg:px-0">
+              <div className="bg-gray-00 bg-opacity-80 p-6 rounded-lg w-96 lg:w-96 border-[1px] border-gray-900">
+                <p className="text-gray-900 pb-3 text-2xl">Profile </p>
+
+                <div className="border-2 border-gray-600 mb-4 h-60 flex justify-center items-center">
+                  {get.image ? (
+                    <img
+                      src={get.image}
+                      alt="Profile"
+                      className="h-full w-full object-cover"
+                    />
+                  ) : (
+                    <p className="text-gray-900">No profile image</p>
+                  )}
+                </div>
+                <h2 className="text-xl text-gray-900 mb-2">
+                  Name: {get.firstName} {get.lastName}
+                </h2>
+                <p className="text-gray-900">Gender: {get.gender}</p>
+                <p className="text-gray-900">Address: {get.address}</p>
+                <p className="text-gray-900">Phone: {get.phoneNumber}</p>
+                <p className="text-gray-900">
+                  Date of Birth:{' '}
+                  {new Date(get.dateOfBirth).toLocaleDateString()}
+                </p>
+                <p className="text-gray-900">
+                  Location: {get.location.locationName}
+                </p>
               </div>
-              <h1>
-                Name: {get.firstName} {get.lastName}
-              </h1>
-              <p>Gender: {get.gender}</p>
-              <p>Address: {get.address}</p>
-              <p>Phone: {get.phoneNumber}</p>
-              <p>
-                Date of Birth: {new Date(get.dateOfBirth).toLocaleDateString()}
-              </p>
-              <p>Location: {get.location.locationName}</p>
+
+              <div className="bg-gray-800 bg-opacity-80 p-6 rounded-lg w-96 lg:w-96">
+                <form onSubmit={handleSubmit} className="space-y-4">
+                  <div className="flex flex-nowrap gap-4 ">
+                    <input
+                      type="text"
+                      name="firstName"
+                      value={profile.firstName}
+                      onChange={handleChange}
+                      placeholder="First Name"
+                      className="w-full md:w-1/2 px-4 py-2 rounded bg-gray-900 text-white placeholder-gray-500 focus:ring-2 focus:ring-yellow-400"
+                    />
+                    <input
+                      type="text"
+                      name="lastName"
+                      value={profile.lastName}
+                      onChange={handleChange}
+                      placeholder="Last Name"
+                      className="w-full md:w-1/2 px-4 py-2 rounded bg-gray-900 text-white placeholder-gray-500 focus:ring-2 focus:ring-yellow-400"
+                    />
+                  </div>
+
+                  <input
+                    type="text"
+                    name="address"
+                    value={profile.address}
+                    onChange={handleChange}
+                    placeholder="Address"
+                    className="w-full px-4 py-2 rounded bg-gray-900 text-white placeholder-gray-500 focus:ring-2 focus:ring-yellow-400"
+                  />
+
+                  <input
+                    type="text"
+                    name="phoneNumber"
+                    value={profile.phoneNumber}
+                    onChange={handleChange}
+                    placeholder="Phone Number"
+                    className="w-full px-4 py-2 rounded bg-gray-900 text-white placeholder-gray-500 focus:ring-2 focus:ring-yellow-400"
+                  />
+
+                  <input
+                    type="text"
+                    name="gender"
+                    value={profile.gender}
+                    onChange={handleChange}
+                    placeholder="Gender"
+                    className="w-full px-4 py-2 rounded bg-gray-900 text-white placeholder-gray-500 focus:ring-2 focus:ring-yellow-400"
+                  />
+
+                  <input
+                    type="text"
+                    name="location"
+                    value={profile.location}
+                    onChange={handleChange}
+                    placeholder="Location"
+                    className="w-full px-4 py-2 rounded bg-gray-900 text-white placeholder-gray-500 focus:ring-2 focus:ring-yellow-400"
+                  />
+                  <input
+                    type="date"
+                    name="dateOfBirth"
+                    value={profile.dateOfBirth}
+                    onChange={handleChange}
+                    className="w-full px-4 py-2 rounded bg-gray-900 text-white placeholder-gray-500 focus:ring-2 focus:ring-yellow-400"
+                  />
+
+                  <input
+                    type="file"
+                    name="image"
+                    accept="image/*"
+                    onChange={handleChange}
+                    className="w-full px-4 py-2 rounded bg-gray-900 text-white placeholder-gray-500 focus:ring-2 focus:ring-yellow-400"
+                  />
+
+                  <button
+                    type="submit"
+                    className="w-full px-4 py-2 bg-yellow-500 text-gray-900 font-semibold rounded hover:bg-yellow-600 transition"
+                  >
+                    {isProfilePosted ? 'Update Profile' : 'Post Profile'}
+                  </button>
+                </form>
+              </div>
             </div>
           </div>
-          <div className="max-w-md w-full bg-white bg-opacity-10 backdrop-blur-md p-8 rounded-lg shadow-md h-[460px]">
-            <form onSubmit={handleSubmit} className="space-y-4">
-              <div className="flex space-x-4">
-                <input
-                  type="text"
-                  name="firstName"
-                  value={profile.firstName}
-                  onChange={handleChange}
-                  placeholder="First Name"
-                  className="w-1/2 px-4 py-2 rounded bg-white bg-opacity-10 text-white placeholder-white focus:ring-2 focus:ring-yellow-400"
-                />
-                <input
-                  type="text"
-                  name="lastName"
-                  value={profile.lastName}
-                  onChange={handleChange}
-                  placeholder="Last Name"
-                  className="w-1/2 px-4 py-2 rounded bg-white bg-opacity-10 text-white placeholder-white focus:ring-2 focus:ring-yellow-400"
-                />
-              </div>
-
-              <input
-                type="text"
-                name="address"
-                value={profile.address}
-                onChange={handleChange}
-                placeholder="Address"
-                className="w-full px-4 py-2 rounded bg-white bg-opacity-10 text-white placeholder-white focus:ring-2 focus:ring-yellow-400"
-              />
-
-              <input
-                type="date"
-                name="dateOfBirth"
-                value={profile.dateOfBirth}
-                onChange={handleChange}
-                className="w-full px-4 py-2 rounded bg-white bg-opacity-10 text-white placeholder-white focus:ring-2 focus:ring-yellow-400"
-              />
-
-              <input
-                type="text"
-                name="phoneNumber"
-                value={profile.phoneNumber}
-                onChange={handleChange}
-                placeholder="Phone Number"
-                className="w-full px-4 py-2 rounded bg-white bg-opacity-10 text-white placeholder-white focus:ring-2 focus:ring-yellow-400"
-              />
-
-              <label className="block text-white">Gender</label>
-              <input
-                name="gender"
-                value={profile.gender}
-                onChange={handleChange}
-                className="w-full px-4 py-2 rounded bg-white bg-opacity-10 text-white placeholder-white focus:ring-2 focus:ring-yellow-400"
-              />
-
-              <input
-                type="text"
-                name="location"
-                value={profile.location}
-                onChange={handleChange}
-                placeholder="Location"
-                className="w-full px-4 py-2 rounded bg-white bg-opacity-10 text-white placeholder-white focus:ring-2 focus:ring-yellow-400"
-              />
-
-              <button
-                type="submit"
-                className="w-full px-4 py-2 bg-yellow-400 text-black font-semibold rounded hover:bg-yellow-500 transition"
-              >
-                {isProfilePosted ? 'Update Profile' : 'Post Profile'}
-              </button>
-            </form>
-          </div>
-        </div>{' '}
-      </div>
-      <div className="flex items-center flex-col h-[700px]">
-        <div className="py-40">
-          <h1 className="text-3xl sm:text-3xl md:text-3xl font-medium mb-8 text-gray-900 text-center font-sans">
-            Free test account
-          </h1>
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 w-full max-w-4xl px-4">
-            {/* Admin Credentials */}
-            <div className="p-6 bg-white bg-opacity-10 backdrop-blur-md  border-black border-[1px]">
-              <h2 className="text-xl sm:text-2xl font-semibold text-gray-200 mb-4 text-center">
-                Admin
-              </h2>
-              <div className="text-lg sm:text-xl">
-                <p className="text-gray-200">
-                  <strong>Email:</strong> rohman@gmail.com
-                </p>
-                <p className="text-gray-200">
-                  <strong>Password:</strong> AlphaThap42@
-                </p>
-              </div>
-            </div>
-
-            {/* User Credentials */}
-            <div className="p-6 bg-white bg-opacity-10 backdrop-blur-md  border-black border-[1px]">
-              <h2 className="text-xl sm:text-2xl font-semibold text-gray-200 mb-4 text-center">
-                User
-              </h2>
-              <div className="text-lg sm:text-xl">
-                <p className="text-gray-200">
-                  <strong>Email:</strong> user@gmail.com
-                </p>
-                <p className="text-gray-200">
-                  <strong>Password:</strong> AlphaThap42@
-                </p>
-              </div>
-            </div>
-          </div>{' '}
-        </div>{' '}
-      </div>
+        </div>
+      </div>{' '}
     </div>
   );
 };

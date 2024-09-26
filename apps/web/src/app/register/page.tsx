@@ -69,13 +69,13 @@ const Register: React.FunctionComponent<IRegisterProps> = (props) => {
         alt="Login Background"
         layout="fill"
         objectFit="cover"
-        className="absolute inset-0 -z-10 pt-14"
+        className="absolute inset-0 -z-10 pt-10"
       />
 
       <div className="absolute inset-0 flex justify-center items-center pt-14">
-        <div className="w-full max-w-sm rounded-none shadow-2xl p-5 bg-gray-100 bg-opacity-60 flex flex-col justify-center items-center gap-5 z-10 backdrop-blur-3xl">
+        <div className="w-full max-w-sm rounded-none shadow-2xl p-6 bg-gray-100 bg-opacity-60 flex flex-col justify-center items-center gap-5 z-10 backdrop-blur-3xl px-7">
           <ToastContainer />
-          <div className="w-full h-auto flex flex-col justify-center items-center text-white">
+          <div className="w-full h-auto flex flex-col justify-center items-center text-white mb-2">
             <p className="font-bold text-2xl text-gray-800"> REGISTER </p>
           </div>
           <div className="w-full h-auto flex flex-col gap-3">
