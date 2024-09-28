@@ -10,13 +10,13 @@ coverage
 
 # -----------
 # next.js
-#.next/
+# .next/
 # out/
-#build 
+# build 
 # local env files
 .turbo 
 # vercel
-#.vercel
+# .vercel
 # others
 # dist 
 # ---------
