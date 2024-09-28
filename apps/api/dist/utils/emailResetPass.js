@@ -1,0 +1,46 @@
+"use strict";
+var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
+    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
+    return new (P || (P = Promise))(function (resolve, reject) {
+        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
+        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+    });
+};
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.sendEmail = void 0;
+const nodemailer_1 = __importDefault(require("nodemailer"));
+const handlebars_1 = __importDefault(require("handlebars"));
+const path_1 = __importDefault(require("path"));
+const fs_1 = __importDefault(require("fs"));
+const transporter = nodemailer_1.default.createTransport({
+    service: 'Gmail',
+    auth: {
+        user: process.env.EMAIL_SENDER,
+        pass: process.env.PASS_EMAILER,
+    },
+});
+const sendEmail = (emailTo, subject, content, data) => __awaiter(void 0, void 0, void 0, function* () {
+    try {
+        const urlLink = `http://localhost:3000/reset-password?token=${data === null || data === void 0 ? void 0 : data.token}`;
+        const templatePath = path_1.default.join(__dirname, '../templates', 'resetPass.hbs');
+        const templateSource = fs_1.default.readFileSync(templatePath, 'utf-8');
+        const compileTemplates = handlebars_1.default.compile(templateSource);
+        const generateTemplate = compileTemplates(Object.assign(Object.assign({}, data), { urlLink }));
+        yield transporter.sendMail({
+            from: process.env.EMAIL_SENDER,
+            to: emailTo,
+            subject: subject,
+            html: generateTemplate,
+        });
+    }
+    catch (error) {
+        console.log(error);
+        throw error;
+    }
+});
+exports.sendEmail = sendEmail;

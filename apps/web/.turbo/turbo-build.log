@@ -28,7 +28,7 @@ Route (app)                              Size     First Load JS
 ├ ○ /eventCheck                          1.58 kB         129 kB
 ├ ○ /eventSearch                         37.5 kB         165 kB
 ├ ƒ /eventSearch/[id]                    12.2 kB         150 kB
-├ ○ /eventsHome                          408 B           134 kB
+├ ○ /eventsHome                          410 B           134 kB
 ├ ○ /forgot-password                     2.52 kB         135 kB
 ├ ○ /landing                             1.4 kB          122 kB
 ├ ○ /login                               1.16 kB         166 kB
